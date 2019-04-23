@@ -20,8 +20,8 @@ import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
 import java.lang.ref.WeakReference;
 
 public class CalculatorFragment extends Fragment implements CalculatorView {
-    FragmentCalculatorBinding binding;
-    CalculatorPresenter calculatorPresenter;
+    private FragmentCalculatorBinding binding;
+    private CalculatorPresenter calculatorPresenter;
 
     @Nullable
     @Override

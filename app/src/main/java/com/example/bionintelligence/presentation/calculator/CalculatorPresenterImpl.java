@@ -36,7 +36,6 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
     }
 
     @Override
-
     public void detachView() {
         compositeDisposable.dispose();
         calculatorView = null;
