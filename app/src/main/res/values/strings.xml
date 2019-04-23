@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Bion intelligence</string>
+    <string name="select_culture">Выберите культуру</string>
+    <string name="number_piker_text">700</string>
+    <string name="yield_text">Задайте урожайность, ц/га</string>
+    <string name="text_chemistry_calculator">Необходимое количество \n кг/га д.в.</string>
+    <string name="text_soil_factor">мг/кг</string>
+    <string name="text_soil_factors">Почвенные факторы</string>
+    <string name="text_humus_reserves">Запасы гумуса, %</string>
+    <string name="text_moisture_supply">Влагообеспеченность</string>
+</resources>
