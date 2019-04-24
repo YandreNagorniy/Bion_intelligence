@@ -7,6 +7,7 @@
         <variable
             name="element"
             type="com.example.bionintelligence.data.model.CalculatorModel" />
+
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -68,10 +69,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_setYield"
-            app:max="100"
+            app:max="150"
             app:min="0"
             app:unit="2"
-            app:value="25" />
+            app:value="100" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cv_Chemistry"
@@ -104,7 +105,7 @@
                 android:layout_marginTop="8dp"
                 app:item_name="N"
                 app:item_text="Азот"
-                app:item_value="8"
+                app:item_value="@{element.n}"
                 app:layout_constraintEnd_toStartOf="@+id/chv_P2O5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_chemistryTitle" />
@@ -116,8 +117,9 @@
                 android:layout_marginStart="3dp"
                 android:layout_marginEnd="3dp"
                 app:item_name="P2O5"
+                app:item_name_s="вывыв"
                 app:item_text="Фосфор"
-                app:item_value="8"
+                app:item_value="@{element.p2O5}"
                 app:layout_constraintEnd_toStartOf="@id/chv_K2O"
                 app:layout_constraintStart_toEndOf="@id/chv_N"
                 app:layout_constraintTop_toTopOf="@+id/chv_N" />
@@ -128,7 +130,7 @@
                 android:layout_height="wrap_content"
                 app:item_name="K2O"
                 app:item_text="Калий"
-                app:item_value="8"
+                app:item_value="@{element.k2O}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/chv_P2O5"
                 app:layout_constraintTop_toTopOf="@+id/chv_N" />
@@ -140,7 +142,7 @@
                 android:layout_marginTop="3dp"
                 app:item_name="S"
                 app:item_text="Сера"
-                app:item_value="15"
+                app:item_value="@{element.s}"
                 app:layout_constraintEnd_toStartOf="@+id/chv_CaO"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/chv_N" />
@@ -153,7 +155,7 @@
                 android:layout_marginEnd="3dp"
                 app:item_name="CaO"
                 app:item_text="Кальций"
-                app:item_value="8"
+                app:item_value="@{element.caO}"
                 app:layout_constraintEnd_toStartOf="@id/chv_MgO"
                 app:layout_constraintStart_toEndOf="@id/chv_S"
                 app:layout_constraintTop_toTopOf="@+id/chv_S" />
@@ -164,19 +166,19 @@
                 android:layout_height="wrap_content"
                 app:item_name="MgO"
                 app:item_text="Магний"
-                app:item_value="8"
+                app:item_value="@{element.mgO}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/chv_CaO"
                 app:layout_constraintTop_toTopOf="@+id/chv_S" />
 
             <com.example.bionintelligence.presentation.custom.ChemistryView
-                android:id="@+id/chv_H2OO"
+                android:id="@+id/chv_H2O"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                app:item_name="MgO"
-                app:item_text="Магний"
-                app:item_value="8"
+                app:item_name="H2O"
+                app:item_text="Вода"
+                app:item_value="@{element.h2O}"
                 app:layout_constraintEnd_toEndOf="@id/chv_CaO"
                 app:layout_constraintStart_toStartOf="@id/chv_CaO"
                 app:layout_constraintTop_toBottomOf="@id/chv_CaO" />

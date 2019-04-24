@@ -114,6 +114,9 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
 
         n = vinos_N * params.productive - (sf_N * 3.96 * kusv_N * phN + x);
 
+//        if(n<0) return 0;
+//        else return (int) Math.round(n);
+
         return n < 0 ? 0 : (int) Math.round(n);
     }
 

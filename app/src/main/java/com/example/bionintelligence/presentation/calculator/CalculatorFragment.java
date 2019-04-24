@@ -39,11 +39,12 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.numberPicker.setValueChangedListener((value, action) -> calculatorPresenter.getCalculatorData(value));
+
     }
 
     @Override
     public void displayData(CalculatorModel calculatorModel) {
-        binding.setElement(calculatorModel);
+            binding.setElement(calculatorModel);
     }
 
     @Override

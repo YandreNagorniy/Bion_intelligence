@@ -1,6 +1,7 @@
 package com.example.bionintelligence.presentation.calculator;
 
 import com.example.bionintelligence.data.map.ElementMapper;
+import com.example.bionintelligence.data.model.CalculatorModel;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.usecase.FlowableUseCase;
 import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {

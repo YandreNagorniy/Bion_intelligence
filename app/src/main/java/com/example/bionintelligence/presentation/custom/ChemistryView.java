@@ -2,7 +2,10 @@ package com.example.bionintelligence.presentation.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.databinding.BindingAdapter;
 import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -13,8 +16,8 @@ import com.example.bionintelligence.R;
 public class ChemistryView extends FrameLayout {
     private TextView tvItemText;
     private TextView tvItemName;
-    private EditText etItemValue;
-    private int value;
+    public EditText etItemValue;
+    public int itemValue;
 
     public ChemistryView(Context context) {
         this(context, null);
@@ -32,33 +35,47 @@ public class ChemistryView extends FrameLayout {
         TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.ChemistryView);
         String text = array.getString(R.styleable.ChemistryView_item_text);
         String name = array.getString(R.styleable.ChemistryView_item_name);
-        value = array.getInt(R.styleable.ChemistryView_item_value, 0);
+        itemValue = array.getInt(R.styleable.ChemistryView_item_value, 0);
 
         tvItemText = findViewById(R.id.tv_itemText);
         tvItemName = findViewById(R.id.tv_itemName);
         etItemValue = findViewById(R.id.et_itemValue);
 
+        switch (name) {
+            case "P2O5":
+                setItemName2(new SpannableString(name));
+                break;
+            case "K2O":
+                setItemName1(new SpannableString(name));
+                break;
+            case "H2O":
+                setItemName1(new SpannableString(name));
+                break;
+            default:
+                tvItemName.setText(name);
+
+        }
+
         tvItemText.setText(text);
-        tvItemName.setText(name);
-        etItemValue.setText(String.valueOf(value));
+        etItemValue.setText(String.valueOf(itemValue));
         array.recycle();
     }
-
-    // rename and add to databinding
 
     public void setItemValue(String element) {
         etItemValue.setText(element);
     }
 
-    public String getItemName() {
-        return String.valueOf(tvItemName.getText());
-    }
-
-    public void setItemName(String text) {
-        tvItemName.setText(text);
-    }
-
-    public void setItemName(Spannable text) {
+    // изменение размера текста для H2O и K2O
+    public void setItemName1(Spannable text) {
+        text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, 0);
         tvItemName.setText(text, TextView.BufferType.SPANNABLE);
     }
+
+    // изменение размера текста для P2O5
+    public void setItemName2(Spannable text) {
+        text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, 0);
+        text.setSpan(new RelativeSizeSpan(0.6f), 3, 4, 0);
+        tvItemName.setText(text, TextView.BufferType.SPANNABLE);
+    }
+
 }
