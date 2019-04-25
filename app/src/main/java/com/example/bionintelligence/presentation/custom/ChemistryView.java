@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.example.bionintelligence.R;
 
 public class ChemistryView extends FrameLayout {
-    private TextView tvItemText;
     private TextView tvItemName;
     public EditText etItemValue;
     public int itemValue;
@@ -37,7 +36,7 @@ public class ChemistryView extends FrameLayout {
         String name = array.getString(R.styleable.ChemistryView_item_name);
         itemValue = array.getInt(R.styleable.ChemistryView_item_value, 0);
 
-        tvItemText = findViewById(R.id.tv_itemText);
+        TextView tvItemText = findViewById(R.id.tv_itemText);
         tvItemName = findViewById(R.id.tv_itemName);
         etItemValue = findViewById(R.id.et_itemValue);
 

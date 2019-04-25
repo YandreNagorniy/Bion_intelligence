@@ -2,7 +2,9 @@ package com.example.bionintelligence.data.source;
 
 import com.example.bionintelligence.App;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
+import com.example.bionintelligence.data.database.dao.CultureDao;
 import com.example.bionintelligence.data.database.start.AddStartData;
+import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -11,13 +13,18 @@ import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 
+import java.util.List;
+
+import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 public class DatabaseSourceImpl implements DatabaseSource {
     private CalculatorDao calculatorDao;
+    private CultureDao cultureDao;
 
     public DatabaseSourceImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
+        cultureDao = App.getInstance().getDatabase().cultureDao();
     }
 
     @Override
@@ -88,5 +95,10 @@ public class DatabaseSourceImpl implements DatabaseSource {
     @Override
     public Single<CalculateH2OEntity> getDataH2O(int id) {
         return calculatorDao.getDataH2O(id);
+    }
+
+    @Override
+    public Flowable<List<CultureModel>> getCultureList() {
+        return cultureDao.getList();
     }
 }

@@ -10,7 +10,7 @@ import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.entities.TypeElementEntity;
-import com.example.bionintelligence.domain.repository.CalculatorRepository;
+import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
 import java.util.ArrayList;
 import java.util.List;

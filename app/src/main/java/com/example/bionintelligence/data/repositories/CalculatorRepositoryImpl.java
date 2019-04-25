@@ -11,7 +11,7 @@ import com.example.bionintelligence.domain.entities.CalculateMgOEntity;
 import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
-import com.example.bionintelligence.domain.repository.CalculatorRepository;
+import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;

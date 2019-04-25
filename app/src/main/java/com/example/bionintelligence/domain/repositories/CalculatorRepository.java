@@ -1,4 +1,4 @@
-package com.example.bionintelligence.domain.repository;
+package com.example.bionintelligence.domain.repositories;
 
 import android.util.Pair;
 

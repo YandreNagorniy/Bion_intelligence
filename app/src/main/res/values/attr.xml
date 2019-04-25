@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="item_name" format="string" />
-    <attr name="item_name_s" format="string" />
     <attr name="item_text" format="string" />
     <attr name="item_value" format="integer" />
 
@@ -9,7 +8,6 @@
         <attr name="item_name" />
         <attr name="item_text" />
         <attr name="item_value" />
-        <attr name="item_name_s" />
     </declare-styleable>
 
     <declare-styleable name="SoilFactorView">

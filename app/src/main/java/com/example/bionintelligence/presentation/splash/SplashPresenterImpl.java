@@ -1,6 +1,6 @@
 package com.example.bionintelligence.presentation.splash;
 
-import com.example.bionintelligence.domain.repository.CalculatorRepository;
+import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
 public class SplashPresenterImpl implements SplashPresenter {
     private CalculatorRepository calculatorRepository;
