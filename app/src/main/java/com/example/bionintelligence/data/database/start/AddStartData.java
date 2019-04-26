@@ -1,6 +1,7 @@
 package com.example.bionintelligence.data.database.start;
 
 import com.example.bionintelligence.App;
+import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
 import com.example.bionintelligence.data.database.dao.CultureDao;
 import com.example.bionintelligence.data.database.dao.KUsvDao;
@@ -275,7 +276,7 @@ public class AddStartData {
         CalculatorDao calculatorDao =
                 App.getInstance().getDatabase().calculatorDao();
         CalculatorModel calculatorModel =
-                new CalculatorModel(0, 0, 0, 0, 0, 0,  0);
+                new CalculatorModel(0, 0, 0, 0, 0, 0, 0);
 
         Completable.fromAction(() -> calculatorDao.insert(calculatorModel))
                 .subscribeOn(Schedulers.io())
@@ -287,16 +288,16 @@ public class AddStartData {
                 App.getInstance().getDatabase().cultureDao();
 
         List<CultureModel> cultureList = new ArrayList<>();
-        cultureList.add(new CultureModel("Озимая пшеница", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Кукуруза", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Сахарная свекла", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Соя", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Картофель", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Подсолнечник", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Озимый рапс", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Яровой рапс", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Яровая пшеница", "@drawable/bion_logo", "@drawable/bion_logo"));
-        cultureList.add(new CultureModel("Нут", "@drawable/bion_logo", "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Озимая пшеница", R.drawable.img_winter_wheat, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Кукуруза", R.drawable.img_corn, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Сахарная свекла", R.drawable.img_sugar_beet, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Соя", R.drawable.img_soy, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Картофель", R.drawable.img_potatoes, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Подсолнечник", R.drawable.img_sun_flower, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Озимый рапс", R.drawable.img_rape, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Яровой рапс", R.drawable.img_rape, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Яровая пшеница", R.drawable.img_winter_wheat, "@drawable/bion_logo"));
+        cultureList.add(new CultureModel("Нут", R.drawable.img_chickpea, "@drawable/bion_logo"));
 
         Completable.fromAction(() -> cultureDao.insertList(cultureList))
                 .subscribeOn(Schedulers.io())

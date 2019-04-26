@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg_values_light_green">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <data>
+
+        <variable
+            name="cultureModel"
+            type="com.example.bionintelligence.data.model.CultureModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Озимая пшеница"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/gl1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_values_light_green"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/gl1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.65" />
+        <TextView
+            android:id="@+id/tv_cultureName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:layout_weight="4"
+            android:text="@{cultureModel.culture}"
+            android:textSize="16sp"
+            tools:text="Озимая пшеница" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:src="@drawable/img_winter_wheat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/gl1"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_cultureImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            app:new_src="@{cultureModel.imgLink}"
+            tools:src="@drawable/img_winter_wheat" />
+        <!--app:new_src="@{cultureModel.imgLink}"-->
+
+    </LinearLayout>
+</layout>

@@ -8,10 +8,9 @@
         tools:context=".presentation.culture.CultureActivity">
 
         <android.support.v7.widget.RecyclerView
-            android:layout_width="wrap_content"
+            android:id="@+id/rv_culture"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_extra"
-            android:layout_marginEnd="@dimen/margin_extra"
             tools:listitem="@layout/card_culture" />
 
     </LinearLayout>

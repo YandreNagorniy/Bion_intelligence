@@ -8,10 +8,10 @@ public class CultureModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String culture;
-    private String imgLink;
+    private int imgLink;
     private String phasesImgLink;
 
-    public CultureModel(String culture, String imgLink, String phasesImgLink) {
+    public CultureModel(String culture, int imgLink, String phasesImgLink) {
         this.culture = culture;
         this.imgLink = imgLink;
         this.phasesImgLink = phasesImgLink;
@@ -33,11 +33,11 @@ public class CultureModel {
         this.culture = culture;
     }
 
-    public String getImgLink() {
+    public int getImgLink() {
         return imgLink;
     }
 
-    public void setImgLink(String imgLink) {
+    public void setImgLink(int imgLink) {
         this.imgLink = imgLink;
     }
 
