@@ -1,8 +1,9 @@
 package com.example.bionintelligence.presentation.culture;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import com.example.bionintelligence.databinding.ActivityCultureBinding;
 import com.example.bionintelligence.presentation.adapters.CultureRvAdapter;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CultureActivity extends AppCompatActivity implements CultureView {
     private CulturePresenter culturePresenter;
@@ -26,6 +28,8 @@ public class CultureActivity extends AppCompatActivity implements CultureView {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_culture);
         binding.rvCulture.setLayoutManager(new LinearLayoutManager(this));
 
+        handleToolbar();
+
         culturePresenter = new CulturePresenterImpl(new CultureRepositoryImpl(new DatabaseSourceImpl()));
         culturePresenter.attachView(this);
         culturePresenter.getCultureData();
@@ -36,6 +40,30 @@ public class CultureActivity extends AppCompatActivity implements CultureView {
     public void displayData(List<CultureModel> cultureModelList) {
         RecyclerView.Adapter adapter = new CultureRvAdapter(cultureModelList);
         binding.rvCulture.setAdapter(adapter);
+
+
+//        Intent intent = new Intent();
+//        int cultureId = 0;
+//        intent.putExtra("cultureId", cultureId);
+//        intent.putExtra("cultureName", "cultureName");
+//        setResult(RESULT_OK, intent);
+//        finish();
+
+
+    }
+
+    private void handleToolbar() {
+        setSupportActionBar(binding.cultureToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(binding.cultureToolbar.getNavigationIcon()).setColorFilter(
+                getResources().getColor(R.color.colorWhite), PorterDuff.Mode.SRC_ATOP);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override

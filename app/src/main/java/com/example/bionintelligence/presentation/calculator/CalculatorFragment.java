@@ -21,6 +21,8 @@ import com.example.bionintelligence.presentation.culture.CultureActivity;
 
 import java.lang.ref.WeakReference;
 
+import static android.app.Activity.RESULT_OK;
+
 public class CalculatorFragment extends Fragment implements CalculatorView {
     private FragmentCalculatorBinding binding;
     private CalculatorPresenter calculatorPresenter;
@@ -53,7 +55,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
+        }
     }
 
     @Override

@@ -1,18 +1,14 @@
 package com.example.bionintelligence.presentation.main;
 
 import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.databinding.ActivityMainBinding;
 import com.example.bionintelligence.presentation.calculator.CalculatorFragment;
-import com.example.bionintelligence.presentation.contacts.ContactsFagment;
+import com.example.bionintelligence.presentation.contacts.ContactsFragment;
 import com.example.bionintelligence.presentation.product.ProductFragment;
 import com.example.bionintelligence.presentation.settings.SettingsFragment;
 
@@ -20,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private ActivityMainBinding binding;
     private CalculatorFragment calculatorFragment;
     private SettingsFragment settingsFragment;
-    private ContactsFagment contactsFagment;
+    private ContactsFragment contactsFragment;
     private ProductFragment productFragment;
 
     @Override
@@ -29,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         calculatorFragment = new CalculatorFragment();
         settingsFragment = new SettingsFragment();
-        contactsFagment = new ContactsFagment();
+        contactsFragment = new ContactsFragment();
         productFragment = new ProductFragment();
         addFragment();
 
@@ -46,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                             showFragment(productFragment);
                             break;
                         case R.id.action_contacts:
-                            showFragment(contactsFagment);
+                            showFragment(contactsFragment);
                             break;
                     }
                     return false;
@@ -57,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.container, productFragment).hide(productFragment)
-                .add(R.id.container, contactsFagment).hide(contactsFagment)
+                .add(R.id.container, contactsFragment).hide(contactsFragment)
                 .add(R.id.container, settingsFragment).hide(settingsFragment)
                 .add(R.id.container, calculatorFragment)
                 .commit();
