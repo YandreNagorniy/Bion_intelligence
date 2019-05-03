@@ -16,14 +16,17 @@ public class PhasesWinterRapeModel {
     private double butonizacia;
     private double startCvetenie;
     private double naliv;
+    private int imgLink;
 
-    public PhasesWinterRapeModel(int cultureId, int productive, double startSteblevanie, double butonizacia, double startCvetenie, double naliv) {
+    public PhasesWinterRapeModel(int cultureId, int productive, double startSteblevanie, double butonizacia, double startCvetenie,
+                                 double naliv, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.startSteblevanie = startSteblevanie;
         this.butonizacia = butonizacia;
         this.startCvetenie = startCvetenie;
         this.naliv = naliv;
+        this.imgLink = imgLink;
     }
 
     public int getCultureId() {
@@ -72,5 +75,13 @@ public class PhasesWinterRapeModel {
 
     public void setNaliv(double naliv) {
         this.naliv = naliv;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }

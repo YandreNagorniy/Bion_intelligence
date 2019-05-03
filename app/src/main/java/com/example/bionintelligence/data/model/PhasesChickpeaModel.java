@@ -7,7 +7,7 @@ import android.arch.persistence.room.ForeignKey;
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 //Нут
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE))
 public class PhasesChickpeaModel {
 
     @ColumnInfo(index = true)
@@ -16,13 +16,15 @@ public class PhasesChickpeaModel {
     private double threeFiveListiev;
     private double butonizacia;
     private double naliv;
+    private int imgLink;
 
-    public PhasesChickpeaModel(int cultureId, int productive, double threeFiveListiev, double butonizacia, double naliv) {
+    public PhasesChickpeaModel(int cultureId, int productive, double threeFiveListiev, double butonizacia, double naliv, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.threeFiveListiev = threeFiveListiev;
         this.butonizacia = butonizacia;
         this.naliv = naliv;
+        this.imgLink = imgLink;
     }
 
     public int getCultureId() {
@@ -63,5 +65,13 @@ public class PhasesChickpeaModel {
 
     public void setNaliv(double naliv) {
         this.naliv = naliv;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }

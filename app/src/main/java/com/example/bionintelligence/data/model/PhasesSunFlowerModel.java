@@ -15,13 +15,15 @@ public class PhasesSunFlowerModel {
     private double twoFourListiev;
     private double eightTenSheets;
     private double closeSocvetie;
+    private int imgLink;
 
-    public PhasesSunFlowerModel(int cultureId, int productive, double twoFourListiev, double eightTenSheets, double closeSocvetie) {
+    public PhasesSunFlowerModel(int cultureId, int productive, double twoFourListiev, double eightTenSheets, double closeSocvetie, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.twoFourListiev = twoFourListiev;
         this.eightTenSheets = eightTenSheets;
         this.closeSocvetie = closeSocvetie;
+        this.imgLink = imgLink;
     }
 
     public int getCultureId() {
@@ -62,5 +64,13 @@ public class PhasesSunFlowerModel {
 
     public void setCloseSocvetie(double closeSocvetie) {
         this.closeSocvetie = closeSocvetie;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }

@@ -1,7 +1,7 @@
 package com.example.bionintelligence.presentation.calculator;
 
 import com.example.bionintelligence.data.map.ElementMapper;
-import com.example.bionintelligence.data.model.CalculatorModel;
+import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.usecase.FlowableUseCase;
 import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
@@ -14,11 +14,11 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
-    private FlowableUseCase<GetCalculatorUseCase.Params, List<ElementModelEntity>> getCalculatorUseCase;
+    private FlowableUseCase<CalculatorParams, List<ElementModelEntity>> getCalculatorUseCase;
     private CompositeDisposable compositeDisposable;
     private CalculatorView calculatorView;
 
-    CalculatorPresenterImpl(FlowableUseCase<GetCalculatorUseCase.Params, List<ElementModelEntity>> getCalculatorUseCase) {
+    CalculatorPresenterImpl(FlowableUseCase<CalculatorParams, List<ElementModelEntity>> getCalculatorUseCase) {
         this.getCalculatorUseCase = getCalculatorUseCase;
         this.compositeDisposable = new CompositeDisposable();
     }
@@ -29,8 +29,22 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
     }
 
     @Override
-    public void getCalculatorData(int productive) {
-        compositeDisposable.add(getCalculatorUseCase.execute(new GetCalculatorUseCase.Params(productive))
+    public void setParamsData(CalculatorParams params) {
+        getCalculatorUseCase.setParamsData(params);
+    }
+
+    @Override
+    public void getParamsData() {
+        compositeDisposable.add(getCalculatorUseCase.getCalculatorParams()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSuccess(params -> calculatorView.displayCalculatorParams(params))
+                .subscribe(params -> calculatorView.getCalculatorData(params.getProductive(), params.getCultureId())));
+    }
+
+    @Override
+    public void getCalculatorData(int productive, int cultureId) {
+        compositeDisposable.add(getCalculatorUseCase.execute(new CalculatorParams(productive, cultureId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .map(ElementMapper::mapToCalculatorModel)

@@ -6,7 +6,7 @@ import android.arch.persistence.room.ForeignKey;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE))
 public class PhasesSugarBeetModel {
     @ColumnInfo(index = true)
     private int cultureId;
@@ -17,9 +17,10 @@ public class PhasesSugarBeetModel {
     private double smikanieRiadov;
     private double smikanieMejdyRiadov;
     private double nalivCorneploda;
+    private int imgLink;
 
-    public PhasesSugarBeetModel(int cultureId, int productive, double kushenie, double twoTreeParaListiev,
-                                double fourFiveParaListiev, double smikanieRiadov, double smikanieMejdyRiadov, double nalivCorneploda) {
+    public PhasesSugarBeetModel(int cultureId, int productive, double kushenie, double twoTreeParaListiev, double fourFiveParaListiev,
+                                double smikanieRiadov, double smikanieMejdyRiadov, double nalivCorneploda, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.kushenie = kushenie;
@@ -28,6 +29,7 @@ public class PhasesSugarBeetModel {
         this.smikanieRiadov = smikanieRiadov;
         this.smikanieMejdyRiadov = smikanieMejdyRiadov;
         this.nalivCorneploda = nalivCorneploda;
+        this.imgLink = imgLink;
     }
 
     public int getCultureId() {
@@ -92,5 +94,13 @@ public class PhasesSugarBeetModel {
 
     public void setNalivCorneploda(double nalivCorneploda) {
         this.nalivCorneploda = nalivCorneploda;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }

@@ -17,8 +17,10 @@ public class PhasesPotatoesModel {
     private double butonizacia;
     private double cvetenie;
     private double nalivClybnia;
+    private int imgLink;
 
-    public PhasesPotatoesModel(int cultureId, int productive, double vshodi, double rostListiev, double smikanieRiadov, double butonizacia, double cvetenie, double nalivClybnia) {
+    public PhasesPotatoesModel(int cultureId, int productive, double vshodi, double rostListiev, double smikanieRiadov,
+                               double butonizacia, double cvetenie, double nalivClybnia, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.vshodi = vshodi;
@@ -27,6 +29,7 @@ public class PhasesPotatoesModel {
         this.butonizacia = butonizacia;
         this.cvetenie = cvetenie;
         this.nalivClybnia = nalivClybnia;
+        this.imgLink=imgLink;
     }
 
     public int getCultureId() {
@@ -91,5 +94,13 @@ public class PhasesPotatoesModel {
 
     public void setNalivClybnia(double nalivClybnia) {
         this.nalivClybnia = nalivClybnia;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }

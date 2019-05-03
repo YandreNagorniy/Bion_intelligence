@@ -9,7 +9,7 @@ import com.example.bionintelligence.R;
 import com.example.bionintelligence.databinding.ActivityMainBinding;
 import com.example.bionintelligence.presentation.calculator.CalculatorFragment;
 import com.example.bionintelligence.presentation.contacts.ContactsFragment;
-import com.example.bionintelligence.presentation.product.ProductFragment;
+import com.example.bionintelligence.presentation.info.InfoFragment;
 import com.example.bionintelligence.presentation.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements MainView {
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private CalculatorFragment calculatorFragment;
     private SettingsFragment settingsFragment;
     private ContactsFragment contactsFragment;
-    private ProductFragment productFragment;
+    private InfoFragment infoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         calculatorFragment = new CalculatorFragment();
         settingsFragment = new SettingsFragment();
         contactsFragment = new ContactsFragment();
-        productFragment = new ProductFragment();
+        infoFragment = new InfoFragment();
         addFragment();
 
         binding.bottomNavigationView
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                             showFragment(settingsFragment);
                             break;
                         case R.id.action_product:
-                            showFragment(productFragment);
+                            showFragment(infoFragment);
                             break;
                         case R.id.action_contacts:
                             showFragment(contactsFragment);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private void addFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, productFragment).hide(productFragment)
+                .add(R.id.container, infoFragment).hide(infoFragment)
                 .add(R.id.container, contactsFragment).hide(contactsFragment)
                 .add(R.id.container, settingsFragment).hide(settingsFragment)
                 .add(R.id.container, calculatorFragment)

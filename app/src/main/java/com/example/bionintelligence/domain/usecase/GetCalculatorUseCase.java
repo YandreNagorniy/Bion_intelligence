@@ -8,6 +8,7 @@ import com.example.bionintelligence.domain.entities.CalculateMgOEntity;
 import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
+import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.entities.TypeElementEntity;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
@@ -20,25 +21,35 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.Params, List<ElementModelEntity>> {
+public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List<ElementModelEntity>> {
     private CalculatorRepository calculatorRepository;
-    private Params params;
+    private CalculatorParams params;
 
     public GetCalculatorUseCase(CalculatorRepositoryImpl repository) {
         this.calculatorRepository = repository;
     }
 
     @Override
-    public Flowable<List<ElementModelEntity>> execute(Params params) {
+    public Single<CalculatorParams> getCalculatorParams() {
+        return calculatorRepository.getCalculatorParams();
+    }
+
+    @Override
+    public void setParamsData(CalculatorParams params) {
+        calculatorRepository.setCalculatorParams(params);
+    }
+
+    @Override
+    public Flowable<List<ElementModelEntity>> execute(CalculatorParams params) {
         this.params = params;
         List<Single<ElementModelEntity>> list = new ArrayList<>();
-        list.add(getDataN(1));
-        list.add(getDataP2O5(1));
-        list.add(getDataK2O(1));
-        list.add(getDataCaO(1));
-        list.add(getDataMgO(1));
-        list.add(getDataS(1));
-        list.add(getDataH20(1));
+        list.add(getDataN(params.getCultureId()));
+        list.add(getDataP2O5(params.getCultureId()));
+        list.add(getDataK2O(params.getCultureId()));
+        list.add(getDataCaO(params.getCultureId()));
+        list.add(getDataMgO(params.getCultureId()));
+        list.add(getDataS(params.getCultureId()));
+        list.add(getDataH20(params.getCultureId()));
 
         //чекнуь
         return Single.concat(list)
@@ -112,7 +123,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
             x = sf_G * 16;
         }
 
-        n = vinos_N * params.productive - (sf_N * 3.96 * kusv_N * phN + x);
+        n = vinos_N * params.getProductive() - (sf_N * 3.96 * kusv_N * phN + x);
 
 //        if(n<0) return 0;
 //        else return (int) Math.round(n);
@@ -124,7 +135,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
         double vinos_P2O5 = calculateP2O5Entity.vinos_P2O5;
         double sf_P2O5 = calculateP2O5Entity.sf_P2O5;
         double kusv_P2O5 = calculateP2O5Entity.kusv_P2O5;
-        double p2O5 = vinos_P2O5 * params.productive - sf_P2O5 * kusv_P2O5 * 3.96 * phP2O5;
+        double p2O5 = vinos_P2O5 * params.getProductive() - sf_P2O5 * kusv_P2O5 * 3.96 * phP2O5;
 
         return p2O5 < 0 ? 0 : (int) Math.round(p2O5);
     }
@@ -133,7 +144,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
         double vinos_K2O = calculateK2OEntity.vinos_K2O;
         double sf_K2O = calculateK2OEntity.sf_K2O;
         double kusv_K2O = calculateK2OEntity.kusv_K2O;
-        double k2O = vinos_K2O * params.productive - sf_K2O * kusv_K2O * 3.96 * phK2O;
+        double k2O = vinos_K2O * params.getProductive() - sf_K2O * kusv_K2O * 3.96 * phK2O;
 
         return k2O < 0 ? 0 : (int) Math.round(k2O);
     }
@@ -142,7 +153,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
         double vinos_CaO = calculateCaOEntity.vinos_CaO;
         double sf_CaO = calculateCaOEntity.sf_CaO;
         double kusv_CaO = calculateCaOEntity.kusv_CaO;
-        double caO = vinos_CaO * params.productive - sf_CaO * kusv_CaO * 3.96 * 20 * phCaO;
+        double caO = vinos_CaO * params.getProductive() - sf_CaO * kusv_CaO * 3.96 * 20 * phCaO;
 
         return caO < 0 ? 0 : (int) Math.round(caO);
     }
@@ -151,7 +162,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
         double vinos_MgO = calculateMgOEntity.vinos_MgO;
         double sf_MgO = calculateMgOEntity.sf_MgO;
         double kusv_MgO = calculateMgOEntity.kusv_MgO;
-        double mgO = vinos_MgO * params.productive - sf_MgO * kusv_MgO * 3.96 * 12 * phMgO;
+        double mgO = vinos_MgO * params.getProductive() - sf_MgO * kusv_MgO * 3.96 * 12 * phMgO;
 
         return mgO < 0 ? 0 : (int) Math.round(mgO);
     }
@@ -160,7 +171,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
         double vinos_S = calculateSEntity.vinos_S;
         double sf_S = calculateSEntity.sf_S;
         double kusv_S = calculateSEntity.kusv_S;
-        double s = vinos_S * params.productive - sf_S * kusv_S * 3.96 * phS;
+        double s = vinos_S * params.getProductive() - sf_S * kusv_S * 3.96 * phS;
 
         return s < 0 ? 0 : (int) Math.round(s);
     }
@@ -168,25 +179,35 @@ public class GetCalculatorUseCase extends FlowableUseCase<GetCalculatorUseCase.P
     private int calculateH2O(CalculateH2OEntity calculateH2OEntity) {
         double waterConsumption_value = calculateH2OEntity.waterConsumption_value;
         double sf_zpv = calculateH2OEntity.sf_zpv;
-        double h2O = (params.productive * waterConsumption_value * 0.043) - sf_zpv;
+        double h2O = (params.getProductive() * waterConsumption_value * 0.043) - sf_zpv;
 
         return h2O < 0 ? 0 : (int) Math.round(h2O);
     }
 
-    public static class Params {
-
-        private int productive;
-
-        public Params(int productive) {
-            this.productive = productive;
-        }
-
-        public int getProductive() {
-            return productive;
-        }
-
-        public void setProductive(int productive) {
-            this.productive = productive;
-        }
-    }
+//    public static class Params {
+//
+//        private int productive;
+//        private int cultureId;
+//
+//        public Params(int productive, int cultureId) {
+//            this.productive = productive;
+//            this.cultureId = cultureId;
+//        }
+//
+//        public int getProductive() {
+//            return productive;
+//        }
+//
+//        public void setProductive(int productive) {
+//            this.productive = productive;
+//        }
+//
+//        public int getCultureId() {
+//            return cultureId;
+//        }
+//
+//        public void setCultureId(int cultureId) {
+//            this.cultureId = cultureId;
+//        }
+//    }
 }

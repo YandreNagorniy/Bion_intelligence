@@ -7,12 +7,12 @@ import android.arch.persistence.room.PrimaryKey;
 public class CultureModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String culture;
+    private String cultureName;
     private int imgLink;
     private String phasesImgLink;
 
-    public CultureModel(String culture, int imgLink, String phasesImgLink) {
-        this.culture = culture;
+    public CultureModel(String cultureName, int imgLink, String phasesImgLink) {
+        this.cultureName = cultureName;
         this.imgLink = imgLink;
         this.phasesImgLink = phasesImgLink;
     }
@@ -25,12 +25,12 @@ public class CultureModel {
         this.id = id;
     }
 
-    public String getCulture() {
-        return culture;
+    public String getCultureName() {
+        return cultureName;
     }
 
-    public void setCulture(String culture) {
-        this.culture = culture;
+    public void setCultureName(String cultureName) {
+        this.cultureName = cultureName;
     }
 
     public int getImgLink() {

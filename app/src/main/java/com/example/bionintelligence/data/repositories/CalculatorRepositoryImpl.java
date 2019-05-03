@@ -11,6 +11,7 @@ import com.example.bionintelligence.domain.entities.CalculateMgOEntity;
 import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
+import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
 import io.reactivex.Single;
@@ -28,6 +29,19 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     @Override
     public boolean getLocalData() {
         return localSource.getLocalData();
+    }
+
+    @Override
+    public Single<CalculatorParams> getCalculatorParams() {
+        return Single.just(new CalculatorParams(localSource.getSettingsCultureProductive(),
+                localSource.getSettingsCultureId(), localSource.getSettingsCultureName()));
+    }
+
+    @Override
+    public void setCalculatorParams(CalculatorParams params) {
+        localSource.setSettingsCultureProductive(params.getProductive());
+        localSource.setSettingsCultureId(params.getCultureId());
+        localSource.setSettingsCultureName(params.getCultureName());
     }
 
     @Override

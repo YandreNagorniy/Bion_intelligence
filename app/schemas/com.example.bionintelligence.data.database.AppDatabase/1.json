@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c70e58769887670e18f8dcf857d19dae",
+    "identityHash": "fe55d1799546a28b413375ac312da052",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -782,7 +782,7 @@
       },
       {
         "tableName": "CultureModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `culture` TEXT, `imgLink` INTEGER NOT NULL, `phasesImgLink` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `phasesImgLink` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -791,8 +791,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "culture",
-            "columnName": "culture",
+            "fieldPath": "cultureName",
+            "columnName": "cultureName",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -821,7 +821,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"c70e58769887670e18f8dcf857d19dae\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fe55d1799546a28b413375ac312da052\")"
     ]
   }
 }

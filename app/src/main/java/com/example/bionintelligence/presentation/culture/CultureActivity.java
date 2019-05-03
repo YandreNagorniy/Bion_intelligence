@@ -1,11 +1,13 @@
 package com.example.bionintelligence.presentation.culture;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.model.CultureModel;
@@ -41,14 +43,13 @@ public class CultureActivity extends AppCompatActivity implements CultureView {
         RecyclerView.Adapter adapter = new CultureRvAdapter(cultureModelList);
         binding.rvCulture.setAdapter(adapter);
 
-
-//        Intent intent = new Intent();
-//        int cultureId = 0;
-//        intent.putExtra("cultureId", cultureId);
-//        intent.putExtra("cultureName", "cultureName");
-//        setResult(RESULT_OK, intent);
-//        finish();
-
+        ((CultureRvAdapter) adapter).setOnItemClickListener((position, v) -> {
+            Intent intent = new Intent();
+            intent.putExtra("cultureId", cultureModelList.get(position).getId());
+            intent.putExtra("cultureName", cultureModelList.get(position).getCultureName());
+            setResult(RESULT_OK, intent);
+            finish();
+        });
 
     }
 

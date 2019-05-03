@@ -9,11 +9,16 @@ import com.example.bionintelligence.domain.entities.CalculateMgOEntity;
 import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
+import com.example.bionintelligence.domain.entities.CalculatorParams;
 
 import io.reactivex.Single;
 
 public interface CalculatorRepository {
     boolean getLocalData();
+
+    Single<CalculatorParams> getCalculatorParams();
+
+    void setCalculatorParams(CalculatorParams params);
 
     void addStartDataFromDb();
 

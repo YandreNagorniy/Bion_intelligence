@@ -14,13 +14,15 @@ public class PhasesSpringRapeModel {
     private double steblevanie;
     private double butonizacia;
     private double polnoeCvetenie;
+    private int imgLink;
 
-    public PhasesSpringRapeModel(int cultureId, int productive, double steblevanie, double butonizacia, double polnoeCvetenie) {
+    public PhasesSpringRapeModel(int cultureId, int productive, double steblevanie, double butonizacia, double polnoeCvetenie, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.steblevanie = steblevanie;
         this.butonizacia = butonizacia;
         this.polnoeCvetenie = polnoeCvetenie;
+        this.imgLink = imgLink;
     }
 
     public int getCultureId() {
@@ -61,5 +63,13 @@ public class PhasesSpringRapeModel {
 
     public void setPolnoeCvetenie(double polnoeCvetenie) {
         this.polnoeCvetenie = polnoeCvetenie;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }

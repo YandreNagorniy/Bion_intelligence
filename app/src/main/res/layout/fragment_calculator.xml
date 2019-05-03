@@ -8,9 +8,9 @@
             name="element"
             type="com.example.bionintelligence.data.model.CalculatorModel" />
 
-        <variable
-            name="view"
-            type="com.example.bionintelligence.presentation.calculator.CalculatorFragment" />
+        <!--<variable-->
+        <!--name="view"-->
+        <!--type="com.example.bionintelligence.presentation.calculator.CalculatorFragment" />-->
 
     </data>
 
@@ -30,6 +30,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/cultureId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/calculator_cultureName"

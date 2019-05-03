@@ -16,6 +16,7 @@ import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.data.source.DatabaseSourceImpl;
 import com.example.bionintelligence.data.source.LocalSourceImpl;
 import com.example.bionintelligence.databinding.FragmentCalculatorBinding;
+import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
 import com.example.bionintelligence.presentation.culture.CultureActivity;
 
@@ -34,7 +35,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         calculatorPresenter = new CalculatorPresenterImpl(new GetCalculatorUseCase(
                 new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl())));
         calculatorPresenter.attachView(this);
-        calculatorPresenter.getCalculatorData(binding.numberPicker.getValue());
+        calculatorPresenter.getParamsData();
 
         return binding.getRoot();
     }
@@ -42,7 +43,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.numberPicker.setValueChangedListener((value, action) -> calculatorPresenter.getCalculatorData(value));
+        binding.numberPicker.setValueChangedListener((value, action) ->
+                getCalculatorData(value, Integer.parseInt((String) binding.cultureId.getText()))
+        );
 
         binding.clSelectCulture.setOnClickListener(v -> {
             v.setEnabled(false);
@@ -52,12 +55,16 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         });
     }
 
+    @Override
+    public void getCalculatorData(int productive, int cultureId) {
+        calculatorPresenter.getCalculatorData(productive, cultureId);
+    }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
-        }
+    public void displayCalculatorParams(CalculatorParams params) {
+        binding.calculatorCultureName.setText(params.getCultureName());
+        binding.cultureId.setText(String.valueOf(params.getCultureId()));
+        binding.numberPicker.setValue(params.getProductive());
     }
 
     @Override
@@ -66,7 +73,18 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            binding.cultureId.setText(String.valueOf(data.getIntExtra("cultureId", 1)));
+            binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
+            getCalculatorData(binding.numberPicker.getValue(), Integer.parseInt((String) binding.cultureId.getText()));
+        }
+    }
+
+    @Override
     public void onDestroy() {
+        calculatorPresenter.setParamsData(new CalculatorParams(binding.numberPicker.getValue(),
+                Integer.parseInt((String) binding.cultureId.getText()), (String) binding.calculatorCultureName.getText()));
         calculatorPresenter.detachView();
         super.onDestroy();
     }

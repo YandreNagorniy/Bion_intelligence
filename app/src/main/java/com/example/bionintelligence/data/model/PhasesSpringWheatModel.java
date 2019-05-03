@@ -6,7 +6,7 @@ import android.arch.persistence.room.ForeignKey;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE))
 public class PhasesSpringWheatModel {
     @ColumnInfo(index = true)
     private int cultureId;
@@ -15,14 +15,16 @@ public class PhasesSpringWheatModel {
     private double trubkovanie;
     private double koloshenie;
     private double naliv;
+    private int imgLink;
 
-    public PhasesSpringWheatModel(int cultureId, int productive, double kushenie, double trubkovanie, double koloshenie, double naliv) {
+    public PhasesSpringWheatModel(int cultureId, int productive, double kushenie, double trubkovanie, double koloshenie, double naliv, int imgLink) {
         this.cultureId = cultureId;
         this.productive = productive;
         this.kushenie = kushenie;
         this.trubkovanie = trubkovanie;
         this.koloshenie = koloshenie;
         this.naliv = naliv;
+        this.imgLink = imgLink;
     }
 
     public int getCultureId() {
@@ -71,5 +73,13 @@ public class PhasesSpringWheatModel {
 
     public void setNaliv(double naliv) {
         this.naliv = naliv;
+    }
+
+    public int getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(int imgLink) {
+        this.imgLink = imgLink;
     }
 }
