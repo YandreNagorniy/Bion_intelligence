@@ -8,7 +8,6 @@ public class PhasesSugarBeetModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int productive;
-    private double kushenie;
     private double twoTreeParaListiev;
     private double fourFiveParaListiev;
     private double smikanieRiadov;
@@ -22,12 +21,11 @@ public class PhasesSugarBeetModel {
     private int smikanieMejdyRiadovImg;
     private int nalivCorneplodaImg;
 
-    public PhasesSugarBeetModel(int productive, double kushenie, double twoTreeParaListiev, double fourFiveParaListiev,
+    public PhasesSugarBeetModel(int productive, double twoTreeParaListiev, double fourFiveParaListiev,
                                 double smikanieRiadov, double smikanieMejdyRiadov, double nalivCorneploda, int kushenieImg,
                                 int twoTreeParaListievImg, int fourFiveParaListievImg, int smikanieRiadovImg,
                                 int smikanieMejdyRiadovImg, int nalivCorneplodaImg) {
         this.productive = productive;
-        this.kushenie = kushenie;
         this.twoTreeParaListiev = twoTreeParaListiev;
         this.fourFiveParaListiev = fourFiveParaListiev;
         this.smikanieRiadov = smikanieRiadov;
@@ -56,14 +54,6 @@ public class PhasesSugarBeetModel {
 
     public void setProductive(int productive) {
         this.productive = productive;
-    }
-
-    public double getKushenie() {
-        return kushenie;
-    }
-
-    public void setKushenie(double kushenie) {
-        this.kushenie = kushenie;
     }
 
     public double getTwoTreeParaListiev() {

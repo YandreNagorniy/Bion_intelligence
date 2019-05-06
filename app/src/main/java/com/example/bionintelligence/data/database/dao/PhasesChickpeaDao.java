@@ -20,7 +20,7 @@ public interface PhasesChickpeaDao {
     Flowable<List<PhasesChickpeaModel>> getList();
 
     @Query("SELECT * FROM PhasesChickpeaModel WHERE productive IS :productive")
-    Single<KUsvModel> getByProductive(int productive);
+    Single<PhasesChickpeaModel> getByProductive(int productive);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(PhasesChickpeaModel phasesChickpeaModel);
