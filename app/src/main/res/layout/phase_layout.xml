@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_phaseImage"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/img_internet" />
+
+        <EditText
+            android:id="@+id/et_phaseValue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_values_light_green"
+            android:gravity="center"
+            android:maxLength="3"
+            android:text="1.0" />
+    </LinearLayout>
+</layout>

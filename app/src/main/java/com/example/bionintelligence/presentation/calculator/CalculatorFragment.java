@@ -43,9 +43,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.numberPicker.setValueChangedListener((value, action) ->
-                getCalculatorData(value, Integer.parseInt((String) binding.cultureId.getText()))
-        );
+        binding.numberPicker.setValueChangedListener((value, action) -> getCalculatorData());
 
         binding.clSelectCulture.setOnClickListener(v -> {
             v.setEnabled(false);
@@ -56,8 +54,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     }
 
     @Override
-    public void getCalculatorData(int productive, int cultureId) {
-        calculatorPresenter.getCalculatorData(productive, cultureId);
+    public void getCalculatorData() {
+        calculatorPresenter.getCalculatorData(binding.numberPicker.getValue(),
+                Integer.parseInt((String) binding.cultureId.getText()));
     }
 
     @Override
@@ -65,6 +64,8 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         binding.calculatorCultureName.setText(params.getCultureName());
         binding.cultureId.setText(String.valueOf(params.getCultureId()));
         binding.numberPicker.setValue(params.getProductive());
+//        binding.setParams(params); разобраться почему сетит нули
+        getCalculatorData();
     }
 
     @Override
@@ -77,7 +78,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         if (resultCode == RESULT_OK) {
             binding.cultureId.setText(String.valueOf(data.getIntExtra("cultureId", 1)));
             binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
-            getCalculatorData(binding.numberPicker.getValue(), Integer.parseInt((String) binding.cultureId.getText()));
+            getCalculatorData();
         }
     }
 

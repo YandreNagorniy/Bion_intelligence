@@ -4,13 +4,11 @@ import com.example.bionintelligence.data.map.ElementMapper;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.usecase.FlowableUseCase;
-import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
 
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
@@ -38,8 +36,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         compositeDisposable.add(getCalculatorUseCase.getCalculatorParams()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSuccess(params -> calculatorView.displayCalculatorParams(params))
-                .subscribe(params -> calculatorView.getCalculatorData(params.getProductive(), params.getCultureId())));
+                .subscribe(params -> calculatorView.displayCalculatorParams(params)));
     }
 
     @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,10 +9,9 @@
             name="element"
             type="com.example.bionintelligence.data.model.CalculatorModel" />
 
-        <!--<variable-->
-        <!--name="view"-->
-        <!--type="com.example.bionintelligence.presentation.calculator.CalculatorFragment" />-->
-
+        <variable
+            name="params"
+            type="com.example.bionintelligence.domain.entities.CalculatorParams" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -35,8 +35,8 @@
                 android:id="@+id/cultureId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{String.valueOf(params.cultureId)}"
                 android:textColor="@android:color/white"
-                android:text="2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,13 +45,14 @@
                 android:id="@+id/calculator_cultureName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/select_culture"
+                android:text="@{params.cultureName}"
                 android:textColor="@color/colorText"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Выберите культуру" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -87,7 +88,7 @@
             app:max="150"
             app:min="0"
             app:unit="2"
-            app:value="100" />
+            app:value="@{params.productive}" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cv_Chemistry"
@@ -197,5 +198,8 @@
                 app:layout_constraintStart_toStartOf="@id/chv_CaO"
                 app:layout_constraintTop_toBottomOf="@id/chv_CaO" />
         </android.support.constraint.ConstraintLayout>
+
+        <include layout="@layout/card_phases" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>

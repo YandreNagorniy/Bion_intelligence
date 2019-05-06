@@ -5,7 +5,7 @@ import com.example.bionintelligence.domain.entities.CalculatorParams;
 
 public interface CalculatorView {
 
-    void getCalculatorData(int productive, int cultureId);
+    void getCalculatorData();
 
     void displayCalculatorParams(CalculatorParams params);
 

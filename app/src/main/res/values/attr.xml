@@ -16,6 +16,11 @@
         <attr name="item_value" />
     </declare-styleable>
 
+    <declare-styleable name="PhaseView">
+        <attr name="phase_img" format="integer" />
+        <attr name="phase_value" format="float" />
+    </declare-styleable>
+
     <!--<declare-styleable name="NumberPicker">-->
     <!--<attr name="min" format="integer"/>-->
     <!--<attr name="max" format="integer"/>-->
