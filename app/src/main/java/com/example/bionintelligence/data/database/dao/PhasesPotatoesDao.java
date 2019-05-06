@@ -6,6 +6,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.example.bionintelligence.data.model.KUsvModel;
+import com.example.bionintelligence.data.model.PhasesPotatoesModel;
 
 import java.util.List;
 
@@ -13,20 +14,20 @@ import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 @Dao
-public interface KUsvDao {
+public interface PhasesPotatoesDao {
 
-    @Query("SELECT * FROM KUsvModel")
-    Flowable<List<KUsvModel>> getList();
+    @Query("SELECT * FROM PhasesPotatoesModel")
+    Flowable<List<PhasesPotatoesModel>> getList();
 
-    @Query("SELECT * FROM KUsvModel WHERE id IS :id")
-    Single<KUsvModel> getById(int id);
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(KUsvModel kUsvModel);
+    @Query("SELECT * FROM PhasesPotatoesModel WHERE productive IS :productive")
+    Single<KUsvModel> getByProductive(int productive);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertList(List<KUsvModel> kUsvModelList);
+    void insert(PhasesPotatoesModel phasesPotatoesModel);
 
-    @Query("DELETE FROM KUsvModel WHERE id IS :id")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertList(List<PhasesPotatoesModel> phasesPotatoesList);
+
+    @Query("DELETE FROM PhasesPotatoesModel WHERE id IS :id")
     void deleteById(int id);
 }

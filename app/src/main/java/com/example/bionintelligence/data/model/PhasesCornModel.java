@@ -1,36 +1,39 @@
 package com.example.bionintelligence.data.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE))
+@Entity
 public class PhasesCornModel {
-    @ColumnInfo(index = true)
-    private int cultureId;
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int productive;
     private double twoThreeListiev;
     private double fiveSixListiev;
     private double sevenEightListiev;
-    private int imgLink;
 
-    public PhasesCornModel(int cultureId, int productive, double twoThreeListiev, double fiveSixListiev, double sevenEightListiev, int imgLink) {
-        this.cultureId = cultureId;
+    private int twoThreeListievImg;
+    private int fiveSixListievImg;
+    private int sevenEightListievImg;
+
+    public PhasesCornModel(int productive, double twoThreeListiev, double fiveSixListiev,
+                           double sevenEightListiev, int twoThreeListievImg, int fiveSixListievImg, int sevenEightListievImg) {
         this.productive = productive;
         this.twoThreeListiev = twoThreeListiev;
         this.fiveSixListiev = fiveSixListiev;
         this.sevenEightListiev = sevenEightListiev;
-        this.imgLink = imgLink;
+        this.twoThreeListievImg = twoThreeListievImg;
+        this.fiveSixListievImg = fiveSixListievImg;
+        this.sevenEightListievImg = sevenEightListievImg;
     }
 
-    public int getCultureId() {
-        return cultureId;
+    public int getId() {
+        return id;
     }
 
-    public void setCultureId(int cultureId) {
-        this.cultureId = cultureId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getProductive() {
@@ -65,11 +68,27 @@ public class PhasesCornModel {
         this.sevenEightListiev = sevenEightListiev;
     }
 
-    public int getImgLink() {
-        return imgLink;
+    public int getTwoThreeListievImg() {
+        return twoThreeListievImg;
     }
 
-    public void setImgLink(int imgLink) {
-        this.imgLink = imgLink;
+    public void setTwoThreeListievImg(int twoThreeListievImg) {
+        this.twoThreeListievImg = twoThreeListievImg;
+    }
+
+    public int getFiveSixListievImg() {
+        return fiveSixListievImg;
+    }
+
+    public void setFiveSixListievImg(int fiveSixListievImg) {
+        this.fiveSixListievImg = fiveSixListievImg;
+    }
+
+    public int getSevenEightListievImg() {
+        return sevenEightListievImg;
+    }
+
+    public void setSevenEightListievImg(int sevenEightListievImg) {
+        this.sevenEightListievImg = sevenEightListievImg;
     }
 }

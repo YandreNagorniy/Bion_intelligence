@@ -1,15 +1,12 @@
 package com.example.bionintelligence.data.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity
 public class PhasesPotatoesModel {
-    @ColumnInfo(index = true)
-    private int cultureId;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int productive;
     private double vshodi;
     private double rostListiev;
@@ -17,11 +14,17 @@ public class PhasesPotatoesModel {
     private double butonizacia;
     private double cvetenie;
     private double nalivClybnia;
-    private int imgLink;
 
-    public PhasesPotatoesModel(int cultureId, int productive, double vshodi, double rostListiev, double smikanieRiadov,
-                               double butonizacia, double cvetenie, double nalivClybnia, int imgLink) {
-        this.cultureId = cultureId;
+    private int vshodiImg;
+    private int rostListievImg;
+    private int smikanieRiadovImg;
+    private int butonizaciaImg;
+    private int cvetenieImg;
+    private int nalivClybniaImg;
+
+    public PhasesPotatoesModel(int productive, double vshodi, double rostListiev, double smikanieRiadov,
+                               double butonizacia, double cvetenie, double nalivClybnia, int vshodiImg,
+                               int rostListievImg, int smikanieRiadovImg, int butonizaciaImg, int cvetenieImg, int nalivClybniaImg) {
         this.productive = productive;
         this.vshodi = vshodi;
         this.rostListiev = rostListiev;
@@ -29,15 +32,20 @@ public class PhasesPotatoesModel {
         this.butonizacia = butonizacia;
         this.cvetenie = cvetenie;
         this.nalivClybnia = nalivClybnia;
-        this.imgLink=imgLink;
+        this.vshodiImg = vshodiImg;
+        this.rostListievImg = rostListievImg;
+        this.smikanieRiadovImg = smikanieRiadovImg;
+        this.butonizaciaImg = butonizaciaImg;
+        this.cvetenieImg = cvetenieImg;
+        this.nalivClybniaImg = nalivClybniaImg;
     }
 
-    public int getCultureId() {
-        return cultureId;
+    public int getId() {
+        return id;
     }
 
-    public void setCultureId(int cultureId) {
-        this.cultureId = cultureId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getProductive() {
@@ -96,11 +104,51 @@ public class PhasesPotatoesModel {
         this.nalivClybnia = nalivClybnia;
     }
 
-    public int getImgLink() {
-        return imgLink;
+    public int getVshodiImg() {
+        return vshodiImg;
     }
 
-    public void setImgLink(int imgLink) {
-        this.imgLink = imgLink;
+    public void setVshodiImg(int vshodiImg) {
+        this.vshodiImg = vshodiImg;
+    }
+
+    public int getRostListievImg() {
+        return rostListievImg;
+    }
+
+    public void setRostListievImg(int rostListievImg) {
+        this.rostListievImg = rostListievImg;
+    }
+
+    public int getSmikanieRiadovImg() {
+        return smikanieRiadovImg;
+    }
+
+    public void setSmikanieRiadovImg(int smikanieRiadovImg) {
+        this.smikanieRiadovImg = smikanieRiadovImg;
+    }
+
+    public int getButonizaciaImg() {
+        return butonizaciaImg;
+    }
+
+    public void setButonizaciaImg(int butonizaciaImg) {
+        this.butonizaciaImg = butonizaciaImg;
+    }
+
+    public int getCvetenieImg() {
+        return cvetenieImg;
+    }
+
+    public void setCvetenieImg(int cvetenieImg) {
+        this.cvetenieImg = cvetenieImg;
+    }
+
+    public int getNalivClybniaImg() {
+        return nalivClybniaImg;
+    }
+
+    public void setNalivClybniaImg(int nalivClybniaImg) {
+        this.nalivClybniaImg = nalivClybniaImg;
     }
 }

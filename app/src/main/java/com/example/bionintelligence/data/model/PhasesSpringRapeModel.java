@@ -1,36 +1,38 @@
 package com.example.bionintelligence.data.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity
 public class PhasesSpringRapeModel {
-    @ColumnInfo(index = true)
-    private int cultureId;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int productive;
     private double steblevanie;
     private double butonizacia;
     private double polnoeCvetenie;
-    private int imgLink;
 
-    public PhasesSpringRapeModel(int cultureId, int productive, double steblevanie, double butonizacia, double polnoeCvetenie, int imgLink) {
-        this.cultureId = cultureId;
+    private int steblevanieImg;
+    private int butonizaciaImg;
+    private int polnoeCvetenieImg;
+
+    public PhasesSpringRapeModel(int productive, double steblevanie, double butonizacia, double polnoeCvetenie,
+                                 int steblevanieImg, int butonizaciaImg, int polnoeCvetenieImg) {
         this.productive = productive;
         this.steblevanie = steblevanie;
         this.butonizacia = butonizacia;
         this.polnoeCvetenie = polnoeCvetenie;
-        this.imgLink = imgLink;
+        this.steblevanieImg = steblevanieImg;
+        this.butonizaciaImg = butonizaciaImg;
+        this.polnoeCvetenieImg = polnoeCvetenieImg;
     }
 
-    public int getCultureId() {
-        return cultureId;
+    public int getId() {
+        return id;
     }
 
-    public void setCultureId(int cultureId) {
-        this.cultureId = cultureId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getProductive() {
@@ -65,11 +67,27 @@ public class PhasesSpringRapeModel {
         this.polnoeCvetenie = polnoeCvetenie;
     }
 
-    public int getImgLink() {
-        return imgLink;
+    public int getSteblevanieImg() {
+        return steblevanieImg;
     }
 
-    public void setImgLink(int imgLink) {
-        this.imgLink = imgLink;
+    public void setSteblevanieImg(int steblevanieImg) {
+        this.steblevanieImg = steblevanieImg;
+    }
+
+    public int getButonizaciaImg() {
+        return butonizaciaImg;
+    }
+
+    public void setButonizaciaImg(int butonizaciaImg) {
+        this.butonizaciaImg = butonizaciaImg;
+    }
+
+    public int getPolnoeCvetenieImg() {
+        return polnoeCvetenieImg;
+    }
+
+    public void setPolnoeCvetenieImg(int polnoeCvetenieImg) {
+        this.polnoeCvetenieImg = polnoeCvetenieImg;
     }
 }

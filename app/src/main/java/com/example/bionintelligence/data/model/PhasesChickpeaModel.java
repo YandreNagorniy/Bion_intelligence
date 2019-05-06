@@ -1,38 +1,40 @@
 package com.example.bionintelligence.data.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-
-import static android.arch.persistence.room.ForeignKey.CASCADE;
+import android.arch.persistence.room.PrimaryKey;
 
 //Нут
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE))
+@Entity
 public class PhasesChickpeaModel {
 
-    @ColumnInfo(index = true)
-    private int cultureId;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int productive;
     private double threeFiveListiev;
     private double butonizacia;
     private double naliv;
-    private int imgLink;
 
-    public PhasesChickpeaModel(int cultureId, int productive, double threeFiveListiev, double butonizacia, double naliv, int imgLink) {
-        this.cultureId = cultureId;
+    private int threeFiveListievImg;
+    private int butonizaciaImg;
+    private int nalivImg;
+
+    public PhasesChickpeaModel(int productive, double threeFiveListiev, double butonizacia,
+                               double naliv, int threeFiveListievImg, int butonizaciaImg, int nalivImg) {
         this.productive = productive;
         this.threeFiveListiev = threeFiveListiev;
         this.butonizacia = butonizacia;
         this.naliv = naliv;
-        this.imgLink = imgLink;
+        this.threeFiveListievImg = threeFiveListievImg;
+        this.butonizaciaImg = butonizaciaImg;
+        this.nalivImg = nalivImg;
     }
 
-    public int getCultureId() {
-        return cultureId;
+    public int getId() {
+        return id;
     }
 
-    public void setCultureId(int cultureId) {
-        this.cultureId = cultureId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getProductive() {
@@ -67,11 +69,27 @@ public class PhasesChickpeaModel {
         this.naliv = naliv;
     }
 
-    public int getImgLink() {
-        return imgLink;
+    public int getThreeFiveListievImg() {
+        return threeFiveListievImg;
     }
 
-    public void setImgLink(int imgLink) {
-        this.imgLink = imgLink;
+    public void setThreeFiveListievImg(int threeFiveListievImg) {
+        this.threeFiveListievImg = threeFiveListievImg;
+    }
+
+    public int getButonizaciaImg() {
+        return butonizaciaImg;
+    }
+
+    public void setButonizaciaImg(int butonizaciaImg) {
+        this.butonizaciaImg = butonizaciaImg;
+    }
+
+    public int getNalivImg() {
+        return nalivImg;
+    }
+
+    public void setNalivImg(int nalivImg) {
+        this.nalivImg = nalivImg;
     }
 }

@@ -1,38 +1,43 @@
 package com.example.bionintelligence.data.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity
 public class PhasesWinterWheatModel {
-    @ColumnInfo(index = true)
-    private int cultureId;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int productive;
     private double kushenie;
     private double trubkovanie;
     private double koloshenie;
     private double naliv;
-    private int imgLink;
 
-    public PhasesWinterWheatModel(int cultureId, int productive, double kushenie, double trubkovanie, double koloshenie, double naliv, int imgLink) {
-        this.cultureId = cultureId;
+    private int kushenieImg;
+    private int trubkovanieImg;
+    private int koloshenieImg;
+    private int nalivImg;
+
+    public PhasesWinterWheatModel(int productive, double kushenie, double trubkovanie, double koloshenie,
+                                  double naliv, int kushenieImg, int trubkovanieImg, int koloshenieImg, int nalivImg) {
         this.productive = productive;
         this.kushenie = kushenie;
         this.trubkovanie = trubkovanie;
         this.koloshenie = koloshenie;
         this.naliv = naliv;
-        this.imgLink = imgLink;
+        this.kushenieImg = kushenieImg;
+        this.trubkovanieImg = trubkovanieImg;
+        this.koloshenieImg = koloshenieImg;
+        this.nalivImg = nalivImg;
     }
 
-    public int getCultureId() {
-        return cultureId;
+
+    public int getId() {
+        return id;
     }
 
-    public void setCultureId(int cultureId) {
-        this.cultureId = cultureId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getProductive() {
@@ -75,11 +80,35 @@ public class PhasesWinterWheatModel {
         this.naliv = naliv;
     }
 
-    public int getImgLink() {
-        return imgLink;
+    public int getKushenieImg() {
+        return kushenieImg;
     }
 
-    public void setImgLink(int imgLink) {
-        this.imgLink = imgLink;
+    public void setKushenieImg(int kushenieImg) {
+        this.kushenieImg = kushenieImg;
+    }
+
+    public int getTrubkovanieImg() {
+        return trubkovanieImg;
+    }
+
+    public void setTrubkovanieImg(int trubkovanieImg) {
+        this.trubkovanieImg = trubkovanieImg;
+    }
+
+    public int getKoloshenieImg() {
+        return koloshenieImg;
+    }
+
+    public void setKoloshenieImg(int koloshenieImg) {
+        this.koloshenieImg = koloshenieImg;
+    }
+
+    public int getNalivImg() {
+        return nalivImg;
+    }
+
+    public void setNalivImg(int nalivImg) {
+        this.nalivImg = nalivImg;
     }
 }

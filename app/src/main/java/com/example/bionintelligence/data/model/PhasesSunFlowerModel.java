@@ -1,37 +1,39 @@
 package com.example.bionintelligence.data.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-
-import static android.arch.persistence.room.ForeignKey.CASCADE;
+import android.arch.persistence.room.PrimaryKey;
 
 //подсолечник
-@Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId",onDelete = CASCADE))
+@Entity
 public class PhasesSunFlowerModel {
-    @ColumnInfo(index = true)
-    private int cultureId;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int productive;
     private double twoFourListiev;
     private double eightTenSheets;
     private double closeSocvetie;
-    private int imgLink;
 
-    public PhasesSunFlowerModel(int cultureId, int productive, double twoFourListiev, double eightTenSheets, double closeSocvetie, int imgLink) {
-        this.cultureId = cultureId;
+    private int twoFourListievImg;
+    private int eightTenSheetsImg;
+    private int closeSocvetieImg;
+
+    public PhasesSunFlowerModel(int productive, double twoFourListiev, double eightTenSheets,
+                                double closeSocvetie, int twoFourListievImg, int eightTenSheetsImg, int closeSocvetieImg) {
         this.productive = productive;
         this.twoFourListiev = twoFourListiev;
         this.eightTenSheets = eightTenSheets;
         this.closeSocvetie = closeSocvetie;
-        this.imgLink = imgLink;
+        this.twoFourListievImg = twoFourListievImg;
+        this.eightTenSheetsImg = eightTenSheetsImg;
+        this.closeSocvetieImg = closeSocvetieImg;
     }
 
-    public int getCultureId() {
-        return cultureId;
+    public int getId() {
+        return id;
     }
 
-    public void setCultureId(int cultureId) {
-        this.cultureId = cultureId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getProductive() {
@@ -66,11 +68,27 @@ public class PhasesSunFlowerModel {
         this.closeSocvetie = closeSocvetie;
     }
 
-    public int getImgLink() {
-        return imgLink;
+    public int getTwoFourListievImg() {
+        return twoFourListievImg;
     }
 
-    public void setImgLink(int imgLink) {
-        this.imgLink = imgLink;
+    public void setTwoFourListievImg(int twoFourListievImg) {
+        this.twoFourListievImg = twoFourListievImg;
+    }
+
+    public int getEightTenSheetsImg() {
+        return eightTenSheetsImg;
+    }
+
+    public void setEightTenSheetsImg(int eightTenSheetsImg) {
+        this.eightTenSheetsImg = eightTenSheetsImg;
+    }
+
+    public int getCloseSocvetieImg() {
+        return closeSocvetieImg;
+    }
+
+    public void setCloseSocvetieImg(int closeSocvetieImg) {
+        this.closeSocvetieImg = closeSocvetieImg;
     }
 }
