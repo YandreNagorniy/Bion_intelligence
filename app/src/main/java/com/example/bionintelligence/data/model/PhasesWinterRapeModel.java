@@ -14,22 +14,13 @@ public class PhasesWinterRapeModel {
     private double startCvetenie;
     private double naliv;
 
-    private int startSteblevanieImg;
-    private int butonizaciaImg;
-    private int startCvetenieImg;
-    private int nalivImg;
-
-    public PhasesWinterRapeModel(int productive, double startSteblevanie, double butonizacia, double startCvetenie,
-                                 double naliv, int startSteblevanieImg, int butonizaciaImg, int startCvetenieImg, int nalivImg) {
+    public PhasesWinterRapeModel(int productive, double startSteblevanie, double butonizacia, double startCvetenie, double naliv) {
         this.productive = productive;
         this.startSteblevanie = startSteblevanie;
         this.butonizacia = butonizacia;
         this.startCvetenie = startCvetenie;
         this.naliv = naliv;
-        this.startSteblevanieImg = startSteblevanieImg;
-        this.butonizaciaImg = butonizaciaImg;
-        this.startCvetenieImg = startCvetenieImg;
-        this.nalivImg = nalivImg;
+
     }
 
 
@@ -81,35 +72,4 @@ public class PhasesWinterRapeModel {
         this.naliv = naliv;
     }
 
-    public int getStartSteblevanieImg() {
-        return startSteblevanieImg;
-    }
-
-    public void setStartSteblevanieImg(int startSteblevanieImg) {
-        this.startSteblevanieImg = startSteblevanieImg;
-    }
-
-    public int getButonizaciaImg() {
-        return butonizaciaImg;
-    }
-
-    public void setButonizaciaImg(int butonizaciaImg) {
-        this.butonizaciaImg = butonizaciaImg;
-    }
-
-    public int getStartCvetenieImg() {
-        return startCvetenieImg;
-    }
-
-    public void setStartCvetenieImg(int startCvetenieImg) {
-        this.startCvetenieImg = startCvetenieImg;
-    }
-
-    public int getNalivImg() {
-        return nalivImg;
-    }
-
-    public void setNalivImg(int nalivImg) {
-        this.nalivImg = nalivImg;
-    }
 }

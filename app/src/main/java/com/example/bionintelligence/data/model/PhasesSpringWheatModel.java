@@ -13,22 +13,12 @@ public class PhasesSpringWheatModel {
     private double koloshenie;
     private double naliv;
 
-    private int kushenieImg;
-    private int trubkovanieImg;
-    private int koloshenieImg;
-    private int nalivImg;
-
-    public PhasesSpringWheatModel(int productive, double kushenie, double trubkovanie, double koloshenie,
-                                  double naliv, int kushenieImg, int trubkovanieImg, int koloshenieImg, int nalivImg) {
+    public PhasesSpringWheatModel(int productive, double kushenie, double trubkovanie, double koloshenie, double naliv) {
         this.productive = productive;
         this.kushenie = kushenie;
         this.trubkovanie = trubkovanie;
         this.koloshenie = koloshenie;
         this.naliv = naliv;
-        this.kushenieImg = kushenieImg;
-        this.trubkovanieImg = trubkovanieImg;
-        this.koloshenieImg = koloshenieImg;
-        this.nalivImg = nalivImg;
     }
 
     public int getId() {
@@ -79,35 +69,4 @@ public class PhasesSpringWheatModel {
         this.naliv = naliv;
     }
 
-    public int getKushenieImg() {
-        return kushenieImg;
-    }
-
-    public void setKushenieImg(int kushenieImg) {
-        this.kushenieImg = kushenieImg;
-    }
-
-    public int getTrubkovanieImg() {
-        return trubkovanieImg;
-    }
-
-    public void setTrubkovanieImg(int trubkovanieImg) {
-        this.trubkovanieImg = trubkovanieImg;
-    }
-
-    public int getKoloshenieImg() {
-        return koloshenieImg;
-    }
-
-    public void setKoloshenieImg(int koloshenieImg) {
-        this.koloshenieImg = koloshenieImg;
-    }
-
-    public int getNalivImg() {
-        return nalivImg;
-    }
-
-    public void setNalivImg(int nalivImg) {
-        this.nalivImg = nalivImg;
-    }
 }

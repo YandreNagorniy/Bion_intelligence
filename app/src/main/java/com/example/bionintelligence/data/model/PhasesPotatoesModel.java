@@ -15,16 +15,8 @@ public class PhasesPotatoesModel {
     private double cvetenie;
     private double nalivClybnia;
 
-    private int vshodiImg;
-    private int rostListievImg;
-    private int smikanieRiadovImg;
-    private int butonizaciaImg;
-    private int cvetenieImg;
-    private int nalivClybniaImg;
-
     public PhasesPotatoesModel(int productive, double vshodi, double rostListiev, double smikanieRiadov,
-                               double butonizacia, double cvetenie, double nalivClybnia, int vshodiImg,
-                               int rostListievImg, int smikanieRiadovImg, int butonizaciaImg, int cvetenieImg, int nalivClybniaImg) {
+                               double butonizacia, double cvetenie, double nalivClybnia) {
         this.productive = productive;
         this.vshodi = vshodi;
         this.rostListiev = rostListiev;
@@ -32,12 +24,6 @@ public class PhasesPotatoesModel {
         this.butonizacia = butonizacia;
         this.cvetenie = cvetenie;
         this.nalivClybnia = nalivClybnia;
-        this.vshodiImg = vshodiImg;
-        this.rostListievImg = rostListievImg;
-        this.smikanieRiadovImg = smikanieRiadovImg;
-        this.butonizaciaImg = butonizaciaImg;
-        this.cvetenieImg = cvetenieImg;
-        this.nalivClybniaImg = nalivClybniaImg;
     }
 
     public int getId() {
@@ -104,51 +90,4 @@ public class PhasesPotatoesModel {
         this.nalivClybnia = nalivClybnia;
     }
 
-    public int getVshodiImg() {
-        return vshodiImg;
-    }
-
-    public void setVshodiImg(int vshodiImg) {
-        this.vshodiImg = vshodiImg;
-    }
-
-    public int getRostListievImg() {
-        return rostListievImg;
-    }
-
-    public void setRostListievImg(int rostListievImg) {
-        this.rostListievImg = rostListievImg;
-    }
-
-    public int getSmikanieRiadovImg() {
-        return smikanieRiadovImg;
-    }
-
-    public void setSmikanieRiadovImg(int smikanieRiadovImg) {
-        this.smikanieRiadovImg = smikanieRiadovImg;
-    }
-
-    public int getButonizaciaImg() {
-        return butonizaciaImg;
-    }
-
-    public void setButonizaciaImg(int butonizaciaImg) {
-        this.butonizaciaImg = butonizaciaImg;
-    }
-
-    public int getCvetenieImg() {
-        return cvetenieImg;
-    }
-
-    public void setCvetenieImg(int cvetenieImg) {
-        this.cvetenieImg = cvetenieImg;
-    }
-
-    public int getNalivClybniaImg() {
-        return nalivClybniaImg;
-    }
-
-    public void setNalivClybniaImg(int nalivClybniaImg) {
-        this.nalivClybniaImg = nalivClybniaImg;
-    }
 }

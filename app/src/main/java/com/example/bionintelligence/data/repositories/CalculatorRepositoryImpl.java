@@ -13,6 +13,9 @@ import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
+import com.example.bionintelligence.presentation.pojo.PhaseModel;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
@@ -102,5 +105,11 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     @Override
     public Single<CalculateH2OEntity> getDataH2O(int id) {
         return databaseSource.getDataH2O(id);
+    }
+
+    @Override
+    public Single<List<PhaseModel>> getPhasesData(int productive, int cultureId) {
+
+        return null;
     }
 }

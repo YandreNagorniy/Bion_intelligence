@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b03165ef55b635ac59e97c2fb30386f7",
+    "identityHash": "90844b74d20859ec33012847cb3ec267",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -820,7 +820,7 @@
       },
       {
         "tableName": "PhasesChickpeaModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `threeFiveListiev` REAL NOT NULL, `butonizacia` REAL NOT NULL, `naliv` REAL NOT NULL, `threeFiveListievImg` INTEGER NOT NULL, `butonizaciaImg` INTEGER NOT NULL, `nalivImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `threeFiveListiev` REAL NOT NULL, `butonizacia` REAL NOT NULL, `naliv` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -851,24 +851,6 @@
             "columnName": "naliv",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "threeFiveListievImg",
-            "columnName": "threeFiveListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizaciaImg",
-            "columnName": "butonizaciaImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivImg",
-            "columnName": "nalivImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -882,7 +864,7 @@
       },
       {
         "tableName": "PhasesCornModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoThreeListiev` REAL NOT NULL, `fiveSixListiev` REAL NOT NULL, `sevenEightListiev` REAL NOT NULL, `twoThreeListievImg` INTEGER NOT NULL, `fiveSixListievImg` INTEGER NOT NULL, `sevenEightListievImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoThreeListiev` REAL NOT NULL, `fiveSixListiev` REAL NOT NULL, `sevenEightListiev` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -913,24 +895,6 @@
             "columnName": "sevenEightListiev",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "twoThreeListievImg",
-            "columnName": "twoThreeListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "fiveSixListievImg",
-            "columnName": "fiveSixListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "sevenEightListievImg",
-            "columnName": "sevenEightListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -944,7 +908,7 @@
       },
       {
         "tableName": "PhasesPotatoesModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `vshodi` REAL NOT NULL, `rostListiev` REAL NOT NULL, `smikanieRiadov` REAL NOT NULL, `butonizacia` REAL NOT NULL, `cvetenie` REAL NOT NULL, `nalivClybnia` REAL NOT NULL, `vshodiImg` INTEGER NOT NULL, `rostListievImg` INTEGER NOT NULL, `smikanieRiadovImg` INTEGER NOT NULL, `butonizaciaImg` INTEGER NOT NULL, `cvetenieImg` INTEGER NOT NULL, `nalivClybniaImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `vshodi` REAL NOT NULL, `rostListiev` REAL NOT NULL, `smikanieRiadov` REAL NOT NULL, `butonizacia` REAL NOT NULL, `cvetenie` REAL NOT NULL, `nalivClybnia` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -993,42 +957,6 @@
             "columnName": "nalivClybnia",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "vshodiImg",
-            "columnName": "vshodiImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "rostListievImg",
-            "columnName": "rostListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "smikanieRiadovImg",
-            "columnName": "smikanieRiadovImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizaciaImg",
-            "columnName": "butonizaciaImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "cvetenieImg",
-            "columnName": "cvetenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivClybniaImg",
-            "columnName": "nalivClybniaImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1042,7 +970,7 @@
       },
       {
         "tableName": "PhasesSoyModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `threeFiveListiev` REAL NOT NULL, `butonizacia` REAL NOT NULL, `naliv` REAL NOT NULL, `threeFiveListievImg` INTEGER NOT NULL, `butonizaciaImg` INTEGER NOT NULL, `nalivImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `threeFiveListiev` REAL NOT NULL, `butonizacia` REAL NOT NULL, `naliv` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1073,24 +1001,6 @@
             "columnName": "naliv",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "threeFiveListievImg",
-            "columnName": "threeFiveListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizaciaImg",
-            "columnName": "butonizaciaImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivImg",
-            "columnName": "nalivImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1104,7 +1014,7 @@
       },
       {
         "tableName": "PhasesSpringRapeModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `steblevanie` REAL NOT NULL, `butonizacia` REAL NOT NULL, `polnoeCvetenie` REAL NOT NULL, `steblevanieImg` INTEGER NOT NULL, `butonizaciaImg` INTEGER NOT NULL, `polnoeCvetenieImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `steblevanie` REAL NOT NULL, `butonizacia` REAL NOT NULL, `polnoeCvetenie` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1135,24 +1045,6 @@
             "columnName": "polnoeCvetenie",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "steblevanieImg",
-            "columnName": "steblevanieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizaciaImg",
-            "columnName": "butonizaciaImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "polnoeCvetenieImg",
-            "columnName": "polnoeCvetenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1166,7 +1058,7 @@
       },
       {
         "tableName": "PhasesSpringWheatModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `kushenie` REAL NOT NULL, `trubkovanie` REAL NOT NULL, `koloshenie` REAL NOT NULL, `naliv` REAL NOT NULL, `kushenieImg` INTEGER NOT NULL, `trubkovanieImg` INTEGER NOT NULL, `koloshenieImg` INTEGER NOT NULL, `nalivImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `kushenie` REAL NOT NULL, `trubkovanie` REAL NOT NULL, `koloshenie` REAL NOT NULL, `naliv` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1203,30 +1095,6 @@
             "columnName": "naliv",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "kushenieImg",
-            "columnName": "kushenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "trubkovanieImg",
-            "columnName": "trubkovanieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "koloshenieImg",
-            "columnName": "koloshenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivImg",
-            "columnName": "nalivImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1240,7 +1108,7 @@
       },
       {
         "tableName": "PhasesSugarBeetModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoTreeParaListiev` REAL NOT NULL, `fourFiveParaListiev` REAL NOT NULL, `smikanieRiadov` REAL NOT NULL, `smikanieMejdyRiadov` REAL NOT NULL, `nalivCorneploda` REAL NOT NULL, `kushenieImg` INTEGER NOT NULL, `twoTreeParaListievImg` INTEGER NOT NULL, `fourFiveParaListievImg` INTEGER NOT NULL, `smikanieRiadovImg` INTEGER NOT NULL, `smikanieMejdyRiadovImg` INTEGER NOT NULL, `nalivCorneplodaImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoTreeParaListiev` REAL NOT NULL, `fourFiveParaListiev` REAL NOT NULL, `smikanieRiadov` REAL NOT NULL, `smikanieMejdyRiadov` REAL NOT NULL, `nalivCorneploda` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1283,42 +1151,6 @@
             "columnName": "nalivCorneploda",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "kushenieImg",
-            "columnName": "kushenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "twoTreeParaListievImg",
-            "columnName": "twoTreeParaListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "fourFiveParaListievImg",
-            "columnName": "fourFiveParaListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "smikanieRiadovImg",
-            "columnName": "smikanieRiadovImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "smikanieMejdyRiadovImg",
-            "columnName": "smikanieMejdyRiadovImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivCorneplodaImg",
-            "columnName": "nalivCorneplodaImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1332,7 +1164,7 @@
       },
       {
         "tableName": "PhasesSunFlowerModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoFourListiev` REAL NOT NULL, `eightTenSheets` REAL NOT NULL, `closeSocvetie` REAL NOT NULL, `twoFourListievImg` INTEGER NOT NULL, `eightTenSheetsImg` INTEGER NOT NULL, `closeSocvetieImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoFourListiev` REAL NOT NULL, `eightTenSheets` REAL NOT NULL, `closeSocvetie` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1363,24 +1195,6 @@
             "columnName": "closeSocvetie",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "twoFourListievImg",
-            "columnName": "twoFourListievImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "eightTenSheetsImg",
-            "columnName": "eightTenSheetsImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "closeSocvetieImg",
-            "columnName": "closeSocvetieImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1394,7 +1208,7 @@
       },
       {
         "tableName": "PhasesWinterRapeModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `startSteblevanie` REAL NOT NULL, `butonizacia` REAL NOT NULL, `startCvetenie` REAL NOT NULL, `naliv` REAL NOT NULL, `startSteblevanieImg` INTEGER NOT NULL, `butonizaciaImg` INTEGER NOT NULL, `startCvetenieImg` INTEGER NOT NULL, `nalivImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `startSteblevanie` REAL NOT NULL, `butonizacia` REAL NOT NULL, `startCvetenie` REAL NOT NULL, `naliv` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1431,30 +1245,6 @@
             "columnName": "naliv",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "startSteblevanieImg",
-            "columnName": "startSteblevanieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizaciaImg",
-            "columnName": "butonizaciaImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "startCvetenieImg",
-            "columnName": "startCvetenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivImg",
-            "columnName": "nalivImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1468,7 +1258,7 @@
       },
       {
         "tableName": "PhasesWinterWheatModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `kushenie` REAL NOT NULL, `trubkovanie` REAL NOT NULL, `koloshenie` REAL NOT NULL, `naliv` REAL NOT NULL, `kushenieImg` INTEGER NOT NULL, `trubkovanieImg` INTEGER NOT NULL, `koloshenieImg` INTEGER NOT NULL, `nalivImg` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `kushenie` REAL NOT NULL, `trubkovanie` REAL NOT NULL, `koloshenie` REAL NOT NULL, `naliv` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -1505,30 +1295,6 @@
             "columnName": "naliv",
             "affinity": "REAL",
             "notNull": true
-          },
-          {
-            "fieldPath": "kushenieImg",
-            "columnName": "kushenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "trubkovanieImg",
-            "columnName": "trubkovanieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "koloshenieImg",
-            "columnName": "koloshenieImg",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivImg",
-            "columnName": "nalivImg",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -1539,11 +1305,88 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "PhasesImgModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cultureId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `one` INTEGER NOT NULL, `two` INTEGER NOT NULL, `three` INTEGER NOT NULL, `four` INTEGER NOT NULL, `five` INTEGER NOT NULL, `six` INTEGER NOT NULL, FOREIGN KEY(`cultureId`) REFERENCES `CultureModel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "cultureId",
+            "columnName": "cultureId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "one",
+            "columnName": "one",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "two",
+            "columnName": "two",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "three",
+            "columnName": "three",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "four",
+            "columnName": "four",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "five",
+            "columnName": "five",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "six",
+            "columnName": "six",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "cultureId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_PhasesImgModel_cultureId",
+            "unique": false,
+            "columnNames": [
+              "cultureId"
+            ],
+            "createSql": "CREATE  INDEX `index_PhasesImgModel_cultureId` ON `${TABLE_NAME}` (`cultureId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CultureModel",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cultureId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b03165ef55b635ac59e97c2fb30386f7\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"90844b74d20859ec33012847cb3ec267\")"
     ]
   }
 }

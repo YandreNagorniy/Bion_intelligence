@@ -10,6 +10,9 @@ import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
+import com.example.bionintelligence.presentation.pojo.PhaseModel;
+
+import java.util.List;
 
 import io.reactivex.Single;
 
@@ -35,4 +38,7 @@ public interface CalculatorRepository {
     Single<Pair<Double, CalculateSEntity>> getDataS(int id);
 
     Single<CalculateH2OEntity> getDataH2O(int id);
+
+    Single<List<PhaseModel>> getPhasesData(int productive, int cultureId);
+
 }

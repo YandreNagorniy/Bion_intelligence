@@ -11,6 +11,9 @@ public interface CalculatorPresenter {
 
     void getCalculatorData(int productive, int cultureId);
 
+    void getPhasesData(int value, int parseInt);
+
     void detachView();
+
 
 }

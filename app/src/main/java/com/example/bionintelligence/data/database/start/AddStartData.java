@@ -11,6 +11,7 @@ import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
 import com.example.bionintelligence.data.database.dao.PHDao;
 import com.example.bionintelligence.data.database.dao.PhasesChickpeaDao;
 import com.example.bionintelligence.data.database.dao.PhasesCornDao;
+import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.PhasesPotatoesDao;
 import com.example.bionintelligence.data.database.dao.PhasesSoyDao;
 import com.example.bionintelligence.data.database.dao.PhasesSpringRapeDao;
@@ -32,6 +33,7 @@ import com.example.bionintelligence.data.model.MethodsP2O5Model;
 import com.example.bionintelligence.data.model.PHModel;
 import com.example.bionintelligence.data.model.PhasesChickpeaModel;
 import com.example.bionintelligence.data.model.PhasesCornModel;
+import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.PhasesPotatoesModel;
 import com.example.bionintelligence.data.model.PhasesSoyModel;
 import com.example.bionintelligence.data.model.PhasesSpringRapeModel;
@@ -77,12 +79,11 @@ public class AddStartData {
         setPhasesSunFlowerData();
         setPhasesWinterWheatData();
         setPhasesWinterRapeData();
+        setPhasesImageData();
     }
 
-
     private static void setSoilFactorsData() {
-        SoilFactorsDao soilFactorsDao;
-        soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
+        SoilFactorsDao soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
 
         List<SoilFactorsModel> soilFactorsList = new ArrayList<>();
         soilFactorsList.add(new SoilFactorsModel(15, 30, 350, 20, 4, 3,
@@ -339,15 +340,15 @@ public class AddStartData {
         PhasesChickpeaDao phasesChickpeaDao = App.getInstance().getDatabase().phasesChickpeaDao();
 
         List<PhasesChickpeaModel> list = new ArrayList<>();
-        list.add(new PhasesChickpeaModel(5, 0, 0, 0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(10, 0.4, 0.6, 0.4, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(15, 0.8, 1.3, 0.8, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(20, 1.5, 2, 1.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(25, 2, 3, 2, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(30, 2.5, 4, 2.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(35, 3.3, 5, 3.3, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(40, 4, 6, 4, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesChickpeaModel(45, 5, 7, 5, R.drawable.img_phases_spring_wheat, 0, 0));
+        list.add(new PhasesChickpeaModel(5, 0, 0, 0));
+        list.add(new PhasesChickpeaModel(10, 0.4, 0.6, 0.4));
+        list.add(new PhasesChickpeaModel(15, 0.8, 1.3, 0.8));
+        list.add(new PhasesChickpeaModel(20, 1.5, 2, 1.5));
+        list.add(new PhasesChickpeaModel(25, 2, 3, 2));
+        list.add(new PhasesChickpeaModel(30, 2.5, 4, 2.5));
+        list.add(new PhasesChickpeaModel(35, 3.3, 5, 3.3));
+        list.add(new PhasesChickpeaModel(40, 4, 6, 4));
+        list.add(new PhasesChickpeaModel(45, 5, 7, 5));
 
         Completable.fromAction(() -> phasesChickpeaDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -358,18 +359,18 @@ public class AddStartData {
         PhasesCornDao phasesCornDao = App.getInstance().getDatabase().phasesCornDao();
 
         List<PhasesCornModel> list = new ArrayList<>();
-        list.add(new PhasesCornModel(40, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesCornModel(50, 0.4, 0.4, 0.4, 0, 0, 0));
-        list.add(new PhasesCornModel(60, 0.8, 0.8, 0.8, 0, 0, 0));
-        list.add(new PhasesCornModel(70, 1.2, 1.2, 1.2, 0, 0, 0));
-        list.add(new PhasesCornModel(80, 1.5, 1.5, 1.5, 0, 0, 0));
-        list.add(new PhasesCornModel(90, 2, 2, 2, 0, 0, 0));
-        list.add(new PhasesCornModel(100, 2.4, 2.4, 2.4, 0, 0, 0));
-        list.add(new PhasesCornModel(110, 2.8, 2.8, 2.8, 0, 0, 0));
-        list.add(new PhasesCornModel(120, 3.3, 3.3, 3.3, 0, 0, 0));
-        list.add(new PhasesCornModel(130, 4, 4, 4, 0, 0, 0));
-        list.add(new PhasesCornModel(140, 4.3, 4.3, 4.3, 0, 0, 0));
-        list.add(new PhasesCornModel(150, 4.9, 4.9, 4.9, 0, 0, 0));
+        list.add(new PhasesCornModel(40, 0, 0, 0));
+        list.add(new PhasesCornModel(50, 0.4, 0.4, 0.4));
+        list.add(new PhasesCornModel(60, 0.8, 0.8, 0.8));
+        list.add(new PhasesCornModel(70, 1.2, 1.2, 1.2));
+        list.add(new PhasesCornModel(80, 1.5, 1.5, 1.5));
+        list.add(new PhasesCornModel(90, 2, 2, 2));
+        list.add(new PhasesCornModel(100, 2.4, 2.4, 2.4));
+        list.add(new PhasesCornModel(110, 2.8, 2.8, 2.8));
+        list.add(new PhasesCornModel(120, 3.3, 3.3, 3.3));
+        list.add(new PhasesCornModel(130, 4, 4, 4));
+        list.add(new PhasesCornModel(140, 4.3, 4.3, 4.3));
+        list.add(new PhasesCornModel(150, 4.9, 4.9, 4.9));
 
         Completable.fromAction(() -> phasesCornDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -380,18 +381,18 @@ public class AddStartData {
         PhasesPotatoesDao phasesPotatoesDao = App.getInstance().getDatabase().phasesPotatoesDao();
 
         List<PhasesPotatoesModel> list = new ArrayList<>();
-        list.add(new PhasesPotatoesModel(250, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(300, 0.6, 0.8, 1.1, 1.1, 1.1, 0.6, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(350, 1.2, 1.6, 2.2, 2.2, 2.2, 1.2, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(400, 1.8, 2.4, 3.2, 3.2, 3.2, 1.8, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(450, 2.4, 3.2, 4.1, 4.1, 4.1, 2.4, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(500, 3, 4, 5, 5, 5, 3, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(550, 3.7, 4.7, 5.7, 5.7, 5.7, 3.7, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(600, 4.3, 5.4, 6.4, 6.4, 6.4, 4.3, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(650, 5, 6, 7, 7, 7, 5, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(700, 5.6, 6.4, 7.6, 7.6, 7.6, 5.6, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(750, 6.3, 7.3, 8.1, 8.1, 8.1, 6.3, 0, 0, 0, 0, 0, 0));
-        list.add(new PhasesPotatoesModel(800, 7, 8, 8.5, 8.5, 8.5, 7, 0, 0, 0, 0, 0, 0));
+        list.add(new PhasesPotatoesModel(250, 0, 0, 0, 0, 0, 0));
+        list.add(new PhasesPotatoesModel(300, 0.6, 0.8, 1.1, 1.1, 1.1, 0.6));
+        list.add(new PhasesPotatoesModel(350, 1.2, 1.6, 2.2, 2.2, 2.2, 1.2));
+        list.add(new PhasesPotatoesModel(400, 1.8, 2.4, 3.2, 3.2, 3.2, 1.8));
+        list.add(new PhasesPotatoesModel(450, 2.4, 3.2, 4.1, 4.1, 4.1, 2.4));
+        list.add(new PhasesPotatoesModel(500, 3, 4, 5, 5, 5, 3));
+        list.add(new PhasesPotatoesModel(550, 3.7, 4.7, 5.7, 5.7, 5.7, 3.7));
+        list.add(new PhasesPotatoesModel(600, 4.3, 5.4, 6.4, 6.4, 6.4, 4.3));
+        list.add(new PhasesPotatoesModel(650, 5, 6, 7, 7, 7, 5));
+        list.add(new PhasesPotatoesModel(700, 5.6, 6.4, 7.6, 7.6, 7.6, 5.6));
+        list.add(new PhasesPotatoesModel(750, 6.3, 7.3, 8.1, 8.1, 8.1, 6.3));
+        list.add(new PhasesPotatoesModel(800, 7, 8, 8.5, 8.5, 8.5, 7));
 
         Completable.fromAction(() -> phasesPotatoesDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -402,15 +403,15 @@ public class AddStartData {
         PhasesSoyDao phasesSoyDao = App.getInstance().getDatabase().phasesSoyDao();
 
         List<PhasesSoyModel> list = new ArrayList<>();
-        list.add(new PhasesSoyModel(10, 0, 0, 0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(15, 0.4, 0.8, 0.4, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(20, 0.8, 1.3, 0.8, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(25, 1.5, 2.0, 1.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(30, 2, 3, 2, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(35, 2.7, 4, 2.7, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(40, 3.5, 5, 3.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(45, 4.4, 6, 4.4, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSoyModel(50, 5.3, 7, 5.3, R.drawable.img_phases_spring_wheat, 0, 0));
+        list.add(new PhasesSoyModel(10, 0, 0, 0));
+        list.add(new PhasesSoyModel(15, 0.4, 0.8, 0.4));
+        list.add(new PhasesSoyModel(20, 0.8, 1.3, 0.8));
+        list.add(new PhasesSoyModel(25, 1.5, 2.0, 1.5));
+        list.add(new PhasesSoyModel(30, 2, 3, 2));
+        list.add(new PhasesSoyModel(35, 2.7, 4, 2.7));
+        list.add(new PhasesSoyModel(40, 3.5, 5, 3.5));
+        list.add(new PhasesSoyModel(45, 4.4, 6, 4.4));
+        list.add(new PhasesSoyModel(50, 5.3, 7, 5.3));
 
         Completable.fromAction(() -> phasesSoyDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -421,14 +422,14 @@ public class AddStartData {
         PhasesSpringRapeDao phasesSpringRapeDao = App.getInstance().getDatabase().phasesSpringRapeDao();
 
         List<PhasesSpringRapeModel> list = new ArrayList<>();
-        list.add(new PhasesSpringRapeModel(15, 0.4, 0.8, 0.4, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(20, 0.8, 1.3, 0.8, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(25, 1.5, 2.0, 1.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(30, 2, 3, 2, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(35, 2.7, 4, 2.7, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(40, 3.5, 5, 3.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(45, 4.4, 6, 4.4, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringRapeModel(50, 5.3, 7, 5.3, R.drawable.img_phases_spring_wheat, 0, 0));
+        list.add(new PhasesSpringRapeModel(15, 0.4, 0.8, 0.4));
+        list.add(new PhasesSpringRapeModel(20, 0.8, 1.3, 0.8));
+        list.add(new PhasesSpringRapeModel(25, 1.5, 2.0, 1.5));
+        list.add(new PhasesSpringRapeModel(30, 2, 3, 2));
+        list.add(new PhasesSpringRapeModel(35, 2.7, 4, 2.7));
+        list.add(new PhasesSpringRapeModel(40, 3.5, 5, 3.5));
+        list.add(new PhasesSpringRapeModel(45, 4.4, 6, 4.4));
+        list.add(new PhasesSpringRapeModel(50, 5.3, 7, 5.3));
 
         Completable.fromAction(() -> phasesSpringRapeDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -439,15 +440,15 @@ public class AddStartData {
         PhasesSpringWheatDao phasesSpringWheatDao = App.getInstance().getDatabase().phasesSpringWheatDao();
 
         List<PhasesSpringWheatModel> list = new ArrayList<>();
-        list.add(new PhasesSpringWheatModel(20, 0, 0, 0,0,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(30, 0.2, 0.2, 0.3,0.2,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(40, 0.4, 0.4, 0.6,0.4,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(50, 0.8, 0.8, 1.2,0.8,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(60, 1, 1, 1.5,1,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(70, 1.3, 1.3, 2,1.3,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(80, 1.8, 1.8, 2.7,1.8,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(90, 2.4, 2.4, 3.6,2.4,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesSpringWheatModel(100, 3.1, 3.1, 4.6,3.1,0, R.drawable.img_phases_spring_wheat, 0, 0));
+        list.add(new PhasesSpringWheatModel(20, 0, 0, 0, 0));
+        list.add(new PhasesSpringWheatModel(30, 0.2, 0.2, 0.3, 0.2));
+        list.add(new PhasesSpringWheatModel(40, 0.4, 0.4, 0.6, 0.4));
+        list.add(new PhasesSpringWheatModel(50, 0.8, 0.8, 1.2, 0.8));
+        list.add(new PhasesSpringWheatModel(60, 1, 1, 1.5, 1));
+        list.add(new PhasesSpringWheatModel(70, 1.3, 1.3, 2, 1.3));
+        list.add(new PhasesSpringWheatModel(80, 1.8, 1.8, 2.7, 1.8));
+        list.add(new PhasesSpringWheatModel(90, 2.4, 2.4, 3.6, 2.4));
+        list.add(new PhasesSpringWheatModel(100, 3.1, 3.1, 4.6, 3.1));
 
         Completable.fromAction(() -> phasesSpringWheatDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -458,18 +459,18 @@ public class AddStartData {
         PhasesSugarBeetDao phasesSugarBeetDao = App.getInstance().getDatabase().phasesSugarBeetDao();
 
         List<PhasesSugarBeetModel> list = new ArrayList<>();
-        list.add(new PhasesSugarBeetModel(250, 0, 0, 0,0,0, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(300, 0.2, 0.3, 0.5,0.5,0.3, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(350, 0.3, 0.5, 0.7,0.7,0.5, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(400, 0.7, 1, 1.4,1.4,1, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(450, 1, 1.5, 2,2,1.5, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(500, 1.3, 2, 2.6,2.6,2, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(550, 1.7, 2.5, 3.4,3.4,2.5, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(600, 2, 3, 4,4,3, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(650, 2.3, 3.7, 4.5,4.5,3.7, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(700, 2.7, 4.2, 5,5,4.2, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(750, 3, 4.8, 5.5,5.5,4.8, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
-        list.add(new PhasesSugarBeetModel(800, 3.3, 5.5, 6,6,5.5, R.drawable.img_phases_spring_wheat, 0, 0,0,0,0));
+        list.add(new PhasesSugarBeetModel(250, 0, 0, 0, 0, 0));
+        list.add(new PhasesSugarBeetModel(300, 0.2, 0.3, 0.5, 0.5, 0.3));
+        list.add(new PhasesSugarBeetModel(350, 0.3, 0.5, 0.7, 0.7, 0.5));
+        list.add(new PhasesSugarBeetModel(400, 0.7, 1, 1.4, 1.4, 1));
+        list.add(new PhasesSugarBeetModel(450, 1, 1.5, 2, 2, 1.5));
+        list.add(new PhasesSugarBeetModel(500, 1.3, 2, 2.6, 2.6, 2));
+        list.add(new PhasesSugarBeetModel(550, 1.7, 2.5, 3.4, 3.4, 2.5));
+        list.add(new PhasesSugarBeetModel(600, 2, 3, 4, 4, 3));
+        list.add(new PhasesSugarBeetModel(650, 2.3, 3.7, 4.5, 4.5, 3.7));
+        list.add(new PhasesSugarBeetModel(700, 2.7, 4.2, 5, 5, 4.2));
+        list.add(new PhasesSugarBeetModel(750, 3, 4.8, 5.5, 5.5, 4.8));
+        list.add(new PhasesSugarBeetModel(800, 3.3, 5.5, 6, 6, 5.5));
         Completable.fromAction(() -> phasesSugarBeetDao.insertList(list))
                 .subscribeOn(Schedulers.io())
                 .subscribe();
@@ -479,14 +480,14 @@ public class AddStartData {
         PhasesSunFlowerDao phasesSunFlowerDao = App.getInstance().getDatabase().phasesSunFlowerDao();
 
         List<PhasesSunFlowerModel> chickpeaModelList = new ArrayList<>();
-        chickpeaModelList.add(new PhasesSunFlowerModel(15, 0, 0, 0, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(20, 0, 0.3, 0.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(25, 1, 1, 1.4, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(30, 1.5, 1.5, 2, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(35, 2, 2, 3, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(40, 3.1, 3.1, 4.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(45, 4.2, 4.2, 6.5, R.drawable.img_phases_spring_wheat, 0, 0));
-        chickpeaModelList.add(new PhasesSunFlowerModel(50, 5.5, 5.5, 8.3, R.drawable.img_phases_spring_wheat, 0, 0));
+        chickpeaModelList.add(new PhasesSunFlowerModel(15, 0, 0, 0));
+        chickpeaModelList.add(new PhasesSunFlowerModel(20, 0, 0.3, 0.5));
+        chickpeaModelList.add(new PhasesSunFlowerModel(25, 1, 1, 1.4));
+        chickpeaModelList.add(new PhasesSunFlowerModel(30, 1.5, 1.5, 2));
+        chickpeaModelList.add(new PhasesSunFlowerModel(35, 2, 2, 3));
+        chickpeaModelList.add(new PhasesSunFlowerModel(40, 3.1, 3.1, 4.5));
+        chickpeaModelList.add(new PhasesSunFlowerModel(45, 4.2, 4.2, 6.5));
+        chickpeaModelList.add(new PhasesSunFlowerModel(50, 5.5, 5.5, 8.3));
 
         Completable.fromAction(() -> phasesSunFlowerDao.insertList(chickpeaModelList))
                 .subscribeOn(Schedulers.io())
@@ -497,16 +498,16 @@ public class AddStartData {
         PhasesWinterWheatDao phasesWinterWheatDao = App.getInstance().getDatabase().phasesWinterWheatDao();
 
         List<PhasesWinterWheatModel> list = new ArrayList<>();
-        list.add(new PhasesWinterWheatModel(30, 0, 0, 0,0,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(40, 0.2, 0.2, 0.3,0.2,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(50, 0.4, 0.4, 0.6,0.4,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(60, 0.8, 0.8, 1.2,0.8,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(70, 1, 1, 1.5,1,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(80, 1.3, 1.3, 2,1.3,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(90, 1.8, 1.8, 2.7,1.8,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(100, 2.4, 2.4, 3.6,2.4,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(110, 3.1, 3.1, 4.6,3.1,0, R.drawable.img_phases_spring_wheat, 0, 0));
-        list.add(new PhasesWinterWheatModel(120, 4, 4, 6,4,0, R.drawable.img_phases_spring_wheat, 0, 0));
+        list.add(new PhasesWinterWheatModel(30, 0, 0, 0, 0));
+        list.add(new PhasesWinterWheatModel(40, 0.2, 0.2, 0.3, 0.2));
+        list.add(new PhasesWinterWheatModel(50, 0.4, 0.4, 0.6, 0.4));
+        list.add(new PhasesWinterWheatModel(60, 0.8, 0.8, 1.2, 0.8));
+        list.add(new PhasesWinterWheatModel(70, 1, 1, 1.5, 1));
+        list.add(new PhasesWinterWheatModel(80, 1.3, 1.3, 2, 1.3));
+        list.add(new PhasesWinterWheatModel(90, 1.8, 1.8, 2.7, 1.8));
+        list.add(new PhasesWinterWheatModel(100, 2.4, 2.4, 3.6, 2.4));
+        list.add(new PhasesWinterWheatModel(110, 3.1, 3.1, 4.6, 3.1));
+        list.add(new PhasesWinterWheatModel(120, 4, 4, 6, 4));
 
         Completable.fromAction(() -> phasesWinterWheatDao.insertList(list))
                 .subscribeOn(Schedulers.io())
@@ -517,14 +518,34 @@ public class AddStartData {
         PhasesWinterRapeDao phasesWinterRapeDao = App.getInstance().getDatabase().phasesWinterRapeDao();
 
         List<PhasesWinterRapeModel> list = new ArrayList<>();
-        list.add(new PhasesWinterRapeModel(20, 0, 0, 0,  0, R.drawable.img_phases_spring_wheat, 0, 0,0));
-        list.add(new PhasesWinterRapeModel(30, 1, 1, 1.3,  1, R.drawable.img_phases_spring_wheat, 0, 0,0));
-        list.add(new PhasesWinterRapeModel(40, 2, 2, 3,  2, R.drawable.img_phases_spring_wheat, 0, 0,0));
-        list.add(new PhasesWinterRapeModel(50, 3.2, 3.2, 4.6,  3.2, R.drawable.img_phases_spring_wheat, 0, 0,0));
-        list.add(new PhasesWinterRapeModel(60, 4.3, 4.3, 6.3,  4.3, R.drawable.img_phases_spring_wheat, 0, 0,0));
-        list.add(new PhasesWinterRapeModel(70, 5.4, 5.4, 8.1,  5.4, R.drawable.img_phases_spring_wheat, 0, 0,0));
+        list.add(new PhasesWinterRapeModel(20, 0, 0, 0, 0));
+        list.add(new PhasesWinterRapeModel(30, 1, 1, 1.3, 1));
+        list.add(new PhasesWinterRapeModel(40, 2, 2, 3, 2));
+        list.add(new PhasesWinterRapeModel(50, 3.2, 3.2, 4.6, 3.2));
+        list.add(new PhasesWinterRapeModel(60, 4.3, 4.3, 6.3, 4.3));
+        list.add(new PhasesWinterRapeModel(70, 5.4, 5.4, 8.1, 5.4));
 
         Completable.fromAction(() -> phasesWinterRapeDao.insertList(list))
+                .subscribeOn(Schedulers.io())
+                .subscribe();
+    }
+
+    private static void setPhasesImageData() {
+        PhasesImgDao phasesImageDao = App.getInstance().getDatabase().phasesImgDao();
+
+        List<PhasesImgModel> list = new ArrayList<>();
+        list.add(new PhasesImgModel(1, R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, 0, 0));
+        list.add(new PhasesImgModel(2, R.drawable.phase_corn1, R.drawable.phase_corn2, R.drawable.phase_corn3, 0, 0, 0));
+        list.add(new PhasesImgModel(3, R.drawable.phase_sugar_beet1, R.drawable.phase_sugar_beet2, R.drawable.phase_sugar_beet3, R.drawable.phase_sugar_beet4, R.drawable.phase_sugar_beet5, 0));
+        list.add(new PhasesImgModel(4, R.drawable.phase_soy1, R.drawable.phase_soy2, R.drawable.phase_soy3, 0, 0, 0));
+        list.add(new PhasesImgModel(5, R.drawable.phase_potatoes1, R.drawable.phase_potatoes2, R.drawable.phase_potatoes3, R.drawable.phase_potatoes4, R.drawable.phase_potatoes5, R.drawable.phase_potatoes6));
+        list.add(new PhasesImgModel(6, R.drawable.phase_sun_flower1, R.drawable.phase_sun_flower2, R.drawable.phase_sun_flower3, 0, 0, 0));
+        list.add(new PhasesImgModel(7, R.drawable.phase_winter_rape1, R.drawable.phase_winter_rape2, R.drawable.phase_winter_rape3, R.drawable.phase_winter_rape4, 0, 0));
+        list.add(new PhasesImgModel(8, R.drawable.phase_spring_rape1, R.drawable.phase_spring_rape2, R.drawable.phase_spring_rape3, 0, 0, 0));
+        list.add(new PhasesImgModel(9, R.drawable.phase_spring_wheat1, R.drawable.phase_spring_wheat2, R.drawable.phase_spring_wheat3, R.drawable.phase_spring_wheat4, 0, 0));
+        list.add(new PhasesImgModel(10, R.drawable.phase_chickpea1, R.drawable.phase_chickpea2, R.drawable.phase_chickpea3, 0, 0, 0));
+
+        Completable.fromAction(() -> phasesImageDao.insertList(list))
                 .subscribeOn(Schedulers.io())
                 .subscribe();
     }

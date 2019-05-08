@@ -12,6 +12,7 @@ import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
 import com.example.bionintelligence.data.database.dao.PHDao;
 import com.example.bionintelligence.data.database.dao.PhasesChickpeaDao;
 import com.example.bionintelligence.data.database.dao.PhasesCornDao;
+import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.PhasesPotatoesDao;
 import com.example.bionintelligence.data.database.dao.PhasesSoyDao;
 import com.example.bionintelligence.data.database.dao.PhasesSpringRapeDao;
@@ -33,6 +34,7 @@ import com.example.bionintelligence.data.model.MethodsP2O5Model;
 import com.example.bionintelligence.data.model.PHModel;
 import com.example.bionintelligence.data.model.PhasesChickpeaModel;
 import com.example.bionintelligence.data.model.PhasesCornModel;
+import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.PhasesPotatoesModel;
 import com.example.bionintelligence.data.model.PhasesSoyModel;
 import com.example.bionintelligence.data.model.PhasesSpringRapeModel;
@@ -50,7 +52,7 @@ import com.example.bionintelligence.data.model.WaterConsumptionModel;
         MethodsP2O5Model.class, PHModel.class, PrecipitationRequirementsModel.class, SoilFactorsModel.class, VinosModel.class,
         WaterConsumptionModel.class, CultureModel.class, PhasesChickpeaModel.class, PhasesCornModel.class, PhasesPotatoesModel.class,
         PhasesSoyModel.class, PhasesSpringRapeModel.class, PhasesSpringWheatModel.class, PhasesSugarBeetModel.class,
-        PhasesSunFlowerModel.class, PhasesWinterRapeModel.class, PhasesWinterWheatModel.class},
+        PhasesSunFlowerModel.class, PhasesWinterRapeModel.class, PhasesWinterWheatModel.class, PhasesImgModel.class},
         version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -75,4 +77,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PhasesSunFlowerDao phasesSunFlowerDao();
     public abstract PhasesWinterRapeDao phasesWinterRapeDao();
     public abstract PhasesWinterWheatDao phasesWinterWheatDao();
+    public abstract PhasesImgDao phasesImgDao();
 }

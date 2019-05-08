@@ -13,19 +13,13 @@ public class PhasesCornModel {
     private double fiveSixListiev;
     private double sevenEightListiev;
 
-    private int twoThreeListievImg;
-    private int fiveSixListievImg;
-    private int sevenEightListievImg;
-
     public PhasesCornModel(int productive, double twoThreeListiev, double fiveSixListiev,
-                           double sevenEightListiev, int twoThreeListievImg, int fiveSixListievImg, int sevenEightListievImg) {
+                           double sevenEightListiev) {
         this.productive = productive;
         this.twoThreeListiev = twoThreeListiev;
         this.fiveSixListiev = fiveSixListiev;
         this.sevenEightListiev = sevenEightListiev;
-        this.twoThreeListievImg = twoThreeListievImg;
-        this.fiveSixListievImg = fiveSixListievImg;
-        this.sevenEightListievImg = sevenEightListievImg;
+
     }
 
     public int getId() {
@@ -66,29 +60,6 @@ public class PhasesCornModel {
 
     public void setSevenEightListiev(double sevenEightListiev) {
         this.sevenEightListiev = sevenEightListiev;
-    }
 
-    public int getTwoThreeListievImg() {
-        return twoThreeListievImg;
-    }
-
-    public void setTwoThreeListievImg(int twoThreeListievImg) {
-        this.twoThreeListievImg = twoThreeListievImg;
-    }
-
-    public int getFiveSixListievImg() {
-        return fiveSixListievImg;
-    }
-
-    public void setFiveSixListievImg(int fiveSixListievImg) {
-        this.fiveSixListievImg = fiveSixListievImg;
-    }
-
-    public int getSevenEightListievImg() {
-        return sevenEightListievImg;
-    }
-
-    public void setSevenEightListievImg(int sevenEightListievImg) {
-        this.sevenEightListievImg = sevenEightListievImg;
     }
 }

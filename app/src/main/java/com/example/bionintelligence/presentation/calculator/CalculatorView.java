@@ -4,10 +4,11 @@ import com.example.bionintelligence.data.model.CalculatorModel;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 
 public interface CalculatorView {
+    void displayCalculatorParams(CalculatorParams params);
 
     void getCalculatorData();
 
-    void displayCalculatorParams(CalculatorParams params);
+    void getPhasesData();
 
-    void displayData(CalculatorModel calculatorModel);
+    void displayCalculatorData(CalculatorModel calculatorModel);
 }

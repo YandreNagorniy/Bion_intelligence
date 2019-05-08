@@ -12,19 +12,12 @@ public class PhasesSoyModel {
     private double butonizacia;
     private double naliv;
 
-    private int threeFiveListievImg;
-    private int butonizaciaImg;
-    private int nalivImg;
-
-    public PhasesSoyModel(int productive, double threeFiveListiev, double butonizacia, double naliv,
-                          int threeFiveListievImg, int butonizaciaImg, int nalivImg) {
+    public PhasesSoyModel(int productive, double threeFiveListiev, double butonizacia, double naliv) {
         this.productive = productive;
         this.threeFiveListiev = threeFiveListiev;
         this.butonizacia = butonizacia;
         this.naliv = naliv;
-        this.threeFiveListievImg = threeFiveListievImg;
-        this.butonizaciaImg = butonizaciaImg;
-        this.nalivImg = nalivImg;
+
     }
 
     public int getId() {
@@ -67,27 +60,4 @@ public class PhasesSoyModel {
         this.naliv = naliv;
     }
 
-    public int getThreeFiveListievImg() {
-        return threeFiveListievImg;
-    }
-
-    public void setThreeFiveListievImg(int threeFiveListievImg) {
-        this.threeFiveListievImg = threeFiveListievImg;
-    }
-
-    public int getButonizaciaImg() {
-        return butonizaciaImg;
-    }
-
-    public void setButonizaciaImg(int butonizaciaImg) {
-        this.butonizaciaImg = butonizaciaImg;
-    }
-
-    public int getNalivImg() {
-        return nalivImg;
-    }
-
-    public void setNalivImg(int nalivImg) {
-        this.nalivImg = nalivImg;
-    }
 }

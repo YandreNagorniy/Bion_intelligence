@@ -1,6 +1,17 @@
 package com.example.bionintelligence.data.source;
 
 import com.example.bionintelligence.data.model.CultureModel;
+import com.example.bionintelligence.data.model.PhasesChickpeaModel;
+import com.example.bionintelligence.data.model.PhasesCornModel;
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesPotatoesModel;
+import com.example.bionintelligence.data.model.PhasesSoyModel;
+import com.example.bionintelligence.data.model.PhasesSpringRapeModel;
+import com.example.bionintelligence.data.model.PhasesSpringWheatModel;
+import com.example.bionintelligence.data.model.PhasesSugarBeetModel;
+import com.example.bionintelligence.data.model.PhasesSunFlowerModel;
+import com.example.bionintelligence.data.model.PhasesWinterRapeModel;
+import com.example.bionintelligence.data.model.PhasesWinterWheatModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -44,4 +55,26 @@ public interface DatabaseSource {
     Single<CalculateH2OEntity> getDataH2O(int id);
 
     Flowable<List<CultureModel>> getCultureList();
+
+    Single<PhasesImgModel> getPhaseImg(int cultureId);
+
+    Single<PhasesChickpeaModel> getPhasesChickpea(int productive);
+
+    Single<PhasesCornModel> getPhasesCorn(int productive);
+
+    Single<PhasesPotatoesModel> getPhasesPotatoes(int productive);
+
+    Single<PhasesSoyModel> getPhasesSoy(int productive);
+
+    Single<PhasesSpringRapeModel> getPhasesSpringRape(int productive);
+
+    Single<PhasesSpringWheatModel> getPhasesSpringWheat(int productive);
+
+    Single<PhasesSugarBeetModel> getPhasesSugarBeet(int productive);
+
+    Single<PhasesSunFlowerModel> getPhasesSunFlower(int productive);
+
+    Single<PhasesWinterRapeModel> getPhasesWinterRape(int productive);
+
+    Single<PhasesWinterWheatModel> getPhasesWinterWheat(int productive);
 }

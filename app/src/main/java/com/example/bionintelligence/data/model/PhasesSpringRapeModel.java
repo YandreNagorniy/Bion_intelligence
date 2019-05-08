@@ -12,19 +12,11 @@ public class PhasesSpringRapeModel {
     private double butonizacia;
     private double polnoeCvetenie;
 
-    private int steblevanieImg;
-    private int butonizaciaImg;
-    private int polnoeCvetenieImg;
-
-    public PhasesSpringRapeModel(int productive, double steblevanie, double butonizacia, double polnoeCvetenie,
-                                 int steblevanieImg, int butonizaciaImg, int polnoeCvetenieImg) {
+    public PhasesSpringRapeModel(int productive, double steblevanie, double butonizacia, double polnoeCvetenie) {
         this.productive = productive;
         this.steblevanie = steblevanie;
         this.butonizacia = butonizacia;
         this.polnoeCvetenie = polnoeCvetenie;
-        this.steblevanieImg = steblevanieImg;
-        this.butonizaciaImg = butonizaciaImg;
-        this.polnoeCvetenieImg = polnoeCvetenieImg;
     }
 
     public int getId() {
@@ -67,27 +59,4 @@ public class PhasesSpringRapeModel {
         this.polnoeCvetenie = polnoeCvetenie;
     }
 
-    public int getSteblevanieImg() {
-        return steblevanieImg;
-    }
-
-    public void setSteblevanieImg(int steblevanieImg) {
-        this.steblevanieImg = steblevanieImg;
-    }
-
-    public int getButonizaciaImg() {
-        return butonizaciaImg;
-    }
-
-    public void setButonizaciaImg(int butonizaciaImg) {
-        this.butonizaciaImg = butonizaciaImg;
-    }
-
-    public int getPolnoeCvetenieImg() {
-        return polnoeCvetenieImg;
-    }
-
-    public void setPolnoeCvetenieImg(int polnoeCvetenieImg) {
-        this.polnoeCvetenieImg = polnoeCvetenieImg;
-    }
 }

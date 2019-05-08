@@ -12,6 +12,7 @@ import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.entities.TypeElementEntity;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
+import com.example.bionintelligence.presentation.pojo.PhaseModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,11 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     }
 
     @Override
+    public Single<List<PhaseModel>> getPhasesData(int productive, int cultureId) {
+        return calculatorRepository.getPhasesData(productive, cultureId);
+    }
+
+    @Override
     public Flowable<List<ElementModelEntity>> execute(CalculatorParams params) {
         this.params = params;
         List<Single<ElementModelEntity>> list = new ArrayList<>();
@@ -58,6 +64,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .cache();
 
     }
+
 
     private Single<ElementModelEntity> getDataN(int cultureId) {
         return calculatorRepository.getDataN(cultureId)

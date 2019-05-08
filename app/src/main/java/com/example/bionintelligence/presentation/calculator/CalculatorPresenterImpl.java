@@ -45,7 +45,12 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .map(ElementMapper::mapToCalculatorModel)
-                .subscribe(calculatorModel -> calculatorView.displayData(calculatorModel)));
+                .subscribe(calculatorModel -> calculatorView.displayCalculatorData(calculatorModel)));
+    }
+
+    @Override
+    public void getPhasesData(int productive, int cultureId) {
+//        compositeDisposable.add(getCalculatorUseCase.getPhasesData(productive, cultureId));
     }
 
     @Override
