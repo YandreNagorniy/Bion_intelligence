@@ -43,4 +43,12 @@ public class PhaseView extends FrameLayout {
     public void setPhaseImage(int link) {
         Glide.with(et_phaseImage.getContext()).load(link).into(et_phaseImage);
     }
+
+    public EditText get_phaseValue() {
+        return et_phaseValue;
+    }
+
+    public void set_phaseValue(double value) {
+        this.et_phaseValue.setText(String.valueOf(value));
+    }
 }

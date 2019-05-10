@@ -3,30 +3,12 @@ package com.example.bionintelligence.data.source;
 import com.example.bionintelligence.App;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
 import com.example.bionintelligence.data.database.dao.CultureDao;
-import com.example.bionintelligence.data.database.dao.PhasesChickpeaDao;
-import com.example.bionintelligence.data.database.dao.PhasesCornDao;
+import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
-import com.example.bionintelligence.data.database.dao.PhasesPotatoesDao;
-import com.example.bionintelligence.data.database.dao.PhasesSoyDao;
-import com.example.bionintelligence.data.database.dao.PhasesSpringRapeDao;
-import com.example.bionintelligence.data.database.dao.PhasesSpringWheatDao;
-import com.example.bionintelligence.data.database.dao.PhasesSugarBeetDao;
-import com.example.bionintelligence.data.database.dao.PhasesSunFlowerDao;
-import com.example.bionintelligence.data.database.dao.PhasesWinterRapeDao;
-import com.example.bionintelligence.data.database.dao.PhasesWinterWheatDao;
 import com.example.bionintelligence.data.database.start.AddStartData;
 import com.example.bionintelligence.data.model.CultureModel;
-import com.example.bionintelligence.data.model.PhasesChickpeaModel;
-import com.example.bionintelligence.data.model.PhasesCornModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
-import com.example.bionintelligence.data.model.PhasesPotatoesModel;
-import com.example.bionintelligence.data.model.PhasesSoyModel;
-import com.example.bionintelligence.data.model.PhasesSpringRapeModel;
-import com.example.bionintelligence.data.model.PhasesSpringWheatModel;
-import com.example.bionintelligence.data.model.PhasesSugarBeetModel;
-import com.example.bionintelligence.data.model.PhasesSunFlowerModel;
-import com.example.bionintelligence.data.model.PhasesWinterRapeModel;
-import com.example.bionintelligence.data.model.PhasesWinterWheatModel;
+import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -44,32 +26,13 @@ public class DatabaseSourceImpl implements DatabaseSource {
     private CalculatorDao calculatorDao;
     private CultureDao cultureDao;
     private PhasesImgDao phasesImgDao;
-    private PhasesSoyDao phasesSoyDao;
-    private PhasesPotatoesDao phasesPotatoesDao;
-    private PhasesCornDao phasesCornDao;
-    private PhasesChickpeaDao phasesChickpeaDao;
-    private PhasesSpringRapeDao phasesSpringRapeDao;
-    private PhasesSpringWheatDao phasesSpringWheatDao;
-    private PhasesSugarBeetDao phasesSugarBeetDao;
-    private PhasesSunFlowerDao phasesSunFlowerDao;
-    private PhasesWinterRapeDao phasesWinterRapeDao;
-    private PhasesWinterWheatDao phasesWinterWheatDao;
+    private PhasesDao phasesDao;
 
-    //что елси делать это не в конструкторе а в методах?
     public DatabaseSourceImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
         cultureDao = App.getInstance().getDatabase().cultureDao();
         phasesImgDao = App.getInstance().getDatabase().phasesImgDao();
-        phasesChickpeaDao = App.getInstance().getDatabase().phasesChickpeaDao();
-        phasesCornDao = App.getInstance().getDatabase().phasesCornDao();
-        phasesPotatoesDao = App.getInstance().getDatabase().phasesPotatoesDao();
-        phasesSoyDao = App.getInstance().getDatabase().phasesSoyDao();
-        phasesSpringRapeDao = App.getInstance().getDatabase().phasesSpringRapeDao();
-        phasesSpringWheatDao = App.getInstance().getDatabase().phasesSpringWheatDao();
-        phasesSugarBeetDao = App.getInstance().getDatabase().phasesSugarBeetDao();
-        phasesSunFlowerDao = App.getInstance().getDatabase().phasesSunFlowerDao();
-        phasesWinterRapeDao = App.getInstance().getDatabase().phasesWinterRapeDao();
-        phasesWinterWheatDao = App.getInstance().getDatabase().phasesWinterWheatDao();
+        phasesDao = App.getInstance().getDatabase().phasesDao();
     }
 
     @Override
@@ -149,56 +112,11 @@ public class DatabaseSourceImpl implements DatabaseSource {
 
     @Override
     public Single<PhasesImgModel> getPhaseImg(int cultureId) {
-        return phasesImgDao.getByCultureId(cultureId);
+        return phasesImgDao.getPhaseImgByCultureId(cultureId);
     }
 
     @Override
-    public Single<PhasesChickpeaModel> getPhasesChickpea(int productive) {
-        return phasesChickpeaDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesCornModel> getPhasesCorn(int productive) {
-        return phasesCornDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesPotatoesModel> getPhasesPotatoes(int productive) {
-        return phasesPotatoesDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesSoyModel> getPhasesSoy(int productive) {
-        return phasesSoyDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesSpringRapeModel> getPhasesSpringRape(int productive) {
-        return phasesSpringRapeDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesSpringWheatModel> getPhasesSpringWheat(int productive) {
-        return phasesSpringWheatDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesSugarBeetModel> getPhasesSugarBeet(int productive) {
-        return phasesSugarBeetDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesSunFlowerModel> getPhasesSunFlower(int productive) {
-        return phasesSunFlowerDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesWinterRapeModel> getPhasesWinterRape(int productive) {
-        return phasesWinterRapeDao.getByProductive(productive);
-    }
-
-    @Override
-    public Single<PhasesWinterWheatModel> getPhasesWinterWheat(int productive) {
-        return phasesWinterWheatDao.getByProductive(productive);
+    public Single<PhasesModel> getPhases(int cultureId, int productive) {
+        return phasesDao.getPhases(cultureId, productive);
     }
 }

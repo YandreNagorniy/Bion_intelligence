@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "90844b74d20859ec33012847cb3ec267",
+    "identityHash": "d8ce7cfee940cdc019209e8c845a2219",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -819,497 +819,15 @@
         "foreignKeys": []
       },
       {
-        "tableName": "PhasesChickpeaModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `threeFiveListiev` REAL NOT NULL, `butonizacia` REAL NOT NULL, `naliv` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "threeFiveListiev",
-            "columnName": "threeFiveListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizacia",
-            "columnName": "butonizacia",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "naliv",
-            "columnName": "naliv",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesCornModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoThreeListiev` REAL NOT NULL, `fiveSixListiev` REAL NOT NULL, `sevenEightListiev` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "twoThreeListiev",
-            "columnName": "twoThreeListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "fiveSixListiev",
-            "columnName": "fiveSixListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "sevenEightListiev",
-            "columnName": "sevenEightListiev",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesPotatoesModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `vshodi` REAL NOT NULL, `rostListiev` REAL NOT NULL, `smikanieRiadov` REAL NOT NULL, `butonizacia` REAL NOT NULL, `cvetenie` REAL NOT NULL, `nalivClybnia` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "vshodi",
-            "columnName": "vshodi",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "rostListiev",
-            "columnName": "rostListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "smikanieRiadov",
-            "columnName": "smikanieRiadov",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizacia",
-            "columnName": "butonizacia",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "cvetenie",
-            "columnName": "cvetenie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivClybnia",
-            "columnName": "nalivClybnia",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesSoyModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `threeFiveListiev` REAL NOT NULL, `butonizacia` REAL NOT NULL, `naliv` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "threeFiveListiev",
-            "columnName": "threeFiveListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizacia",
-            "columnName": "butonizacia",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "naliv",
-            "columnName": "naliv",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesSpringRapeModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `steblevanie` REAL NOT NULL, `butonizacia` REAL NOT NULL, `polnoeCvetenie` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "steblevanie",
-            "columnName": "steblevanie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizacia",
-            "columnName": "butonizacia",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "polnoeCvetenie",
-            "columnName": "polnoeCvetenie",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesSpringWheatModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `kushenie` REAL NOT NULL, `trubkovanie` REAL NOT NULL, `koloshenie` REAL NOT NULL, `naliv` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "kushenie",
-            "columnName": "kushenie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "trubkovanie",
-            "columnName": "trubkovanie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "koloshenie",
-            "columnName": "koloshenie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "naliv",
-            "columnName": "naliv",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesSugarBeetModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoTreeParaListiev` REAL NOT NULL, `fourFiveParaListiev` REAL NOT NULL, `smikanieRiadov` REAL NOT NULL, `smikanieMejdyRiadov` REAL NOT NULL, `nalivCorneploda` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "twoTreeParaListiev",
-            "columnName": "twoTreeParaListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "fourFiveParaListiev",
-            "columnName": "fourFiveParaListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "smikanieRiadov",
-            "columnName": "smikanieRiadov",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "smikanieMejdyRiadov",
-            "columnName": "smikanieMejdyRiadov",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "nalivCorneploda",
-            "columnName": "nalivCorneploda",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesSunFlowerModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `twoFourListiev` REAL NOT NULL, `eightTenSheets` REAL NOT NULL, `closeSocvetie` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "twoFourListiev",
-            "columnName": "twoFourListiev",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "eightTenSheets",
-            "columnName": "eightTenSheets",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "closeSocvetie",
-            "columnName": "closeSocvetie",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesWinterRapeModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `startSteblevanie` REAL NOT NULL, `butonizacia` REAL NOT NULL, `startCvetenie` REAL NOT NULL, `naliv` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "startSteblevanie",
-            "columnName": "startSteblevanie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "butonizacia",
-            "columnName": "butonizacia",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "startCvetenie",
-            "columnName": "startCvetenie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "naliv",
-            "columnName": "naliv",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "PhasesWinterWheatModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `productive` INTEGER NOT NULL, `kushenie` REAL NOT NULL, `trubkovanie` REAL NOT NULL, `koloshenie` REAL NOT NULL, `naliv` REAL NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "productive",
-            "columnName": "productive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "kushenie",
-            "columnName": "kushenie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "trubkovanie",
-            "columnName": "trubkovanie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "koloshenie",
-            "columnName": "koloshenie",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "naliv",
-            "columnName": "naliv",
-            "affinity": "REAL",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
         "tableName": "PhasesImgModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cultureId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `one` INTEGER NOT NULL, `two` INTEGER NOT NULL, `three` INTEGER NOT NULL, `four` INTEGER NOT NULL, `five` INTEGER NOT NULL, `six` INTEGER NOT NULL, FOREIGN KEY(`cultureId`) REFERENCES `CultureModel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureId` INTEGER NOT NULL, `phaseImgOne` INTEGER NOT NULL, `phaseImgTwo` INTEGER NOT NULL, `phaseImgThree` INTEGER NOT NULL, `phaseImgFour` INTEGER NOT NULL, `phaseImgFive` INTEGER NOT NULL, `phaseImgSix` INTEGER NOT NULL, FOREIGN KEY(`cultureId`) REFERENCES `CultureModel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "cultureId",
             "columnName": "cultureId",
@@ -1317,45 +835,45 @@
             "notNull": true
           },
           {
-            "fieldPath": "one",
-            "columnName": "one",
+            "fieldPath": "phaseImgOne",
+            "columnName": "phaseImgOne",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "two",
-            "columnName": "two",
+            "fieldPath": "phaseImgTwo",
+            "columnName": "phaseImgTwo",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "three",
-            "columnName": "three",
+            "fieldPath": "phaseImgThree",
+            "columnName": "phaseImgThree",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "four",
-            "columnName": "four",
+            "fieldPath": "phaseImgFour",
+            "columnName": "phaseImgFour",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "five",
-            "columnName": "five",
+            "fieldPath": "phaseImgFive",
+            "columnName": "phaseImgFive",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "six",
-            "columnName": "six",
+            "fieldPath": "phaseImgSix",
+            "columnName": "phaseImgSix",
             "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "cultureId"
+            "id"
           ],
           "autoGenerate": true
         },
@@ -1382,11 +900,100 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "PhasesModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureId` INTEGER NOT NULL, `productive` INTEGER NOT NULL, `phaseOne` REAL NOT NULL, `phaseTwo` REAL NOT NULL, `phaseThree` REAL NOT NULL, `phaseFour` REAL NOT NULL, `phaseFive` REAL NOT NULL, `phaseSix` REAL NOT NULL, FOREIGN KEY(`cultureId`) REFERENCES `CultureModel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cultureId",
+            "columnName": "cultureId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productive",
+            "columnName": "productive",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phaseOne",
+            "columnName": "phaseOne",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phaseTwo",
+            "columnName": "phaseTwo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phaseThree",
+            "columnName": "phaseThree",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phaseFour",
+            "columnName": "phaseFour",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phaseFive",
+            "columnName": "phaseFive",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phaseSix",
+            "columnName": "phaseSix",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_PhasesModel_cultureId",
+            "unique": false,
+            "columnNames": [
+              "cultureId"
+            ],
+            "createSql": "CREATE  INDEX `index_PhasesModel_cultureId` ON `${TABLE_NAME}` (`cultureId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CultureModel",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cultureId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"90844b74d20859ec33012847cb3ec267\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d8ce7cfee940cdc019209e8c845a2219\")"
     ]
   }
 }

@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.model.CalculatorModel;
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.data.source.DatabaseSourceImpl;
 import com.example.bionintelligence.data.source.LocalSourceImpl;
@@ -81,6 +84,12 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void displayCalculatorData(CalculatorModel calculatorModel) {
         binding.setElement(calculatorModel);
+    }
+
+    @Override
+    public void displayPhasesData(PhasesModel phases, PhasesImgModel phasesImg) {
+//        binding.setPhases(phases);
+        int a = 0;
     }
 
     @Override //data about select culture from CultureActivity

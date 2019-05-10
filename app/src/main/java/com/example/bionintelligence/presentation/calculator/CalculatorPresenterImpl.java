@@ -1,6 +1,10 @@
 package com.example.bionintelligence.presentation.calculator;
 
+import android.util.Pair;
+
 import com.example.bionintelligence.data.map.ElementMapper;
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.usecase.FlowableUseCase;
@@ -9,6 +13,7 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
@@ -50,7 +55,10 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public void getPhasesData(int productive, int cultureId) {
-//        compositeDisposable.add(getCalculatorUseCase.getPhasesData(productive, cultureId));
+        compositeDisposable.add(getCalculatorUseCase.getPhasesData(productive, cultureId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(phasesPair -> calculatorView.displayPhasesData(phasesPair.first, phasesPair.second)));
     }
 
     @Override

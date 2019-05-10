@@ -1,5 +1,9 @@
 package com.example.bionintelligence.domain.usecase;
 
+import android.util.Pair;
+
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
@@ -12,7 +16,6 @@ import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
 import com.example.bionintelligence.domain.entities.TypeElementEntity;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
-import com.example.bionintelligence.presentation.pojo.PhaseModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +44,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     }
 
     @Override
-    public Single<List<PhaseModel>> getPhasesData(int productive, int cultureId) {
+    public Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId) {
         return calculatorRepository.getPhasesData(productive, cultureId);
     }
 
@@ -57,7 +60,6 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
         list.add(getDataS(params.getCultureId()));
         list.add(getDataH20(params.getCultureId()));
 
-        //чекнуь
         return Single.concat(list)
                 .observeOn(AndroidSchedulers.mainThread())
                 .buffer(7)
@@ -132,8 +134,6 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
         n = vinos_N * params.getProductive() - (sf_N * 3.96 * kusv_N * phN + x);
 
-//        if(n<0) return 0;
-//        else return (int) Math.round(n);
 
         return n < 0 ? 0 : (int) Math.round(n);
     }

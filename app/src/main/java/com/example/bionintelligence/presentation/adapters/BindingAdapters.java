@@ -23,4 +23,9 @@ public class BindingAdapters {
     public static void setPhaseImage(PhaseView phaseView, int link) {
         phaseView.setPhaseImage(link);
     }
+
+    @BindingAdapter({"phase_value"})
+    public static void setPhases(PhaseView phaseView, double value) {
+        phaseView.set_phaseValue(value);
+    }
 }

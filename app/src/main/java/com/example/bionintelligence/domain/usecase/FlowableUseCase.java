@@ -1,9 +1,10 @@
 package com.example.bionintelligence.domain.usecase;
 
-import com.example.bionintelligence.domain.entities.CalculatorParams;
-import com.example.bionintelligence.presentation.pojo.PhaseModel;
+import android.util.Pair;
 
-import java.util.List;
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.domain.entities.CalculatorParams;
 
 import io.reactivex.Flowable;
 import io.reactivex.Single;
@@ -14,7 +15,7 @@ public abstract class FlowableUseCase<PARAMS, VALUE> {
 
     public abstract void setParamsData(CalculatorParams params);
 
-    public abstract Single<List<PhaseModel>> getPhasesData(int productive, int cultureId);
+    public abstract Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId);
 
 
     public abstract Flowable<VALUE> execute(PARAMS params);

@@ -10,24 +10,33 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 @Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE),
         indices = @Index(value = "cultureId"))
 public class PhasesImgModel {
-
     @PrimaryKey(autoGenerate = true)
+    private int id;
     private int cultureId;
-    private int one;
-    private int two;
-    private int three;
-    private int four;
-    private int five;
-    private int six;
+    private int phaseImgOne;
+    private int phaseImgTwo;
+    private int phaseImgThree;
+    private int phaseImgFour;
+    private int phaseImgFive;
+    private int phaseImgSix;
 
-    public PhasesImgModel(int cultureId, int one, int two, int three, int four, int five, int six) {
+    public PhasesImgModel(int cultureId, int phaseImgOne, int phaseImgTwo, int phaseImgThree, int phaseImgFour,
+                          int phaseImgFive, int phaseImgSix) {
         this.cultureId = cultureId;
-        this.one = one;
-        this.two = two;
-        this.three = three;
-        this.four = four;
-        this.five = five;
-        this.six = six;
+        this.phaseImgOne = phaseImgOne;
+        this.phaseImgTwo = phaseImgTwo;
+        this.phaseImgThree = phaseImgThree;
+        this.phaseImgFour = phaseImgFour;
+        this.phaseImgFive = phaseImgFive;
+        this.phaseImgSix = phaseImgSix;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCultureId() {
@@ -38,51 +47,51 @@ public class PhasesImgModel {
         this.cultureId = cultureId;
     }
 
-    public int getOne() {
-        return one;
+    public int getPhaseImgOne() {
+        return phaseImgOne;
     }
 
-    public void setOne(int one) {
-        this.one = one;
+    public void setPhaseImgOne(int phaseImgOne) {
+        this.phaseImgOne = phaseImgOne;
     }
 
-    public int getTwo() {
-        return two;
+    public int getPhaseImgTwo() {
+        return phaseImgTwo;
     }
 
-    public void setTwo(int two) {
-        this.two = two;
+    public void setPhaseImgTwo(int phaseImgTwo) {
+        this.phaseImgTwo = phaseImgTwo;
     }
 
-    public int getThree() {
-        return three;
+    public int getPhaseImgThree() {
+        return phaseImgThree;
     }
 
-    public void setThree(int three) {
-        this.three = three;
+    public void setPhaseImgThree(int phaseImgThree) {
+        this.phaseImgThree = phaseImgThree;
     }
 
-    public int getFour() {
-        return four;
+    public int getPhaseImgFour() {
+        return phaseImgFour;
     }
 
-    public void setFour(int four) {
-        this.four = four;
+    public void setPhaseImgFour(int phaseImgFour) {
+        this.phaseImgFour = phaseImgFour;
     }
 
-    public int getFive() {
-        return five;
+    public int getPhaseImgFive() {
+        return phaseImgFive;
     }
 
-    public void setFive(int five) {
-        this.five = five;
+    public void setPhaseImgFive(int phaseImgFive) {
+        this.phaseImgFive = phaseImgFive;
     }
 
-    public int getSix() {
-        return six;
+    public int getPhaseImgSix() {
+        return phaseImgSix;
     }
 
-    public void setSix(int six) {
-        this.six = six;
+    public void setPhaseImgSix(int phaseImgSix) {
+        this.phaseImgSix = phaseImgSix;
     }
 }

@@ -2,6 +2,8 @@ package com.example.bionintelligence.domain.repositories;
 
 import android.util.Pair;
 
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -10,9 +12,6 @@ import com.example.bionintelligence.domain.entities.CalculateNEntity;
 import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
-import com.example.bionintelligence.presentation.pojo.PhaseModel;
-
-import java.util.List;
 
 import io.reactivex.Single;
 
@@ -39,6 +38,6 @@ public interface CalculatorRepository {
 
     Single<CalculateH2OEntity> getDataH2O(int id);
 
-    Single<List<PhaseModel>> getPhasesData(int productive, int cultureId);
+    Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId);
 
 }

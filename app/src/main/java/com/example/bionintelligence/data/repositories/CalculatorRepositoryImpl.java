@@ -2,6 +2,8 @@ package com.example.bionintelligence.data.repositories;
 
 import android.util.Pair;
 
+import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.source.DatabaseSource;
 import com.example.bionintelligence.data.source.LocalSource;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
@@ -13,11 +15,9 @@ import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
-import com.example.bionintelligence.presentation.pojo.PhaseModel;
-
-import java.util.List;
 
 import io.reactivex.Single;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorRepositoryImpl implements CalculatorRepository {
@@ -82,24 +82,24 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     public Single<Pair<Double, CalculateCaOEntity>> getDataCaO(int id) {
         return databaseSource.getDataCaO(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateK2OEntity -> databaseSource.getPhCaO(calculateK2OEntity.sf_pH)
-                        .zipWith(Single.just(calculateK2OEntity), Pair::new));
+                .flatMap(calculateCaOEntity -> databaseSource.getPhCaO(calculateCaOEntity.sf_pH)
+                        .zipWith(Single.just(calculateCaOEntity), Pair::new));
     }
 
     @Override
     public Single<Pair<Double, CalculateMgOEntity>> getDataMgO(int id) {
         return databaseSource.getDataMgO(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateK2OEntity -> databaseSource.getPhMgO(calculateK2OEntity.sf_pH)
-                        .zipWith(Single.just(calculateK2OEntity), Pair::new));
+                .flatMap(calculateMgOEntity -> databaseSource.getPhMgO(calculateMgOEntity.sf_pH)
+                        .zipWith(Single.just(calculateMgOEntity), Pair::new));
     }
 
     @Override
     public Single<Pair<Double, CalculateSEntity>> getDataS(int id) {
         return databaseSource.getDataS(id)
                 .subscribeOn(Schedulers.io())
-                .flatMap(calculateK2OEntity -> databaseSource.getPhS(calculateK2OEntity.sf_pH)
-                        .zipWith(Single.just(calculateK2OEntity), Pair::new));
+                .flatMap(calculateSEntity -> databaseSource.getPhS(calculateSEntity.sf_pH)
+                        .zipWith(Single.just(calculateSEntity), Pair::new));
     }
 
     @Override
@@ -108,8 +108,11 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     }
 
     @Override
-    public Single<List<PhaseModel>> getPhasesData(int productive, int cultureId) {
+    public Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId) {
 
-        return null;
+        return databaseSource.getPhases(cultureId, productive)
+                .subscribeOn(Schedulers.io())
+                .flatMap(phasesModel -> databaseSource.getPhaseImg(cultureId)
+                        .zipWith(Single.just(phasesModel), (phasesImgModel, phasesModel1) -> new Pair<>(phasesModel1, phasesImgModel)));
     }
 }
