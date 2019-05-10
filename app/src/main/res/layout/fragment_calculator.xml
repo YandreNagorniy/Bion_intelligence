@@ -12,6 +12,13 @@
         <variable
             name="params"
             type="com.example.bionintelligence.domain.entities.CalculatorParams" />
+
+        <variable
+            name="phases"
+            type="com.example.bionintelligence.data.model.PhasesModel" />
+        <variable
+            name="phasesImg"
+            type="com.example.bionintelligence.data.model.PhasesImgModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -199,7 +206,71 @@
                 app:layout_constraintTop_toBottomOf="@id/chv_CaO" />
         </android.support.constraint.ConstraintLayout>
 
-        <include layout="@layout/card_phases" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_Chemistry">
+
+            <com.example.bionintelligence.presentation.custom.PhaseView
+                android:id="@+id/phaseView_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                app:phase_img="@{phasesImg.phaseImgOne}"
+                app:phase_value="@{phases.phaseOne}" />
+
+            <com.example.bionintelligence.presentation.custom.PhaseView
+                android:id="@+id/phaseView_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:phase_img="@{phasesImg.phaseImgTwo}"
+                app:phase_value="@{phases.phaseTwo}" />
+
+            <com.example.bionintelligence.presentation.custom.PhaseView
+                android:id="@+id/phaseView_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:phase_img="@{phasesImg.phaseImgThree}"
+                app:phase_value="@{phases.phaseThree}" />
+
+            <com.example.bionintelligence.presentation.custom.PhaseView
+                android:id="@+id/phaseView_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:phase_img="@{phasesImg.phaseImgFour}"
+                app:phase_value="@{phases.phaseFour}" />
+
+            <com.example.bionintelligence.presentation.custom.PhaseView
+                android:id="@+id/phaseView_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:phase_img="@{phasesImg.phaseImgFive}"
+                app:phase_value="@{phases.phaseFive}" />
+
+            <com.example.bionintelligence.presentation.custom.PhaseView
+                android:id="@+id/phaseView_six"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                app:phase_img="@{phasesImg.phaseImgSix}"
+                app:phase_value="@{phases.phaseSix}" />
+
+        </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

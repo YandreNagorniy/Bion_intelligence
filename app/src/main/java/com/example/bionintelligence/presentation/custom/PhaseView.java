@@ -31,6 +31,7 @@ public class PhaseView extends FrameLayout {
         Float phaseValue = array.getFloat(R.styleable.PhaseView_phase_value, 0);
 
         et_phaseValue = findViewById(R.id.et_phaseValue);
+        et_phaseImage= findViewById(R.id.iv_phaseImage);
 
         et_phaseValue.setText(String.valueOf(phaseValue));
         array.recycle();
@@ -41,7 +42,8 @@ public class PhaseView extends FrameLayout {
     }
 
     public void setPhaseImage(int link) {
-        Glide.with(et_phaseImage.getContext()).load(link).into(et_phaseImage);
+        if(link!=0)
+            Glide.with(et_phaseImage.getContext()).load(link).into(et_phaseImage);
     }
 
     public EditText get_phaseValue() {

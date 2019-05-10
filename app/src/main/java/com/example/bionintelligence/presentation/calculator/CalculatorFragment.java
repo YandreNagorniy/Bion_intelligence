@@ -88,8 +88,8 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
     @Override
     public void displayPhasesData(PhasesModel phases, PhasesImgModel phasesImg) {
-//        binding.setPhases(phases);
-        int a = 0;
+        binding.setPhasesImg(phasesImg);
+        binding.setPhases(phases);
     }
 
     @Override //data about select culture from CultureActivity
@@ -98,6 +98,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
             binding.cultureId.setText(String.valueOf(data.getIntExtra("cultureId", 1)));
             binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
             getCalculatorData();
+            getPhasesData();
         }
     }
 

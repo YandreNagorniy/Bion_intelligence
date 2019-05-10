@@ -1,6 +1,7 @@
 package com.example.bionintelligence.presentation.adapters;
 
 import android.databinding.BindingAdapter;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -19,13 +20,16 @@ public class BindingAdapters {
         Glide.with(imageView.getContext()).load(link).into(imageView);
     }
 
-    @BindingAdapter({"phase_src"})
+    @BindingAdapter({"phase_img"})
     public static void setPhaseImage(PhaseView phaseView, int link) {
         phaseView.setPhaseImage(link);
     }
 
     @BindingAdapter({"phase_value"})
     public static void setPhases(PhaseView phaseView, double value) {
-        phaseView.set_phaseValue(value);
+        if (value < 0) {
+            phaseView.setVisibility(View.GONE);
+        } else
+            phaseView.set_phaseValue(value);
     }
 }
