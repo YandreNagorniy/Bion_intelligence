@@ -3,6 +3,7 @@ package com.example.bionintelligence.domain.usecase;
 import android.util.Pair;
 
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
@@ -46,6 +47,11 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     @Override
     public Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId) {
         return calculatorRepository.getPhasesData(productive, cultureId);
+    }
+
+    @Override
+    public Single<PhasesInfoModel> getPhasesInfo(int cultureId) {
+        return calculatorRepository.getPhasesInfo(cultureId);
     }
 
     @Override

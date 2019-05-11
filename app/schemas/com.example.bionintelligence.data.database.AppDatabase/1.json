@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d8ce7cfee940cdc019209e8c845a2219",
+    "identityHash": "036e1cc83540a8c11367ceb63b8dd124",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -989,11 +989,76 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "PhasesInfoModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureId` INTEGER NOT NULL, `productiveStep` INTEGER NOT NULL, `productiveMin` INTEGER NOT NULL, `productiveMax` INTEGER NOT NULL, FOREIGN KEY(`cultureId`) REFERENCES `CultureModel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cultureId",
+            "columnName": "cultureId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productiveStep",
+            "columnName": "productiveStep",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productiveMin",
+            "columnName": "productiveMin",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productiveMax",
+            "columnName": "productiveMax",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_PhasesInfoModel_cultureId",
+            "unique": false,
+            "columnNames": [
+              "cultureId"
+            ],
+            "createSql": "CREATE  INDEX `index_PhasesInfoModel_cultureId` ON `${TABLE_NAME}` (`cultureId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "CultureModel",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cultureId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d8ce7cfee940cdc019209e8c845a2219\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"036e1cc83540a8c11367ceb63b8dd124\")"
     ]
   }
 }

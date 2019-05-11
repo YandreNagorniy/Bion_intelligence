@@ -2,6 +2,7 @@ package com.example.bionintelligence.data.source;
 
 import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
@@ -50,4 +51,6 @@ public interface DatabaseSource {
     Single<PhasesImgModel> getPhaseImg(int cultureId);
 
     Single<PhasesModel> getPhases(int cultureId, int productive);
+
+    Single<PhasesInfoModel> getPhasesInfo(int cultureId);
 }

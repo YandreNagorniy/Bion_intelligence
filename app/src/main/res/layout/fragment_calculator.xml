@@ -94,7 +94,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_setYield"
             app:max="150"
             app:min="0"
-            app:unit="2"
+            app:unit="10"
             app:value="@{params.productive}" />
 
         <android.support.constraint.ConstraintLayout

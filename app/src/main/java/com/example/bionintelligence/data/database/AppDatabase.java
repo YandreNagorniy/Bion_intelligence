@@ -10,6 +10,7 @@ import com.example.bionintelligence.data.database.dao.MethodsK2ODao;
 import com.example.bionintelligence.data.database.dao.MethodsNDao;
 import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
 import com.example.bionintelligence.data.database.dao.PHDao;
+import com.example.bionintelligence.data.database.dao.PhaseInfoDao;
 import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.PrecipitationRequirementsDao;
@@ -24,6 +25,7 @@ import com.example.bionintelligence.data.model.MethodsNModel;
 import com.example.bionintelligence.data.model.MethodsP2O5Model;
 import com.example.bionintelligence.data.model.PHModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.model.PrecipitationRequirementsModel;
 import com.example.bionintelligence.data.model.SoilFactorsModel;
@@ -32,7 +34,7 @@ import com.example.bionintelligence.data.model.WaterConsumptionModel;
 
 @Database(entities = {CalculatorModel.class, KUsvModel.class, MethodsK2OModel.class, MethodsNModel.class,
         MethodsP2O5Model.class, PHModel.class, PrecipitationRequirementsModel.class, SoilFactorsModel.class, VinosModel.class,
-        WaterConsumptionModel.class, CultureModel.class, PhasesImgModel.class, PhasesModel.class},
+        WaterConsumptionModel.class, CultureModel.class, PhasesImgModel.class, PhasesModel.class, PhasesInfoModel.class},
         version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -49,4 +51,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CultureDao cultureDao();
     public abstract PhasesImgDao phasesImgDao();
     public abstract PhasesDao phasesDao();
+    public abstract PhaseInfoDao phaseInfoDao();
 }

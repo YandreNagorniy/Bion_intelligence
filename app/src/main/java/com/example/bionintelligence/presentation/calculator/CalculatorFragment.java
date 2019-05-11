@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.model.CalculatorModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.data.source.DatabaseSourceImpl;
@@ -90,6 +91,11 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     public void displayPhasesData(PhasesModel phases, PhasesImgModel phasesImg) {
         binding.setPhasesImg(phasesImg);
         binding.setPhases(phases);
+    }
+
+    @Override
+    public void setProductiveParams(PhasesInfoModel params) {
+        int a=0;
     }
 
     @Override //data about select culture from CultureActivity

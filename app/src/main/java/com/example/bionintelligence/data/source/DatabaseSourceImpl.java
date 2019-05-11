@@ -3,11 +3,13 @@ package com.example.bionintelligence.data.source;
 import com.example.bionintelligence.App;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
 import com.example.bionintelligence.data.database.dao.CultureDao;
+import com.example.bionintelligence.data.database.dao.PhaseInfoDao;
 import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.start.AddStartData;
 import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
@@ -27,12 +29,14 @@ public class DatabaseSourceImpl implements DatabaseSource {
     private CultureDao cultureDao;
     private PhasesImgDao phasesImgDao;
     private PhasesDao phasesDao;
+    private PhaseInfoDao phaseInfoDao;
 
     public DatabaseSourceImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
         cultureDao = App.getInstance().getDatabase().cultureDao();
         phasesImgDao = App.getInstance().getDatabase().phasesImgDao();
         phasesDao = App.getInstance().getDatabase().phasesDao();
+        phaseInfoDao = App.getInstance().getDatabase().phaseInfoDao();
     }
 
     @Override
@@ -118,5 +122,10 @@ public class DatabaseSourceImpl implements DatabaseSource {
     @Override
     public Single<PhasesModel> getPhases(int cultureId, int productive) {
         return phasesDao.getPhases(cultureId, productive);
+    }
+
+    @Override
+    public Single<PhasesInfoModel> getPhasesInfo(int cultureId) {
+        return phaseInfoDao.getPhasesInfo(cultureId);
     }
 }

@@ -3,6 +3,7 @@ package com.example.bionintelligence.data.repositories;
 import android.util.Pair;
 
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.source.DatabaseSource;
 import com.example.bionintelligence.data.source.LocalSource;
@@ -17,7 +18,6 @@ import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
 import io.reactivex.Single;
-import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorRepositoryImpl implements CalculatorRepository {
@@ -109,10 +109,14 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
 
     @Override
     public Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId) {
-
         return databaseSource.getPhases(cultureId, productive)
                 .subscribeOn(Schedulers.io())
                 .flatMap(phasesModel -> databaseSource.getPhaseImg(cultureId)
                         .zipWith(Single.just(phasesModel), (phasesImgModel, phasesModel1) -> new Pair<>(phasesModel1, phasesImgModel)));
+    }
+
+    @Override
+    public Single<PhasesInfoModel> getPhasesInfo(int cultureId) {
+        return databaseSource.getPhasesInfo(cultureId);
     }
 }

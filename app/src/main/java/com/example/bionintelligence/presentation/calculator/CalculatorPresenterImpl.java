@@ -4,6 +4,7 @@ import android.util.Pair;
 
 import com.example.bionintelligence.data.map.ElementMapper;
 import com.example.bionintelligence.data.model.PhasesImgModel;
+import com.example.bionintelligence.data.model.PhasesInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
@@ -11,6 +12,7 @@ import com.example.bionintelligence.domain.usecase.FlowableUseCase;
 
 import java.util.List;
 
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -59,6 +61,19 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(phasesPair -> calculatorView.displayPhasesData(phasesPair.first, phasesPair.second)));
+    }
+
+    @Override
+    public void getPhasesInfo(int cultureId) {
+        compositeDisposable.add(getCalculatorUseCase.getPhasesInfo(cultureId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Consumer<PhasesInfoModel>() {
+                    @Override
+                    public void accept(PhasesInfoModel phasesInfoModel) throws Exception {
+
+                    }
+                }));
     }
 
     @Override
