@@ -17,4 +17,17 @@ public interface LocalSource {
     int getSettingsCultureProductive();
 
     void setSettingsCultureProductive(int culture_productive);
+
+    int getSettingsProductiveMax();
+
+
+    void setSettingsProductiveMax(int productiveMax);
+
+    int getSettingsProductiveMin();
+
+    void setSettingsProductiveMin(int productiveMin);
+
+    int getSettingsProductiveStep();
+
+    void setSettingsProductiveStep(int productiveStep);
 }

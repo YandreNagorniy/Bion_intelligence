@@ -11,6 +11,9 @@ public class LocalSourceImpl implements LocalSource {
     private static final String CULTURE_ID = "culture_id";
     private static final String CULTURE_NAME = "culture_name";
     private static final String CULTURE_PRODUCTIVE = "culture_productive";
+    private static final String PRODUCTIVE_MAX = "productive_max";
+    private static final String PRODUCTIVE_MIN = "productive_min";
+    private static final String PRODUCTIVE_STEP = "productive_step";
     private SharedPreferences sharedPreferences;
 
     public LocalSourceImpl(WeakReference<Context> context) {
@@ -55,5 +58,35 @@ public class LocalSourceImpl implements LocalSource {
     @Override
     public void setSettingsCultureProductive(int culture_productive) {
         sharedPreferences.edit().putInt(CULTURE_PRODUCTIVE, culture_productive).apply();
+    }
+
+    @Override
+    public int getSettingsProductiveMax() {
+        return sharedPreferences.getInt(PRODUCTIVE_MAX, 120);
+    }
+
+    @Override
+    public void setSettingsProductiveMax(int productiveMax) {
+        sharedPreferences.edit().putInt(PRODUCTIVE_MAX, productiveMax).apply();
+    }
+
+    @Override
+    public int getSettingsProductiveMin() {
+        return sharedPreferences.getInt(PRODUCTIVE_MIN, 30);
+    }
+
+    @Override
+    public void setSettingsProductiveMin(int productiveMin) {
+        sharedPreferences.edit().putInt(PRODUCTIVE_MIN, productiveMin).apply();
+    }
+
+    @Override
+    public int getSettingsProductiveStep() {
+        return sharedPreferences.getInt(PRODUCTIVE_STEP, 10);
+    }
+
+    @Override
+    public void setSettingsProductiveStep(int productiveStep) {
+        sharedPreferences.edit().putInt(PRODUCTIVE_STEP, productiveStep).apply();
     }
 }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "036e1cc83540a8c11367ceb63b8dd124",
+    "identityHash": "a333c413090c517117ef42dd53a1adf0",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -991,7 +991,7 @@
         ]
       },
       {
-        "tableName": "PhasesInfoModel",
+        "tableName": "ProductiveInfoModel",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureId` INTEGER NOT NULL, `productiveStep` INTEGER NOT NULL, `productiveMin` INTEGER NOT NULL, `productiveMax` INTEGER NOT NULL, FOREIGN KEY(`cultureId`) REFERENCES `CultureModel`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
@@ -1033,12 +1033,12 @@
         },
         "indices": [
           {
-            "name": "index_PhasesInfoModel_cultureId",
+            "name": "index_ProductiveInfoModel_cultureId",
             "unique": false,
             "columnNames": [
               "cultureId"
             ],
-            "createSql": "CREATE  INDEX `index_PhasesInfoModel_cultureId` ON `${TABLE_NAME}` (`cultureId`)"
+            "createSql": "CREATE  INDEX `index_ProductiveInfoModel_cultureId` ON `${TABLE_NAME}` (`cultureId`)"
           }
         ],
         "foreignKeys": [
@@ -1058,7 +1058,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"036e1cc83540a8c11367ceb63b8dd124\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a333c413090c517117ef42dd53a1adf0\")"
     ]
   }
 }

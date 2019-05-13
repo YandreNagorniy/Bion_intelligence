@@ -5,20 +5,20 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.example.bionintelligence.data.model.PhasesInfoModel;
+import com.example.bionintelligence.data.model.ProductiveInfoModel;
 
 import java.util.List;
 
 import io.reactivex.Single;
 
 @Dao
-public interface PhaseInfoDao {
-    @Query("SELECT * FROM PhasesInfoModel WHERE cultureId IS :cultureId")
-    Single<PhasesInfoModel> getPhasesInfo(int cultureId);
+public interface ProductiveInfoDao {
+    @Query("SELECT * FROM ProductiveInfoModel WHERE cultureId IS :cultureId")
+    Single<ProductiveInfoModel> getPhasesInfo(int cultureId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(PhasesInfoModel phasesInfoModel);
+    void insert(ProductiveInfoModel productiveInfoModel);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertList(List<PhasesInfoModel> phasesInfoModelList);
+    void insertList(List<ProductiveInfoModel> productiveInfoModelList);
 }

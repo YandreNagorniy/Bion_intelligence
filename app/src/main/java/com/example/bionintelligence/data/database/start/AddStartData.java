@@ -9,7 +9,7 @@ import com.example.bionintelligence.data.database.dao.MethodsK2ODao;
 import com.example.bionintelligence.data.database.dao.MethodsNDao;
 import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
 import com.example.bionintelligence.data.database.dao.PHDao;
-import com.example.bionintelligence.data.database.dao.PhaseInfoDao;
+import com.example.bionintelligence.data.database.dao.ProductiveInfoDao;
 import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.PrecipitationRequirementsDao;
@@ -24,7 +24,7 @@ import com.example.bionintelligence.data.model.MethodsNModel;
 import com.example.bionintelligence.data.model.MethodsP2O5Model;
 import com.example.bionintelligence.data.model.PHModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
-import com.example.bionintelligence.data.model.PhasesInfoModel;
+import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.model.PrecipitationRequirementsModel;
 import com.example.bionintelligence.data.model.SoilFactorsModel;
@@ -41,9 +41,8 @@ import io.reactivex.schedulers.Schedulers;
 public class AddStartData {
 
     public static void addAllData() {
-        setCalculatorData();
         setCultureData();
-        setKUsvData();
+        setCalculatorData();
         setPrecipitationRequirementsData();
         setMethodsK20();
         setMethodsP2O5();
@@ -53,9 +52,11 @@ public class AddStartData {
         setSoilFactorsData();
         setVinosData();
         setWaterConsumptionData();
+        setKUsvData();
         setPhasesImageData();
         setPhasesData();
         setPhasesInfo();
+
     }
 
     private static void setSoilFactorsData() {
@@ -439,21 +440,21 @@ public class AddStartData {
     }
 
     private static void setPhasesInfo() {
-        PhaseInfoDao phaseInfoDao = App.getInstance().getDatabase().phaseInfoDao();
+        ProductiveInfoDao productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
 
-        List<PhasesInfoModel> listInfo = new ArrayList<>();
-        listInfo.add(new PhasesInfoModel(1, 10, 30, 120));
-        listInfo.add(new PhasesInfoModel(2, 10, 40, 150));
-        listInfo.add(new PhasesInfoModel(3, 50, 250, 800));
-        listInfo.add(new PhasesInfoModel(4, 5, 10, 50));
-        listInfo.add(new PhasesInfoModel(5, 50, 250, 800));
-        listInfo.add(new PhasesInfoModel(6, 5, 15, 50));
-        listInfo.add(new PhasesInfoModel(7, 10, 20, 70));
-        listInfo.add(new PhasesInfoModel(8, 5, 15, 50));
-        listInfo.add(new PhasesInfoModel(9, 10, 20, 100));
-        listInfo.add(new PhasesInfoModel(10, 5, 5, 45));
+        List<ProductiveInfoModel> listInfo = new ArrayList<>();
+        listInfo.add(new ProductiveInfoModel(1, 10, 30, 120));
+        listInfo.add(new ProductiveInfoModel(2, 10, 40, 150));
+        listInfo.add(new ProductiveInfoModel(3, 50, 250, 800));
+        listInfo.add(new ProductiveInfoModel(4, 5, 10, 50));
+        listInfo.add(new ProductiveInfoModel(5, 50, 250, 800));
+        listInfo.add(new ProductiveInfoModel(6, 5, 15, 50));
+        listInfo.add(new ProductiveInfoModel(7, 10, 20, 70));
+        listInfo.add(new ProductiveInfoModel(8, 5, 15, 50));
+        listInfo.add(new ProductiveInfoModel(9, 10, 20, 100));
+        listInfo.add(new ProductiveInfoModel(10, 5, 5, 45));
 
-        Completable.fromAction(() -> phaseInfoDao.insertList(listInfo))
+        Completable.fromAction(() -> productiveInfoDao.insertList(listInfo))
                 .subscribeOn(Schedulers.io())
                 .subscribe();
     }

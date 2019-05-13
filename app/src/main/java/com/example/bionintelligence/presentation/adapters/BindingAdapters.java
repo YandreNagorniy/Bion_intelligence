@@ -29,7 +29,9 @@ public class BindingAdapters {
     public static void setPhases(PhaseView phaseView, double value) {
         if (value < 0) {
             phaseView.setVisibility(View.GONE);
-        } else
+        } else {
+            phaseView.setVisibility(View.VISIBLE);
             phaseView.set_phaseValue(value);
+        }
     }
 }

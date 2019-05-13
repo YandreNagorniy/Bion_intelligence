@@ -19,6 +19,7 @@
         <variable
             name="phasesImg"
             type="com.example.bionintelligence.data.model.PhasesImgModel" />
+
     </data>
 
     <android.support.constraint.ConstraintLayout

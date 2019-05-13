@@ -9,7 +9,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = @ForeignKey(entity = CultureModel.class, parentColumns = "id", childColumns = "cultureId", onDelete = CASCADE),
         indices = @Index(value = "cultureId"))
-public class PhasesInfoModel {
+public class ProductiveInfoModel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int cultureId;
@@ -17,7 +17,7 @@ public class PhasesInfoModel {
     private int productiveMin;
     private int productiveMax;
 
-    public PhasesInfoModel(int cultureId, int productiveStep, int productiveMin, int productiveMax) {
+    public ProductiveInfoModel(int cultureId, int productiveStep, int productiveMin, int productiveMax) {
         this.cultureId = cultureId;
         this.productiveStep = productiveStep;
         this.productiveMin = productiveMin;
