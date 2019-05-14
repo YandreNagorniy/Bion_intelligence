@@ -11,10 +11,8 @@ import android.widget.TextView;
 import com.example.bionintelligence.R;
 
 public class SoilFactorView extends FrameLayout {
-    private TextView tvItemText;
     private TextView tvItemName;
     private EditText etItemValue;
-    private int value;
 
     public SoilFactorView(Context context) {
         this(context, null);
@@ -31,9 +29,10 @@ public class SoilFactorView extends FrameLayout {
         TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.SoilFactorView);
         String text = array.getString(R.styleable.SoilFactorView_item_text);
         String name = array.getString(R.styleable.SoilFactorView_item_name);
-        value = array.getInt(R.styleable.SoilFactorView_item_value, 0);
+        int value = array.getInt(R.styleable.SoilFactorView_item_value, 0);
 
-        tvItemText = findViewById(R.id.tv_itemText);
+        //todo используй датабайдинг
+        TextView tvItemText = findViewById(R.id.tv_itemText);
         tvItemName = findViewById(R.id.tv_itemName);
         etItemValue = findViewById(R.id.et_itemValue);
 

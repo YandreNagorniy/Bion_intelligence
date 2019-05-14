@@ -1,6 +1,5 @@
-package com.example.bionintelligence.presentation.adapters;
+package com.example.bionintelligence.presentation.culture;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +15,7 @@ import java.util.List;
 
 public class CultureRvAdapter extends RecyclerView.Adapter<CultureRvAdapter.ViewHolder> {
     private List<CultureModel> cultureList;
-    private static ClickListener clickListener;
+    private ClickListener clickListener;
 
     public CultureRvAdapter(List<CultureModel> cultureList) {
         this.cultureList = cultureList;
@@ -56,7 +55,7 @@ public class CultureRvAdapter extends RecyclerView.Adapter<CultureRvAdapter.View
     }
 
     public void setOnItemClickListener(ClickListener clickListener) {
-        CultureRvAdapter.clickListener = clickListener;
+        this.clickListener = clickListener;
     }
 
     public interface ClickListener {

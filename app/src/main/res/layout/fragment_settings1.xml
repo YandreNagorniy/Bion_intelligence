@@ -206,7 +206,7 @@
                     android:text="@string/text_humus_reserves"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/gl1"
+                    app:layout_constraintEnd_toEndOf="@id/gl1_s1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -216,7 +216,7 @@
                     android:background="@color/colorPrimary"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/gl1"
+                    app:layout_constraintStart_toStartOf="@id/gl1_s1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -228,7 +228,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/gl1"
+                    app:layout_constraintStart_toStartOf="@id/gl1_s1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
@@ -243,7 +243,7 @@
                     tools:text="3.2" />
 
                 <android.support.constraint.Guideline
-                    android:id="@+id/gl1"
+                    android:id="@+id/gl1_s1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
@@ -267,13 +267,13 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:maxLines="2"
                     android:layout_marginStart="3dp"
                     android:layout_marginLeft="3dp"
+                    android:maxLines="2"
                     android:text="Обменная кислотность почвы"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/gl2"
+                    app:layout_constraintEnd_toStartOf="@id/gl2_s1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -283,7 +283,7 @@
                     android:background="@color/colorPrimary"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/gl2"
+                    app:layout_constraintStart_toStartOf="@id/gl2_s1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -295,7 +295,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/gl2"
+                    app:layout_constraintStart_toStartOf="@id/gl2_s1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
@@ -309,7 +309,7 @@
                     tools:text="3.2" />
 
                 <android.support.constraint.Guideline
-                    android:id="@+id/gl2"
+                    android:id="@+id/gl2_s1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
@@ -348,7 +348,7 @@
                     android:text="Запасы продуктивной влаги в слое почвы 1м, мм"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/gl3"
+                    app:layout_constraintEnd_toStartOf="@id/gl3_s1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -358,7 +358,7 @@
                     android:background="@color/colorPrimary"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/gl3"
+                    app:layout_constraintStart_toStartOf="@id/gl3_s1"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -369,12 +369,12 @@
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/gl3"
+                    app:layout_constraintStart_toStartOf="@id/gl3_s1"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="270" />
 
                 <android.support.constraint.Guideline
-                    android:id="@+id/gl3"
+                    android:id="@+id/gl3_s1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"

@@ -13,7 +13,6 @@ import com.example.bionintelligence.presentation.info.InfoFragment;
 import com.example.bionintelligence.presentation.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    private ActivityMainBinding binding;
     private CalculatorFragment calculatorFragment;
     private SettingsFragment settingsFragment;
     private ContactsFragment contactsFragment;
@@ -22,7 +21,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        //todo для создания фрагмента принято деать отдельный статический метод типа getInstance()
+        //todo почитай https://stackoverflow.com/questions/9245408/best-practice-for-instantiating-a-new-android-fragment
         calculatorFragment = new CalculatorFragment();
         settingsFragment = new SettingsFragment();
         contactsFragment = new ContactsFragment();

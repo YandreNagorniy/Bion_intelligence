@@ -39,7 +39,7 @@ public class ChemistryView extends FrameLayout {
         tvItemName = findViewById(R.id.tv_itemName);
         etItemValue = findViewById(R.id.et_itemValue);
 
-        switch (name) {
+        switch (name != null ? name : "") {
             case "P2O5":
                 setItemName2(new SpannableString(name));
                 break;

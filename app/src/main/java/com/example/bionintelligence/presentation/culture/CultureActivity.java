@@ -6,15 +6,12 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.data.repositories.CultureRepositoryImpl;
 import com.example.bionintelligence.data.source.DatabaseSourceImpl;
 import com.example.bionintelligence.databinding.ActivityCultureBinding;
-import com.example.bionintelligence.presentation.adapters.CultureRvAdapter;
 
 import java.util.List;
 import java.util.Objects;
@@ -40,11 +37,12 @@ public class CultureActivity extends AppCompatActivity implements CultureView {
 
     @Override
     public void displayData(List<CultureModel> cultureModelList) {
-        RecyclerView.Adapter adapter = new CultureRvAdapter(cultureModelList);
+        CultureRvAdapter adapter = new CultureRvAdapter(cultureModelList);
         binding.rvCulture.setAdapter(adapter);
 
-        ((CultureRvAdapter) adapter).setOnItemClickListener((position, v) -> {
+        adapter.setOnItemClickListener((position, v) -> {
             Intent intent = new Intent();
+            //todo вынеси стринги в статические переменные
             intent.putExtra("cultureId", cultureModelList.get(position).getId());
             intent.putExtra("cultureName", cultureModelList.get(position).getCultureName());
             setResult(RESULT_OK, intent);
@@ -54,6 +52,7 @@ public class CultureActivity extends AppCompatActivity implements CultureView {
     }
 
     private void handleToolbar() {
+        //todo исправить
         setSupportActionBar(binding.cultureToolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

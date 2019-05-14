@@ -15,6 +15,7 @@ import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.PrecipitationRequirementsDao;
 import com.example.bionintelligence.data.database.dao.SoilFactorsDao;
+import com.example.bionintelligence.data.database.dao.TestCultureDao;
 import com.example.bionintelligence.data.database.dao.VinosDao;
 import com.example.bionintelligence.data.database.dao.WaterConsumptionDao;
 import com.example.bionintelligence.data.model.CalculatorModel;
@@ -29,12 +30,13 @@ import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.model.PrecipitationRequirementsModel;
 import com.example.bionintelligence.data.model.SoilFactorsModel;
+import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.data.model.VinosModel;
 import com.example.bionintelligence.data.model.WaterConsumptionModel;
 
 @Database(entities = {CalculatorModel.class, KUsvModel.class, MethodsK2OModel.class, MethodsNModel.class,
         MethodsP2O5Model.class, PHModel.class, PrecipitationRequirementsModel.class, SoilFactorsModel.class, VinosModel.class,
-        WaterConsumptionModel.class, CultureModel.class, PhasesImgModel.class, PhasesModel.class, ProductiveInfoModel.class},
+        WaterConsumptionModel.class, CultureModel.class, PhasesImgModel.class, PhasesModel.class, ProductiveInfoModel.class, TestCultureModel.class},
         version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -52,4 +54,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PhasesImgDao phasesImgDao();
     public abstract PhasesDao phasesDao();
     public abstract ProductiveInfoDao phaseInfoDao();
+    public abstract TestCultureDao testCultureDao();
 }

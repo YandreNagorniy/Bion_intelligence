@@ -43,8 +43,6 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public void getCalculatorData(int productive, int cultureId) {
-        int p = productive;
-        int i =cultureId;
         compositeDisposable.add(getCalculatorUseCase.execute(new CalculatorParams(productive, cultureId))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -54,8 +52,6 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
 
     @Override
     public void getPhasesData(int productive, int cultureId) {
-        int p = productive;
-        int i =cultureId;
         compositeDisposable.add(getCalculatorUseCase.getPhasesData(productive, cultureId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

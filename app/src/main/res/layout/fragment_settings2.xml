@@ -14,279 +14,279 @@
         android:textColor="@color/colorText"
         android:textSize="16sp" />
 
-    <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:background="@drawable/bg_rounder_square"-->
-        <!--android:padding="3dp">-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounder_square"
+        android:padding="3dp">
 
-        <!--<android.support.constraint.ConstraintLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@drawable/bg_values_dark_green">-->
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_values_dark_green">
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_elementSubTitle"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="3dp"-->
-                <!--android:layout_marginLeft="3dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:maxLines="2"-->
-                <!--android:text="Азот"-->
-                <!--android:textSize="16sp"-->
-                <!--app:layout_constraintBottom_toTopOf="@id/tv_elementName"-->
-                <!--app:layout_constraintEnd_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent"-->
-                <!--app:layout_constraintVertical_chainStyle="spread_inside" />-->
+            <TextView
+                android:id="@+id/tv_subTitleN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:text="Азот"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_elementN"
+                app:layout_constraintEnd_toStartOf="@id/gl1_s2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_elementName"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginLeft="8dp"-->
-                <!--android:text="N"-->
-                <!--android:textColor="@color/colorPrimaryDark"-->
-                <!--android:textSize="24sp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@id/tv_elementSubTitle" />-->
+            <TextView
+                android:id="@+id/tv_elementN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="N"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/gl1_s2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_subTitleN" />
 
-            <!--<View-->
-                <!--android:layout_width="1.5dp"-->
-                <!--android:layout_height="0dp"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:orientation="vertical"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl1_s2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!--<android.support.constraint.Guideline-->
-                <!--android:id="@+id/gl2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:orientation="vertical"-->
-                <!--app:layout_constraintGuide_percent="0.3" />-->
+            <android.support.constraint.Guideline
+                android:id="@+id/gl1_s2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
 
-            <!--<RadioGroup-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_marginBottom="8dp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintTop_toTopOf="parent">-->
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl1_s2"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5mineral"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Минеральный (NO3+NH4)" />-->
+                <RadioButton
+                    android:id="@+id/rb_mineralN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Минеральный (NO3+NH4)" />
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5sheloch"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Щелочногидролизуемый (Корнфилд)" />-->
+                <RadioButton
+                    android:id="@+id/rb_shelochN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Щелочногидролизуемый (Корнфилд)" />
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5lite"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Легкодиролизованый (Тюрин-Кононова)" />-->
-            <!--</RadioGroup>-->
-        <!--</android.support.constraint.ConstraintLayout>-->
-    <!--</FrameLayout>-->
+                <RadioButton
+                    android:id="@+id/rb_liteN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Легкодиролизованый (Тюрин-Кононова)" />
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 
-    <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:background="@drawable/bg_rounder_square"-->
-        <!--android:padding="3dp">-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounder_square"
+        android:padding="3dp">
 
-        <!--<android.support.constraint.ConstraintLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@drawable/bg_values_dark_green">-->
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_values_dark_green">
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_elementSubTitle"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="3dp"-->
-                <!--android:layout_marginLeft="3dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:maxLines="2"-->
-                <!--android:text="Фосфор"-->
-                <!--android:textSize="16sp"-->
-                <!--app:layout_constraintBottom_toTopOf="@id/tv_elementName"-->
-                <!--app:layout_constraintEnd_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent"-->
-                <!--app:layout_constraintVertical_chainStyle="packed" />-->
+            <TextView
+                android:id="@+id/tv_subTitleP2O5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:text="Фосфор"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_elementP2O5"
+                app:layout_constraintEnd_toStartOf="@id/gl2_s2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_elementName"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginLeft="8dp"-->
-                <!--android:text="P2O5"-->
-                <!--android:textColor="@color/colorPrimaryDark"-->
-                <!--android:textSize="24sp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@id/tv_elementSubTitle" />-->
+            <TextView
+                android:id="@+id/tv_elementP2O5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="P2O5"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/gl2_s2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_subTitleP2O5" />
 
-            <!--<View-->
-                <!--android:layout_width="1.5dp"-->
-                <!--android:layout_height="0dp"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:orientation="vertical"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl2_s2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!--<android.support.constraint.Guideline-->
-                <!--android:id="@+id/gl2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:orientation="vertical"-->
-                <!--app:layout_constraintGuide_percent="0.3" />-->
+            <android.support.constraint.Guideline
+                android:id="@+id/gl2_s2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
 
-            <!--<RadioGroup-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_marginBottom="8dp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintTop_toTopOf="parent">-->
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl2_s2"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5mineral"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Мачигин" />-->
+                <RadioButton
+                    android:id="@+id/rb_machiginP2O5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Мачигин" />
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5sheloch"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Чириков" />-->
+                <RadioButton
+                    android:id="@+id/rb_chirikovP2O5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Чириков" />
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5lite"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Кирсанов" />-->
-            <!--</RadioGroup>-->
-        <!--</android.support.constraint.ConstraintLayout>-->
-    <!--</FrameLayout>-->
+                <RadioButton
+                    android:id="@+id/rb_kirsanovP2O5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Кирсанов" />
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 
-    <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--android:background="@drawable/bg_rounder_square"-->
-        <!--android:padding="3dp">-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_rounder_square"
+        android:padding="3dp">
 
-        <!--<android.support.constraint.ConstraintLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@drawable/bg_values_dark_green">-->
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_values_dark_green">
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_elementSubTitle"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="3dp"-->
-                <!--android:layout_marginLeft="3dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:maxLines="2"-->
-                <!--android:text="Калий"-->
-                <!--android:textSize="16sp"-->
-                <!--app:layout_constraintBottom_toTopOf="@id/tv_elementName"-->
-                <!--app:layout_constraintEnd_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent"-->
-                <!--app:layout_constraintVertical_chainStyle="packed" />-->
+            <TextView
+                android:id="@+id/tv_subTitleK2O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:text="Калий"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_elementK2O"
+                app:layout_constraintEnd_toStartOf="@id/gl3_s2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_elementName"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginLeft="8dp"-->
-                <!--android:text="K2O"-->
-                <!--android:textColor="@color/colorPrimaryDark"-->
-                <!--android:textSize="24sp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@id/tv_elementSubTitle" />-->
+            <TextView
+                android:id="@+id/tv_elementK2O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="K2O"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/gl3_s2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_subTitleK2O" />
 
-            <!--<View-->
-                <!--android:layout_width="1.5dp"-->
-                <!--android:layout_height="0dp"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:orientation="vertical"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl3_s2"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!--<android.support.constraint.Guideline-->
-                <!--android:id="@+id/gl2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:orientation="vertical"-->
-                <!--app:layout_constraintGuide_percent="0.3" />-->
+            <android.support.constraint.Guideline
+                android:id="@+id/gl3_s2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
 
-            <!--<RadioGroup-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_marginBottom="8dp"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="@id/gl2"-->
-                <!--app:layout_constraintTop_toTopOf="parent">-->
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl3_s2"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5mineral"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Мачигин" />-->
+                <RadioButton
+                    android:id="@+id/rb_machiginK2O"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Мачигин" />
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5sheloch"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Чириков" />-->
+                <RadioButton
+                    android:id="@+id/rb_chirikovK2O"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Чириков" />
 
-                <!--<RadioButton-->
-                    <!--android:id="@+id/rb_P2O5lite"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Кирсанов" />-->
-            <!--</RadioGroup>-->
-        <!--</android.support.constraint.ConstraintLayout>-->
-    <!--</FrameLayout>-->
+                <RadioButton
+                    android:id="@+id/rb_kirsanovK2O"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Кирсанов" />
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 </LinearLayout>

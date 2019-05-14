@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a333c413090c517117ef42dd53a1adf0",
+    "identityHash": "5ff56279b37ffbdbd90b51a5dfce2f98",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -782,7 +782,7 @@
       },
       {
         "tableName": "CultureModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `phasesImgLink` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -801,12 +801,6 @@
             "columnName": "imgLink",
             "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "phasesImgLink",
-            "columnName": "phasesImgLink",
-            "affinity": "TEXT",
-            "notNull": false
           }
         ],
         "primaryKey": {
@@ -1054,11 +1048,55 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "TestCultureModel",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `productive` INTEGER, `phasesList` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cultureName",
+            "columnName": "cultureName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imgLink",
+            "columnName": "imgLink",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phasesModel.productive",
+            "columnName": "productive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phasesModel.phasesList",
+            "columnName": "phasesList",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a333c413090c517117ef42dd53a1adf0\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5ff56279b37ffbdbd90b51a5dfce2f98\")"
     ]
   }
 }

@@ -41,6 +41,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         calculatorPresenter.getParamsData();
 
 
+
         // убрать мин, мах, степ из параметров а брать гетИгфо
         return binding.getRoot();
     }
@@ -49,7 +50,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.numberPicker.setValueChangedListener((value, action) -> {
-            int a = 0;
             getCalculatorData();
             getPhasesData();
         });
@@ -78,16 +78,12 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
     @Override
     public void getCalculatorData() {
-        int p = binding.numberPicker.getValue();
-        int i = Integer.parseInt((String) binding.cultureId.getText());
         calculatorPresenter.getCalculatorData(binding.numberPicker.getValue(),
                 Integer.parseInt((String) binding.cultureId.getText()));
     }
 
     @Override
     public void getPhasesData() {
-        int p = binding.numberPicker.getValue();
-        int i = Integer.parseInt((String) binding.cultureId.getText());
         calculatorPresenter.getPhasesData(binding.numberPicker.getValue(),
                 Integer.parseInt((String) binding.cultureId.getText()));
     }
@@ -121,6 +117,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override //data about select culture from CultureActivity
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
+            //todo CultureActivity.CULTURE_ID
             binding.cultureId.setText(String.valueOf(data.getIntExtra("cultureId", 1)));
             binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
             getProductiveInfo();

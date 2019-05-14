@@ -67,7 +67,6 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
         list.add(getDataH20(params.getCultureId()));
 
         return Single.concat(list)
-                .observeOn(AndroidSchedulers.mainThread())
                 .buffer(7)
                 .cache();
 
@@ -76,14 +75,14 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
     private Single<ElementModelEntity> getDataN(int cultureId) {
         return calculatorRepository.getDataN(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
                 .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
     }
 
     private Single<ElementModelEntity> getDataP2O5(int cultureId) {
         return calculatorRepository.getDataP2O5(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateP2O5Pair -> calculateP2O5(doubleCalculateP2O5Pair.first, doubleCalculateP2O5Pair.second))
                 .map(p2O5 -> new ElementModelEntity(TypeElementEntity.P2O5, p2O5));
 
@@ -91,35 +90,35 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
     private Single<ElementModelEntity> getDataK2O(int cultureId) {
         return calculatorRepository.getDataK2O(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateK2OPair -> calculateK2O(doubleCalculateK2OPair.first, doubleCalculateK2OPair.second))
                 .map(k2O -> new ElementModelEntity(TypeElementEntity.K2O, k2O));
     }
 
     private Single<ElementModelEntity> getDataCaO(int cultureId) {
         return calculatorRepository.getDataCaO(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateCaOPair -> calculateCaO(doubleCalculateCaOPair.first, doubleCalculateCaOPair.second))
                 .map(caO -> new ElementModelEntity(TypeElementEntity.CaO, caO));
     }
 
     private Single<ElementModelEntity> getDataMgO(int cultureId) {
         return calculatorRepository.getDataMgO(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateMgOPair -> calculateMgO(doubleCalculateMgOPair.first, doubleCalculateMgOPair.second))
                 .map(mgO -> new ElementModelEntity(TypeElementEntity.MgO, mgO));
     }
 
     private Single<ElementModelEntity> getDataS(int cultureId) {
         return calculatorRepository.getDataS(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateSPair -> calculateS(doubleCalculateSPair.first, doubleCalculateSPair.second))
                 .map(s -> new ElementModelEntity(TypeElementEntity.S, s));
     }
 
     private Single<ElementModelEntity> getDataH20(int cultureId) {
         return calculatorRepository.getDataH2O(cultureId)
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.computation())
                 .map(this::calculateH2O)
                 .map(h2O -> new ElementModelEntity(TypeElementEntity.H2O, h2O));
     }

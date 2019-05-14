@@ -12,6 +12,11 @@ import com.example.bionintelligence.data.source.LocalSourceImpl;
 import com.example.bionintelligence.presentation.main.MainActivity;
 
 import java.lang.ref.WeakReference;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Completable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
 
 public class SplashActivity extends AppCompatActivity implements SplashView {
     private SplashPresenter splashPresenter;
@@ -29,6 +34,12 @@ public class SplashActivity extends AppCompatActivity implements SplashView {
 
     @Override
     public void goToMainActivity() {
+        //todo можно использовать Rx
+        /*Completable.complete().delay(2*1000, TimeUnit.MILLISECONDS).subscribe(() -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }, throwable -> throwable.printStackTrace());*/
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
