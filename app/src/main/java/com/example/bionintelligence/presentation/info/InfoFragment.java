@@ -22,6 +22,7 @@ public class InfoFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_info, container, false);
 
         binding.viewpager.setAdapter(new InfoPageAdapter(getFragmentManager()));
+        binding.indicator.setViewPager(binding.viewpager);
         return binding.getRoot();
     }
 }

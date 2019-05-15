@@ -320,6 +320,56 @@ public class AddStartData {
                 .subscribe();
     }
 
+
+    private static void setPhasesInfo() {
+        ProductiveInfoDao productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
+
+        List<ProductiveInfoModel> listInfo = new ArrayList<>();
+        listInfo.add(new ProductiveInfoModel(1, 10, 30, 120));
+        listInfo.add(new ProductiveInfoModel(2, 10, 40, 150));
+        listInfo.add(new ProductiveInfoModel(3, 50, 250, 800));
+        listInfo.add(new ProductiveInfoModel(4, 5, 10, 50));
+        listInfo.add(new ProductiveInfoModel(5, 50, 250, 800));
+        listInfo.add(new ProductiveInfoModel(6, 5, 15, 50));
+        listInfo.add(new ProductiveInfoModel(7, 10, 20, 70));
+        listInfo.add(new ProductiveInfoModel(8, 5, 15, 50));
+        listInfo.add(new ProductiveInfoModel(9, 10, 20, 100));
+        listInfo.add(new ProductiveInfoModel(10, 5, 5, 45));
+
+        Completable.fromAction(() -> productiveInfoDao.insertList(listInfo))
+                .subscribeOn(Schedulers.io())
+                .subscribe();
+    }
+
+    private static void setCultureData() {
+        CultureDao cultureDao = App.getInstance().getDatabase().cultureDao();
+
+        List<CultureModel> cultureList = new ArrayList<>();
+        cultureList.add(new CultureModel("Озимая пшеница", R.drawable.img_winter_wheat));
+        cultureList.add(new CultureModel("Кукуруза", R.drawable.img_corn));
+        cultureList.add(new CultureModel("Сахарная свекла", R.drawable.img_sugar_beet));
+        cultureList.add(new CultureModel("Соя", R.drawable.img_soy));
+        cultureList.add(new CultureModel("Картофель", R.drawable.img_potatoes));
+        cultureList.add(new CultureModel("Подсолнечник", R.drawable.img_sun_flower));
+        cultureList.add(new CultureModel("Озимый рапс", R.drawable.img_rape));
+        cultureList.add(new CultureModel("Яровой рапс", R.drawable.img_rape));
+        cultureList.add(new CultureModel("Яровая пшеница", R.drawable.img_winter_wheat));
+        cultureList.add(new CultureModel("Нут", R.drawable.img_chickpea));
+
+        Completable.fromAction(() -> cultureDao.insertList(cultureList))
+                .subscribeOn(Schedulers.io())
+                .subscribe();
+    }
+
+    private static void setTestCultureModel() {
+        TestCultureDao testCultureDao = App.getInstance().getDatabase().testCultureDao();
+
+
+//        List<TestCultureModel> cultureList = new ArrayList<>();
+//        cultureList.add(new TestCultureModel(1,"Озимая пшеница", R.drawable.img_winter_wheat, new TestPhasesModel(30, Arrays.asList(0.0, 0.0, 0.0, 0.0))));
+//        cultureList.add(new TestCultureModel(1,"Озимая пшеница", R.drawable.img_winter_wheat, new TestPhasesModel(30, Arrays.asList(0.0, 0.0, 0.0, 0.0))));
+    }
+
     private static void setPhasesData() {
         PhasesDao phasesDao = App.getInstance().getDatabase().phasesDao();
 
@@ -423,56 +473,5 @@ public class AddStartData {
         Completable.fromAction(() -> phasesDao.insertList(phasesList))
                 .subscribeOn(Schedulers.io())
                 .subscribe();
-    }
-
-    private static void setPhasesInfo() {
-        ProductiveInfoDao productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
-
-        List<ProductiveInfoModel> listInfo = new ArrayList<>();
-        listInfo.add(new ProductiveInfoModel(1, 10, 30, 120));
-        listInfo.add(new ProductiveInfoModel(2, 10, 40, 150));
-        listInfo.add(new ProductiveInfoModel(3, 50, 250, 800));
-        listInfo.add(new ProductiveInfoModel(4, 5, 10, 50));
-        listInfo.add(new ProductiveInfoModel(5, 50, 250, 800));
-        listInfo.add(new ProductiveInfoModel(6, 5, 15, 50));
-        listInfo.add(new ProductiveInfoModel(7, 10, 20, 70));
-        listInfo.add(new ProductiveInfoModel(8, 5, 15, 50));
-        listInfo.add(new ProductiveInfoModel(9, 10, 20, 100));
-        listInfo.add(new ProductiveInfoModel(10, 5, 5, 45));
-
-        Completable.fromAction(() -> productiveInfoDao.insertList(listInfo))
-                .subscribeOn(Schedulers.io())
-                .subscribe();
-    }
-
-    private static void setCultureData() {
-        CultureDao cultureDao = App.getInstance().getDatabase().cultureDao();
-
-        List<CultureModel> cultureList = new ArrayList<>();
-        cultureList.add(new CultureModel("Озимая пшеница", R.drawable.img_winter_wheat));
-        cultureList.add(new CultureModel("Кукуруза", R.drawable.img_corn));
-        cultureList.add(new CultureModel("Сахарная свекла", R.drawable.img_sugar_beet));
-        cultureList.add(new CultureModel("Соя", R.drawable.img_soy));
-        cultureList.add(new CultureModel("Картофель", R.drawable.img_potatoes));
-        cultureList.add(new CultureModel("Подсолнечник", R.drawable.img_sun_flower));
-        cultureList.add(new CultureModel("Озимый рапс", R.drawable.img_rape));
-        cultureList.add(new CultureModel("Яровой рапс", R.drawable.img_rape));
-        cultureList.add(new CultureModel("Яровая пшеница", R.drawable.img_winter_wheat));
-        cultureList.add(new CultureModel("Нут", R.drawable.img_chickpea));
-
-        Completable.fromAction(() -> cultureDao.insertList(cultureList))
-                .subscribeOn(Schedulers.io())
-                .subscribe();
-    }
-
-    private static void setTestCultureModel() {
-        TestCultureDao productiveInfoDao = App.getInstance().getDatabase().testCultureDao();
-
-        TestCultureModel model = new TestCultureModel(0,"",0,new TestPhasesModel(0,Arrays.asList(0.0,0.0)));
-
-        List<Double> list = Arrays.asList(10.0,11.0);
-
-        List<TestCultureModel> cultureList = new ArrayList<>();
-//        cultureList.add(new TestCultureModel(1,"Озимая пшеница", R.drawable.img_winter_wheat, new TestPhasesModel()));
     }
 }

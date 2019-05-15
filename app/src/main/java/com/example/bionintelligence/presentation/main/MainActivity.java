@@ -10,14 +10,13 @@ import com.example.bionintelligence.databinding.ActivityMainBinding;
 import com.example.bionintelligence.presentation.calculator.CalculatorFragment;
 import com.example.bionintelligence.presentation.contacts.ContactsFragment;
 import com.example.bionintelligence.presentation.info.InfoFragment;
-import com.example.bionintelligence.presentation.settings.SettingsFragment;
+import com.example.bionintelligence.presentation.settings.SettingsFragmentMain;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     private CalculatorFragment calculatorFragment;
-    private SettingsFragment settingsFragment;
     private ContactsFragment contactsFragment;
     private InfoFragment infoFragment;
-
+    private SettingsFragmentMain settingsFragmentMain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         //todo для создания фрагмента принято деать отдельный статический метод типа getInstance()
         //todo почитай https://stackoverflow.com/questions/9245408/best-practice-for-instantiating-a-new-android-fragment
         calculatorFragment = new CalculatorFragment();
-        settingsFragment = new SettingsFragment();
+        settingsFragmentMain = new SettingsFragmentMain();
         contactsFragment = new ContactsFragment();
         infoFragment = new InfoFragment();
         addFragment();
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                             showFragment(calculatorFragment);
                             break;
                         case R.id.action_settings:
-                            showFragment(settingsFragment);
+                            showFragment(settingsFragmentMain);
                             break;
                         case R.id.action_product:
                             showFragment(infoFragment);
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 .beginTransaction()
                 .add(R.id.container, infoFragment).hide(infoFragment)
                 .add(R.id.container, contactsFragment).hide(contactsFragment)
-                .add(R.id.container, settingsFragment).hide(settingsFragment)
+                .add(R.id.container, settingsFragmentMain).hide(settingsFragmentMain)
                 .add(R.id.container, calculatorFragment)
                 .commit();
     }

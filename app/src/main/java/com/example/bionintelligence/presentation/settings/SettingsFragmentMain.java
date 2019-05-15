@@ -10,15 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bionintelligence.R;
-import com.example.bionintelligence.databinding.FragmentSettings1Binding;
+import com.example.bionintelligence.databinding.FragmentSettingsMainBinding;
 
-public class SettingsFragment extends Fragment {
-    FragmentSettings1Binding binding;
+public class SettingsFragmentMain extends Fragment {
+    FragmentSettingsMainBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings1, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings_main, container, false);
+
+        binding.settingsViewPager.setAdapter(new SettingsPageAdapter(getFragmentManager()));
         return binding.getRoot();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.bionintelligence.presentation.info;
+package com.example.bionintelligence.presentation.settings;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -7,29 +7,27 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class InfoPageAdapter extends FragmentPagerAdapter {
-
-    private int mSize;
-
-    InfoPageAdapter(FragmentManager fm) {
+public class SettingsPageAdapter extends FragmentPagerAdapter {
+    public SettingsPageAdapter(FragmentManager fm) {
         super(fm);
-    }
-
-    public InfoPageAdapter(FragmentManager fm, int mSize) {
-        super(fm);
-        this.mSize = mSize;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return InfoPageFragment.newInstance(position);
+        switch (position) {
+            case 0:
+                return new SettingsFragmentOne();
+            case 1:
+                return new SettingsFragmentTwo();
+        }
+        return null;
     }
 
     @Override
     public void setPrimaryItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         super.setPrimaryItem(container, position, object);
-        if(((InfoPageFragment) object).getView()!=null){
-            ((InfoPageFragment) object).getView().setVisibility(View.VISIBLE);
+        if(((Fragment) object).getView()!=null){
+            ((Fragment) object).getView().setVisibility(View.VISIBLE);
         }
     }
 
