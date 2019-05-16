@@ -19,7 +19,7 @@ public interface TestCultureDao {
 //    @Query("SELECT * FROM TestCultureModel")
 //    Flowable<List<TestCultureModel>> getList();
 
-    @Query("SELECT * FROM TestCultureModel WHERE id IS :id")
+    @Query("SELECT * FROM TestCultureModel WHERE cultureId IS :id")
     Single<TestCultureModel> getById(int id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -28,6 +28,6 @@ public interface TestCultureDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertList(List<TestCultureModel> testCultureModelList);
 
-    @Query("DELETE FROM TestCultureModel WHERE id IS :id")
+    @Query("DELETE FROM TestCultureModel WHERE cultureId IS :id")
     void deleteById(int id);
 }

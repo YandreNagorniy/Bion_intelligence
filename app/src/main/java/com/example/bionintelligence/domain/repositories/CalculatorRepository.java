@@ -5,6 +5,7 @@ import android.util.Pair;
 import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -42,4 +43,6 @@ public interface CalculatorRepository {
     Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId);
 
     Single<ProductiveInfoModel> getProductiveInfo(int cultureId);
+
+    Single<TestCultureModel> getTestCultureModel(int cultureId);
 }

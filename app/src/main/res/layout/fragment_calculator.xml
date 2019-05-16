@@ -10,15 +10,12 @@
             type="com.example.bionintelligence.data.model.CalculatorModel" />
 
         <variable
-            name="params"
-            type="com.example.bionintelligence.domain.entities.CalculatorParams" />
+            name="cultureModel"
+            type="com.example.bionintelligence.data.model.TestCultureModel" />
 
         <variable
-            name="phases"
-            type="com.example.bionintelligence.data.model.PhasesModel" />
-        <variable
-            name="phasesImg"
-            type="com.example.bionintelligence.data.model.PhasesImgModel" />
+            name="phaseValue"
+            type="com.example.bionintelligence.data.model.TestPhasesModel" />
 
     </data>
 
@@ -43,7 +40,7 @@
                 android:id="@+id/cultureId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(params.cultureId)}"
+                android:text="@{String.valueOf(cultureModel.cultureId)}"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +50,7 @@
                 android:id="@+id/calculator_cultureName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{params.cultureName}"
+                android:text="@{cultureModel.cultureName}"
                 android:textColor="@color/colorText"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -93,10 +90,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_setYield"
-            app:max="150"
+            app:max="0"
             app:min="0"
-            app:unit="10"
-            app:value="@{params.productive}" />
+            app:unit="0"
+            app:value="0" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cv_Chemistry"
@@ -223,8 +220,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:layout_marginRight="4dp"
-                app:phase_img="@{phasesImg.phaseImgOne}"
-                app:phase_value="@{phases.phaseOne}" />
+                app:phase_img="@{cultureModel.phasesImgModel.phaseImgOne}"
+                app:phase_value="@{phaseValue.phaseOne}" />
+            <!--app:phase_img="@{phasesImg.phaseImgOne}"-->
+            <!--app:phase_value="@{phases.phaseOne}" />-->
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_two"
@@ -232,8 +231,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                app:phase_img="@{phasesImg.phaseImgTwo}"
-                app:phase_value="@{phases.phaseTwo}" />
+                app:phase_img="@{cultureModel.phasesImgModel.phaseImgTwo}"
+                app:phase_value="@{phaseValue.phaseTwo}" />
+            <!--app:phase_img="@{phasesImg.phaseImgTwo}"-->
+            <!--app:phase_value="@{phases.phaseTwo}" />-->
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_three"
@@ -241,8 +242,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                app:phase_img="@{phasesImg.phaseImgThree}"
-                app:phase_value="@{phases.phaseThree}" />
+                app:phase_img="@{cultureModel.phasesImgModel.phaseImgThree}"
+                app:phase_value="@{phaseValue.phaseThree}" />
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_four"
@@ -250,8 +251,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                app:phase_img="@{phasesImg.phaseImgFour}"
-                app:phase_value="@{phases.phaseFour}" />
+                app:phase_img="@{cultureModel.phasesImgModel.phaseImgFour}"
+                app:phase_value="@{phaseValue.phaseFour}" />
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_five"
@@ -259,8 +260,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                app:phase_img="@{phasesImg.phaseImgFive}"
-                app:phase_value="@{phases.phaseFive}" />
+                app:phase_img="@{cultureModel.phasesImgModel.phaseImgFive}"
+                app:phase_value="@{phaseValue.phaseFive}" />
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_six"
@@ -268,10 +269,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
-                app:phase_img="@{phasesImg.phaseImgSix}"
-                app:phase_value="@{phases.phaseSix}" />
+                app:phase_img="@{cultureModel.phasesImgModel.phaseImgSix}"
+                app:phase_value="@{phaseValue.phaseSix}" />
 
         </LinearLayout>
-
     </android.support.constraint.ConstraintLayout>
 </layout>

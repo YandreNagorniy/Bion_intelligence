@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "5ff56279b37ffbdbd90b51a5dfce2f98",
+    "identityHash": "b191a9fca9449797de845022e7d457c6",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -1051,11 +1051,11 @@
       },
       {
         "tableName": "TestCultureModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `productive` INTEGER, `phasesList` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cultureId` INTEGER NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `productiveMax` INTEGER NOT NULL, `productiveMin` INTEGER NOT NULL, `productiveStep` INTEGER NOT NULL, `phasesModelList` TEXT, `phaseImgOne` INTEGER, `phaseImgTwo` INTEGER, `phaseImgThree` INTEGER, `phaseImgFour` INTEGER, `phaseImgFive` INTEGER, `phaseImgSix` INTEGER, PRIMARY KEY(`cultureId`))",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "cultureId",
+            "columnName": "cultureId",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -1072,21 +1072,69 @@
             "notNull": true
           },
           {
-            "fieldPath": "phasesModel.productive",
-            "columnName": "productive",
+            "fieldPath": "productiveMax",
+            "columnName": "productiveMax",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productiveMin",
+            "columnName": "productiveMin",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productiveStep",
+            "columnName": "productiveStep",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phasesModelList",
+            "columnName": "phasesModelList",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phasesImgModel.phaseImgOne",
+            "columnName": "phaseImgOne",
             "affinity": "INTEGER",
             "notNull": false
           },
           {
-            "fieldPath": "phasesModel.phasesList",
-            "columnName": "phasesList",
-            "affinity": "TEXT",
+            "fieldPath": "phasesImgModel.phaseImgTwo",
+            "columnName": "phaseImgTwo",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phasesImgModel.phaseImgThree",
+            "columnName": "phaseImgThree",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phasesImgModel.phaseImgFour",
+            "columnName": "phaseImgFour",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phasesImgModel.phaseImgFive",
+            "columnName": "phaseImgFive",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phasesImgModel.phaseImgSix",
+            "columnName": "phaseImgSix",
+            "affinity": "INTEGER",
             "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "cultureId"
           ],
           "autoGenerate": false
         },
@@ -1096,7 +1144,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5ff56279b37ffbdbd90b51a5dfce2f98\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b191a9fca9449797de845022e7d457c6\")"
     ]
   }
 }

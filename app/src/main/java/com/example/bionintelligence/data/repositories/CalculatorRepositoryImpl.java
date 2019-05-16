@@ -5,6 +5,7 @@ import android.util.Pair;
 import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.data.source.DatabaseSource;
 import com.example.bionintelligence.data.source.LocalSource;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
@@ -37,20 +38,20 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     @Override
     public Single<CalculatorParams> getCalculatorParams() {
         return Single.just(new CalculatorParams(localSource.getSettingsCultureProductive(),
-                localSource.getSettingsCultureId(), localSource.getSettingsCultureName(),
+                localSource.getSettingsCultureId()/*, localSource.getSettingsCultureName(),
                 localSource.getSettingsProductiveMax(), localSource.getSettingsProductiveMin(),
-                localSource.getSettingsProductiveStep()));
+                localSource.getSettingsProductiveStep()*/));
     }
 
     @Override
     public void setCalculatorParams(CalculatorParams params) {
         localSource.setSettingsCultureProductive(params.getProductive());
         localSource.setSettingsCultureId(params.getCultureId());
-        localSource.setSettingsCultureName(params.getCultureName());
-        localSource.setSettingsCultureProductive(params.getProductive());
-        localSource.setSettingsProductiveMax(params.getProductiveMax());
-        localSource.setSettingsProductiveMin(params.getProductiveMin());
-        localSource.setSettingsProductiveStep(params.getProductiveStep());
+//        localSource.setSettingsCultureName(params.getCultureName());
+//        localSource.setSettingsCultureProductive(params.getProductive());
+//        localSource.setSettingsProductiveMax(params.getProductiveMax());
+//        localSource.setSettingsProductiveMin(params.getProductiveMin());
+//        localSource.setSettingsProductiveStep(params.getProductiveStep());
     }
 
     @Override
@@ -124,5 +125,10 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     @Override
     public Single<ProductiveInfoModel> getProductiveInfo(int cultureId) {
         return databaseSource.getPhasesInfo(cultureId);
+    }
+
+    @Override
+    public Single<TestCultureModel> getTestCultureModel(int cultureId) {
+        return databaseSource.getTestCultureModel(cultureId);
     }
 }

@@ -4,21 +4,17 @@ import com.example.bionintelligence.data.model.CalculatorModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.data.model.TestCultureModel;
+import com.example.bionintelligence.data.model.TestPhasesModel;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 
-public interface  CalculatorView {
-    void displayCalculatorParams(CalculatorParams params);
+import java.util.List;
 
-    void getCalculatorData();
-
-    void getPhasesData();
-
-
-    void getProductiveInfo();
+public interface CalculatorView {
 
     void displayCalculatorData(CalculatorModel calculatorModel);
 
-    void displayPhasesData(PhasesModel phases, PhasesImgModel phasesImg);
+    void displayCultureData(TestCultureModel cultureModel);
 
-    void setProductiveInfo(ProductiveInfoModel params);
+    void displayPhasesData(TestPhasesModel phasesModel);
 }

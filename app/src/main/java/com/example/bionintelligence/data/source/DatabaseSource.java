@@ -4,6 +4,7 @@ import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -53,4 +54,6 @@ public interface DatabaseSource {
     Single<PhasesModel> getPhases(int cultureId, int productive);
 
     Single<ProductiveInfoModel> getPhasesInfo(int cultureId);
+
+    Single<TestCultureModel> getTestCultureModel(int cultureId);
 }

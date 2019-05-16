@@ -9,21 +9,21 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
 
-public class TestPhasesConverters {
+public class PhasesImgConverters {
 
     private static Gson gson = new Gson();
 
     @TypeConverter
-    public static List<Double> stringToCurrency(String data) {
+    public static List<Integer> stringToInteger(String data) {
         if (data == null) return Collections.emptyList();
 
-        Type listType = new TypeToken<List<Double>>() {
+        Type listType = new TypeToken<List<Integer>>() {
         }.getType();
         return gson.fromJson(data, listType);
     }
 
     @TypeConverter
-    public static String CurrencyToString(List<Double> list) {
+    public static String DoubleToInteger(List<Integer> list) {
         return gson.toJson(list);
     }
 
