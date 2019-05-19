@@ -52,6 +52,7 @@ public class SettingsFragmentTwo extends Fragment implements SettingsTwoView {
                 default:
                     analyticalFactors.setAfN(3);
             }
+            settingsTwoPresenter.saveAnalyticalFactors(analyticalFactors);
         });
         binding.rgP2O5.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
@@ -64,6 +65,7 @@ public class SettingsFragmentTwo extends Fragment implements SettingsTwoView {
                 default:
                     analyticalFactors.setAfP2O5(3);
             }
+            settingsTwoPresenter.saveAnalyticalFactors(analyticalFactors);
         });
         binding.rgK2O.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
@@ -76,6 +78,7 @@ public class SettingsFragmentTwo extends Fragment implements SettingsTwoView {
                 default:
                     analyticalFactors.setAfK2O(3);
             }
+            settingsTwoPresenter.saveAnalyticalFactors(analyticalFactors);
         });
     }
 
@@ -119,7 +122,6 @@ public class SettingsFragmentTwo extends Fragment implements SettingsTwoView {
 
     @Override
     public void onDestroy() {
-        settingsTwoPresenter.saveAnalyticalFactors(analyticalFactors);
         settingsTwoPresenter.detachView();
         super.onDestroy();
     }

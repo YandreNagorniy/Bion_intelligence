@@ -35,7 +35,6 @@ public class DatabaseSourceImpl implements DatabaseSource {
     private TestCultureDao testCultureDao;
     private SoilFactorsDao soilFactorsDao;
     private MethodsNDao methodsNDao;
-    private MethodsNDao methodsNDao;
 
     public DatabaseSourceImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
@@ -119,6 +118,12 @@ public class DatabaseSourceImpl implements DatabaseSource {
     public Single<Double> getTyrinIndex(double valueN) {
         return methodsNDao.getTyrinIndex(valueN);
     }
+
+    @Override
+    public Single<Double> getKornfildIndex(double valueN) {
+        return methodsNDao.getKornfildIndex(valueN);
+    }
+
 
 
 

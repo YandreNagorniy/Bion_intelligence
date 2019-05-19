@@ -50,6 +50,8 @@ public interface DatabaseSource {
 
     Single<Double> getTyrinIndex(double valueN);
 
+    Single<Double> getKornfildIndex(double valueN);
+
     Flowable<List<CultureModel>> getCultureList();
 //
 //    Single<PhasesImgModel> getPhaseImg(int cultureId);

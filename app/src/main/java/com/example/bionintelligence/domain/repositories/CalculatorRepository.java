@@ -48,6 +48,8 @@ public interface CalculatorRepository {
 
     Single<Double> getTyrinIndex(double valueN);
 
+    Single<Double> getKornfildIndex(double valueN);
+
     Single<TestCultureModel> getTestCultureModel(int cultureId);
 
     Single<SoilFactorsModel> getSoilFactorsModel();

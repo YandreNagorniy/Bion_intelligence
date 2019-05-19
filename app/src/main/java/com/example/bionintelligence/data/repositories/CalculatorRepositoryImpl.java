@@ -133,7 +133,6 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     }
 
 
-
     @Override
     public Single<TestCultureModel> getTestCultureModel(int cultureId) {
         return databaseSource.getTestCultureModel(cultureId);

@@ -1,7 +1,5 @@
 package com.example.bionintelligence.domain.usecase;
 
-import android.util.Pair;
-
 import com.example.bionintelligence.data.pojo.AnalyticalFactors;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
@@ -21,8 +19,6 @@ import java.util.List;
 
 import io.reactivex.Flowable;
 import io.reactivex.Single;
-import io.reactivex.SingleSource;
-import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
@@ -52,36 +48,40 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     }
 
     private Single<ElementModelEntity> getDataN(int cultureId) {
-        // делать в отдельных методах
-//        return calculatorRepository.getAnalyticalFactors()
-//                .subscribeOn(Schedulers.computation())
-//                .map(new Function<AnalyticalFactors, Integer>() {
-//                    @Override
-//                    public Integer apply(AnalyticalFactors analyticalFactors) throws Exception {
-//                        return analyticalFactors.getAfN();
-//                    }
-//                }).
-//
-//
-//        calculatorRepository.getDataN(cultureId)
-//                .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
-//                .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
-
-
         return calculatorRepository.getDataN(cultureId)
                 .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
-                .flatMap(n -> getK(n, getMethod()).map(k -> (int) Math.round(n * k)))
+                .flatMap(n -> getMethod()
+                        .flatMap(method -> getIndex(n, method))
+                        .map(new Function<Double, Integer>() {
+                            @Override
+                            public Integer apply(Double index) throws Exception {
+                                return (int) Math.round(n * index);
+                            }
+                        }))
                 .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
-//
     }
 
-    public int getMethod() {
-        return 0;
+    private Single<Integer> getMethod() {
+        return calculatorRepository.getAnalyticalFactors()
+                .subscribeOn(Schedulers.io())
+                .map(AnalyticalFactors::getAfN);
     }
 
-    public Single<Double> getK(double n, int m) {
-        return Single.just(0.0);
+    private Single<Double> getIndex(double n, int method) {
+        if (n > 0) {
+            switch (method) {
+                case 2: {
+                    return calculatorRepository.getKornfildIndex(n);
+                }
+                case 3:
+                    return calculatorRepository.getTyrinIndex(n);
+                default:
+                    return Single.just(1.0);
+            }
+        } else {
+            return Single.just(1.0);
+        }
     }
 
     private Single<ElementModelEntity> getDataP2O5(int cultureId) {
@@ -89,7 +89,6 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateP2O5Pair -> calculateP2O5(doubleCalculateP2O5Pair.first, doubleCalculateP2O5Pair.second))
                 .map(p2O5 -> new ElementModelEntity(TypeElementEntity.P2O5, p2O5));
-
     }
 
     private Single<ElementModelEntity> getDataK2O(int cultureId) {

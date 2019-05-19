@@ -66,8 +66,7 @@ public class AddStartData {
         setWaterConsumptionData();
         setKUsvData();
         setPhasesImageData();
-        setPhasesData();
-        setPhasesInfo();
+//        setPhasesInfo();
         setTestCultureModel();
     }
 
@@ -326,131 +325,25 @@ public class AddStartData {
     }
 
 
-    private static void setPhasesInfo() {
-        ProductiveInfoDao productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
-
-        List<ProductiveInfoModel> listInfo = new ArrayList<>();
-        listInfo.add(new ProductiveInfoModel(1, 10, 30, 120));
-        listInfo.add(new ProductiveInfoModel(2, 10, 40, 150));
-        listInfo.add(new ProductiveInfoModel(3, 50, 250, 800));
-        listInfo.add(new ProductiveInfoModel(4, 5, 10, 50));
-        listInfo.add(new ProductiveInfoModel(5, 50, 250, 800));
-        listInfo.add(new ProductiveInfoModel(6, 5, 15, 50));
-        listInfo.add(new ProductiveInfoModel(7, 10, 20, 70));
-        listInfo.add(new ProductiveInfoModel(8, 5, 15, 50));
-        listInfo.add(new ProductiveInfoModel(9, 10, 20, 100));
-        listInfo.add(new ProductiveInfoModel(10, 5, 5, 45));
-
-        Completable.fromAction(() -> productiveInfoDao.insertList(listInfo))
-                .subscribeOn(Schedulers.io())
-                .subscribe();
-    }
-
-    private static void setPhasesData() {
-        PhasesDao phasesDao = App.getInstance().getDatabase().phasesDao();
-
-//        List<PhasesModel> phasesList = new ArrayList<>();
-//        phasesList.add(new PhasesModel(1, 30, 0, 0, 0, 0, -1, -1));
-//        phasesList.add(new PhasesModel(1, 40, 0.2, 0.2, 0.3, 0.2, -1, -1));
-//        phasesList.add(new PhasesModel(1, 50, 0.4, 0.4, 0.6, 0.4, -1, -1));
-//        phasesList.add(new PhasesModel(1, 60, 0.8, 0.8, 1.2, 0.8, -1, -1));
-//        phasesList.add(new PhasesModel(1, 70, 1, 1, 1.5, 1, -1, -1));
-//        phasesList.add(new PhasesModel(1, 80, 1.3, 1.3, 2, 1.3, -1, -1));
-//        phasesList.add(new PhasesModel(1, 90, 1.8, 1.8, 2.7, 1.8, -1, -1));
-//        phasesList.add(new PhasesModel(1, 100, 2.4, 2.4, 3.6, 2.4, -1, -1));
-//        phasesList.add(new PhasesModel(1, 110, 3.1, 3.1, 4.6, 3.1, -1, -1));
-//        phasesList.add(new PhasesModel(1, 120, 4, 4, 6, 4, -1, -1));
-//        phasesList.add(new PhasesModel(2, 40, 0, 0, 0, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 50, 0.4, 0.4, 0.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 60, 0.8, 0.8, 0.8, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 70, 1.2, 1.2, 1.2, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 80, 1.5, 1.5, 1.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 90, 2, 2, 2, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 100, 2.4, 2.4, 2.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 110, 2.8, 2.8, 2.8, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 120, 3.3, 3.3, 3.3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 130, 4, 4, 4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 140, 4.3, 4.3, 4.3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(2, 150, 4.9, 4.9, 4.9, -1, -1, -1));
-//        phasesList.add(new PhasesModel(3, 250, 0, 0, 0, 0, 0, -1));
-//        phasesList.add(new PhasesModel(3, 300, 0.2, 0.3, 0.5, 0.5, 0.3, -1));
-//        phasesList.add(new PhasesModel(3, 350, 0.3, 0.5, 0.7, 0.7, 0.5, -1));
-//        phasesList.add(new PhasesModel(3, 400, 0.7, 1, 1.4, 1.4, 1, -1));
-//        phasesList.add(new PhasesModel(3, 450, 1, 1.5, 2, 2, 1.5, -1));
-//        phasesList.add(new PhasesModel(3, 500, 1.3, 2, 2.6, 2.6, 2, -1));
-//        phasesList.add(new PhasesModel(3, 550, 1.7, 2.5, 3.4, 3.4, 2.5, -1));
-//        phasesList.add(new PhasesModel(3, 600, 2, 3, 4, 4, 3, -1));
-//        phasesList.add(new PhasesModel(3, 650, 2.3, 3.7, 4.5, 4.5, 3.7, -1));
-//        phasesList.add(new PhasesModel(3, 700, 2.7, 4.2, 5, 5, 4.2, -1));
-//        phasesList.add(new PhasesModel(3, 750, 3, 4.8, 5.5, 5.5, 4.8, -1));
-//        phasesList.add(new PhasesModel(3, 800, 3.3, 5.5, 6, 6, 5.5, -1));
-//        phasesList.add(new PhasesModel(4, 10, 0, 0, 0, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 15, 0.4, 0.8, 0.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 20, 0.8, 1.3, 0.8, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 25, 1.5, 2, 1.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 30, 2, 3, 2, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 35, 2.7, 4, 2.7, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 40, 3.5, 5, 3.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 45, 4.4, 6, 4.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(4, 50, 5.3, 7, 5.3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(5, 250, 0, 0, 0, 0, 0, 0));
-//        phasesList.add(new PhasesModel(5, 300, 0.6, 0.8, 1.1, 1.1, 1.1, 0.6));
-//        phasesList.add(new PhasesModel(5, 350, 1.2, 1.6, 2.2, 2.2, 2.2, 1.2));
-//        phasesList.add(new PhasesModel(5, 400, 1.8, 2.4, 3.2, 3.2, 3.2, 1.8));
-//        phasesList.add(new PhasesModel(5, 450, 2.4, 3.2, 4.1, 4.1, 4.1, 2.4));
-//        phasesList.add(new PhasesModel(5, 500, 3, 4, 5, 5, 5, 3));
-//        phasesList.add(new PhasesModel(5, 550, 3.7, 4.7, 5.7, 5.7, 5.7, 3.7));
-//        phasesList.add(new PhasesModel(5, 600, 4.3, 5.4, 6.4, 6.4, 6.4, 4.3));
-//        phasesList.add(new PhasesModel(5, 650, 5, 6, 7, 7, 7, 5));
-//        phasesList.add(new PhasesModel(5, 700, 5.6, 6.4, 7.6, 7.6, 7.6, 5.6));
-//        phasesList.add(new PhasesModel(5, 750, 6.3, 7.3, 8.1, 8.1, 8.1, 6.3));
-//        phasesList.add(new PhasesModel(5, 800, 7, 8, 8.5, 8.5, 8.5, 7));
-//        phasesList.add(new PhasesModel(6, 15, 0, 0, 0, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 20, 0, 0.3, 0.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 25, 1, 1, 1.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 30, 1.5, 1.5, 2, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 35, 2, 2, 3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 40, 3.1, 3.1, 4.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 45, 4.2, 4.2, 6.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(6, 50, 5.5, 5.5, 8.3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(7, 20, 0, 0, 0, 0, -1, -1));
-//        phasesList.add(new PhasesModel(7, 30, 1, 1, 1.3, 1, -1, -1));
-//        phasesList.add(new PhasesModel(7, 40, 2, 2, 3, 2, -1, -1));
-//        phasesList.add(new PhasesModel(7, 50, 3.2, 3.2, 4.6, 3.2, -1, -1));
-//        phasesList.add(new PhasesModel(7, 60, 4.3, 4.3, 6.3, 4.3, -1, -1));
-//        phasesList.add(new PhasesModel(7, 70, 5.4, 5.4, 8.1, 5.4, -1, -1));
-//        phasesList.add(new PhasesModel(8, 15, 0.4, 0.8, 0.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 20, 0.8, 1.3, 0.8, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 25, 1.5, 2.0, 1.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 30, 2, 3, 2, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 35, 2.7, 4, 2.7, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 40, 3.5, 5, 3.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 45, 4.4, 6, 4.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(8, 50, 5.3, 7, 5.3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(9, 20, 0, 0, 0, 0, -1, -1));
-//        phasesList.add(new PhasesModel(9, 30, 0.2, 0.2, 0.3, 0.2, -1, -1));
-//        phasesList.add(new PhasesModel(9, 40, 0.4, 0.4, 0.6, 0.4, -1, -1));
-//        phasesList.add(new PhasesModel(9, 50, 0.8, 0.8, 1.2, 0.8, -1, -1));
-//        phasesList.add(new PhasesModel(9, 60, 1, 1, 1.5, 1, -1, -1));
-//        phasesList.add(new PhasesModel(9, 70, 1.3, 1.3, 2, 1.3, -1, -1));
-//        phasesList.add(new PhasesModel(9, 80, 1.8, 1.8, 2.7, 1.8, -1, -1));
-//        phasesList.add(new PhasesModel(9, 90, 2.4, 2.4, 3.6, 2.4, -1, -1));
-//        phasesList.add(new PhasesModel(9, 100, 3.1, 3.1, 4.6, 3.1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 5, 0, 0, 0, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 10, 0.4, 0.6, 0.4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 15, 0.8, 1.3, 0.8, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 20, 1.5, 2, 1.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 25, 2, 3, 2, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 30, 2.5, 4, 2.5, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 35, 3.3, 5, 3.3, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 40, 4, 6, 4, -1, -1, -1));
-//        phasesList.add(new PhasesModel(10, 45, 5, 7, 5, -1, -1, -1));
+//    private static void setPhasesInfo() {
+//        ProductiveInfoDao productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
 //
-//        Completable.fromAction(() -> phasesDao.insertList(phasesList))
+//        List<ProductiveInfoModel> listInfo = new ArrayList<>();
+//        listInfo.add(new ProductiveInfoModel(1, 10, 30, 120));
+//        listInfo.add(new ProductiveInfoModel(2, 10, 40, 150));
+//        listInfo.add(new ProductiveInfoModel(3, 50, 250, 800));
+//        listInfo.add(new ProductiveInfoModel(4, 5, 10, 50));
+//        listInfo.add(new ProductiveInfoModel(5, 50, 250, 800));
+//        listInfo.add(new ProductiveInfoModel(6, 5, 15, 50));
+//        listInfo.add(new ProductiveInfoModel(7, 10, 20, 70));
+//        listInfo.add(new ProductiveInfoModel(8, 5, 15, 50));
+//        listInfo.add(new ProductiveInfoModel(9, 10, 20, 100));
+//        listInfo.add(new ProductiveInfoModel(10, 5, 5, 45));
+//
+//        Completable.fromAction(() -> productiveInfoDao.insertList(listInfo))
 //                .subscribeOn(Schedulers.io())
 //                .subscribe();
-    }
-
+//    }
 
     private static void setCultureData() {
         CultureDao cultureDao = App.getInstance().getDatabase().cultureDao();
@@ -475,16 +368,16 @@ public class AddStartData {
     private static void setTestCultureModel() {
 
         List<TestPhasesModel> winterWheatPhasesList = new ArrayList<>();
-        winterWheatPhasesList.add(new TestPhasesModel(30, 0, 0, 0, 0, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(40, 0.2, 0.2, 0.3, 0.2, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(50, 0.4, 0.4, 0.6, 0.4, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(60, 0.8, 0.8, 1.2, 0.8, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(70, 1, 1, 1.5, 1, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(80, 1.3, 1.3, 2, 1.3, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(90, 1.8, 1.8, 2.7, 1.8, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(100, 2.4, 2.4, 3.6, 2.4, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(110, 3.1, 3.1, 4.6, 3.1, -1, -1));
-        winterWheatPhasesList.add(new TestPhasesModel(120, 4, 4, 6, 4, -1, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(30, 1, 0, 0, 0, 0, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(40, 1, 0.2, 0.2, 0.3, 0.2, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(50, 1, 0.4, 0.4, 0.6, 0.4, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(60, 1, 0.8, 0.8, 1.2, 0.8, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(70, 1, 1, 1, 1.5, 1, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(80, 1, 1.3, 1.3, 2, 1.3, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(90, 1, 1.8, 1.8, 2.7, 1.8, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(100, 1, 2.4, 2.4, 3.6, 2.4, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(110, 1, 3.1, 3.1, 4.6, 3.1, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(120, 1, 4, 4, 6, 4, -1));
 
         List<TestPhasesModel> cornPhasesList = new ArrayList<>();
         cornPhasesList.add(new TestPhasesModel(40, 0, 0, 0, -1, -1, -1));
