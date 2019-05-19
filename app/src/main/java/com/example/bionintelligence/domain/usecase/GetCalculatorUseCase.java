@@ -2,9 +2,7 @@ package com.example.bionintelligence.domain.usecase;
 
 import android.util.Pair;
 
-import com.example.bionintelligence.data.model.PhasesImgModel;
-import com.example.bionintelligence.data.model.PhasesModel;
-import com.example.bionintelligence.data.model.ProductiveInfoModel;
+import com.example.bionintelligence.data.pojo.AnalyticalFactors;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
@@ -23,6 +21,9 @@ import java.util.List;
 
 import io.reactivex.Flowable;
 import io.reactivex.Single;
+import io.reactivex.SingleSource;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List<ElementModelEntity>> {
@@ -31,26 +32,6 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
     public GetCalculatorUseCase(CalculatorRepositoryImpl repository) {
         this.calculatorRepository = repository;
-    }
-
-    @Override
-    public Single<CalculatorParams> getCalculatorParams() {
-        return calculatorRepository.getCalculatorParams();
-    }
-
-    @Override
-    public void setParamsData(CalculatorParams params) {
-        calculatorRepository.setCalculatorParams(params);
-    }
-
-    @Override
-    public Single<Pair<PhasesModel, PhasesImgModel>> getPhasesData(int productive, int cultureId) {
-        return calculatorRepository.getPhasesData(productive, cultureId);
-    }
-
-    @Override
-    public Single<ProductiveInfoModel> getProductiveInfo(int cultureId) {
-        return calculatorRepository.getProductiveInfo(cultureId);
     }
 
     @Override
@@ -68,15 +49,39 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
         return Single.concat(list)
                 .buffer(7)
                 .cache();
-
     }
 
-
     private Single<ElementModelEntity> getDataN(int cultureId) {
+        // делать в отдельных методах
+//        return calculatorRepository.getAnalyticalFactors()
+//                .subscribeOn(Schedulers.computation())
+//                .map(new Function<AnalyticalFactors, Integer>() {
+//                    @Override
+//                    public Integer apply(AnalyticalFactors analyticalFactors) throws Exception {
+//                        return analyticalFactors.getAfN();
+//                    }
+//                }).
+//
+//
+//        calculatorRepository.getDataN(cultureId)
+//                .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
+//                .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
+
+
         return calculatorRepository.getDataN(cultureId)
                 .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
+                .flatMap(n -> getK(n, getMethod()).map(k -> (int) Math.round(n * k)))
                 .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
+//
+    }
+
+    public int getMethod() {
+        return 0;
+    }
+
+    public Single<Double> getK(double n, int m) {
+        return Single.just(0.0);
     }
 
     private Single<ElementModelEntity> getDataP2O5(int cultureId) {
@@ -122,7 +127,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .map(h2O -> new ElementModelEntity(TypeElementEntity.H2O, h2O));
     }
 
-    private int calculateN(Double phN, CalculateNEntity calculateNEntity) {
+    private double calculateN(Double phN, CalculateNEntity calculateNEntity) {
         double sf_N = calculateNEntity.sf_N;
         double sf_G = calculateNEntity.sf_G;
         double kusv_N = calculateNEntity.kusv_N;
@@ -138,8 +143,9 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
         n = vinos_N * params.getProductive() - (sf_N * 3.96 * kusv_N * phN + x);
 
+        return n < 0 ? 0 : n;
 
-        return n < 0 ? 0 : (int) Math.round(n);
+//        return n < 0 ? 0 : (int) Math.round(n);
     }
 
     private int calculateP2O5(Double phP2O5, CalculateP2O5Entity calculateP2O5Entity) {
@@ -194,31 +200,4 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
         return h2O < 0 ? 0 : (int) Math.round(h2O);
     }
-
-//    public static class Params {
-//
-//        private int productive;
-//        private int cultureId;
-//
-//        public Params(int productive, int cultureId) {
-//            this.productive = productive;
-//            this.cultureId = cultureId;
-//        }
-//
-//        public int getProductive() {
-//            return productive;
-//        }
-//
-//        public void setProductive(int productive) {
-//            this.productive = productive;
-//        }
-//
-//        public int getCultureId() {
-//            return cultureId;
-//        }
-//
-//        public void setCultureId(int cultureId) {
-//            this.cultureId = cultureId;
-//        }
-//    }
 }

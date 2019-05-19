@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.bionintelligence.presentation.settings.one.SettingsFragmentOne;
+import com.example.bionintelligence.presentation.settings.two.SettingsFragmentTwo;
+
 public class SettingsPageAdapter extends FragmentPagerAdapter {
     public SettingsPageAdapter(FragmentManager fm) {
         super(fm);

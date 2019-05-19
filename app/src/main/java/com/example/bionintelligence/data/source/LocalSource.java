@@ -8,26 +8,39 @@ public interface LocalSource {
 
     void setLocalData(boolean isFull);
 
-    String getSettingsCultureName();
+//    String getSettingsCultureName();
 
     void setSettingsCultureId(int cultureId);
 
-    void setSettingsCultureName(String cultureName);
+//    void setSettingsCultureName(String cultureName);
 
     int getSettingsCultureProductive();
 
     void setSettingsCultureProductive(int culture_productive);
 
-    int getSettingsProductiveMax();
+    int getAnalyticalFactorsN();
+
+    void setAnalyticalFactorsN(int analyticalFactors1);
+
+    int getAnalyticalFactorsP2O5();
+
+    void setAnalyticalFactorsP2O5(int analyticalFactors2);
+
+    int getAnalyticalFactorsK2O();
+
+    void setAnalyticalFactorsK2O(int analyticalFactors3);
 
 
-    void setSettingsProductiveMax(int productiveMax);
-
-    int getSettingsProductiveMin();
-
-    void setSettingsProductiveMin(int productiveMin);
-
-    int getSettingsProductiveStep();
-
-    void setSettingsProductiveStep(int productiveStep);
+//    int getSettingsProductiveMax();
+//
+//
+//    void setSettingsProductiveMax(int productiveMax);
+//
+//    int getSettingsProductiveMin();
+//
+//    void setSettingsProductiveMin(int productiveMin);
+//
+//    int getSettingsProductiveStep();
+//
+//    void setSettingsProductiveStep(int productiveStep);
 }

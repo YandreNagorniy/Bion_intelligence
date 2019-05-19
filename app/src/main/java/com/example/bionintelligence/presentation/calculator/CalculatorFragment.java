@@ -52,7 +52,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.numberPicker.setValueChangedListener((value, action) -> {
-            calculatorPresenter.getCalculatorData(value, Integer.parseInt((String) binding.cultureId.getText()));
+            calculatorPresenter.getCalculatorData(value, cultureModel.getCultureId());
             calculatorPresenter.getPhasesData(cultureModel.getPhasesModelList(), value);
         });
 
@@ -64,10 +64,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         });
     }
 //todo delete id in .xml
-    //  getCalculatorData();
-    //        getPhasesData();
-//    displayCalculatorModel
-//cultureModel.phasesModelList.get(phasesModelList.size()).getProductive()
 
     @Override
     public void displayCalculatorData(CalculatorModel calculatorModel) {
@@ -96,16 +92,12 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         if (resultCode == RESULT_OK) {
             calculatorPresenter.getCultureModel(data.getIntExtra("cultureId", 1));
             //todo CultureActivity.CULTURE_ID
-//            binding.cultureId.setText(String.valueOf(data.getIntExtra("cultureId", 1)));
-//            binding.calculatorCultureName.setText(data.getStringExtra("cultureName"));
-////            getProductiveInfo();
         }
     }
 
     @Override
     public void onDestroy() {
-        calculatorPresenter.setParamsData(new CalculatorParams(binding.numberPicker.getValue(),
-                Integer.parseInt((String) binding.cultureId.getText())));
+        calculatorPresenter.setParamsData(new CalculatorParams(binding.numberPicker.getValue(), cultureModel.getCultureId()));
         calculatorPresenter.detachView();
         super.onDestroy();
     }

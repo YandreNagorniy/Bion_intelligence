@@ -47,10 +47,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         compositeDisposable.add(calculatorRepository.getCalculatorParams()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(params -> {
-//                    getCalculatorData(params.getProductive(), params.getCultureId());
-                    getCultureModel(params.getCultureId());
-                }));
+                .subscribe(params -> getCultureModel(params.getCultureId())));
     }
 
     @Override

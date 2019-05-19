@@ -21,6 +21,9 @@ public interface SoilFactorsDao {
     @Query("SELECT * FROM SoilFactorsModel WHERE id IS :id")
     Single<SoilFactorsModel> getById(int id);
 
+    @Query("SELECT * FROM SoilFactorsModel")
+    Single<SoilFactorsModel> getSoilFactorsModel();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(SoilFactorsModel soilFactorsModel);
 

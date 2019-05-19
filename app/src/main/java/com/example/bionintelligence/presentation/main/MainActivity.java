@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         infoFragment = new InfoFragment();
         addFragment();
 
+
         binding.bottomNavigationView
                 .setOnNavigationItemSelectedListener(menuItem -> {
                     switch (menuItem.getItemId()) {

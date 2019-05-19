@@ -3,15 +3,18 @@ package com.example.bionintelligence.data.source;
 import com.example.bionintelligence.App;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
 import com.example.bionintelligence.data.database.dao.CultureDao;
+import com.example.bionintelligence.data.database.dao.MethodsNDao;
 import com.example.bionintelligence.data.database.dao.ProductiveInfoDao;
 import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
+import com.example.bionintelligence.data.database.dao.SoilFactorsDao;
 import com.example.bionintelligence.data.database.dao.TestCultureDao;
 import com.example.bionintelligence.data.database.start.AddStartData;
 import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.data.model.SoilFactorsModel;
 import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
@@ -29,18 +32,17 @@ import io.reactivex.Single;
 public class DatabaseSourceImpl implements DatabaseSource {
     private CalculatorDao calculatorDao;
     private CultureDao cultureDao;
-    private PhasesImgDao phasesImgDao;
-    private PhasesDao phasesDao;
-    private ProductiveInfoDao productiveInfoDao;
     private TestCultureDao testCultureDao;
+    private SoilFactorsDao soilFactorsDao;
+    private MethodsNDao methodsNDao;
+    private MethodsNDao methodsNDao;
 
     public DatabaseSourceImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
         cultureDao = App.getInstance().getDatabase().cultureDao();
-        phasesImgDao = App.getInstance().getDatabase().phasesImgDao();
-        phasesDao = App.getInstance().getDatabase().phasesDao();
-        productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
         testCultureDao = App.getInstance().getDatabase().testCultureDao();
+        soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
+        methodsNDao  = App.getInstance().getDatabase().methodsNDao();
     }
 
     @Override
@@ -114,27 +116,40 @@ public class DatabaseSourceImpl implements DatabaseSource {
     }
 
     @Override
+    public Single<Double> getTyrinIndex(double valueN) {
+        return methodsNDao.getTyrinIndex(valueN);
+    }
+
+
+
+
+    @Override
     public Flowable<List<CultureModel>> getCultureList() {
         return cultureDao.getList();
     }
-
-    @Override
-    public Single<PhasesImgModel> getPhaseImg(int cultureId) {
-        return phasesImgDao.getPhaseImgByCultureId(cultureId);
-    }
-
-    @Override
-    public Single<PhasesModel> getPhases(int cultureId, int productive) {
-        return phasesDao.getPhases(cultureId, productive);
-    }
-
-    @Override
-    public Single<ProductiveInfoModel> getPhasesInfo(int cultureId) {
-        return productiveInfoDao.getPhasesInfo(cultureId);
-    }
+//
+//    @Override
+//    public Single<PhasesImgModel> getPhaseImg(int cultureId) {
+//        return phasesImgDao.getPhaseImgByCultureId(cultureId);
+//    }
+//
+//    @Override
+//    public Single<PhasesModel> getPhases(int cultureId, int productive) {
+//        return phasesDao.getPhases(cultureId, productive);
+//    }
+//
+//    @Override
+//    public Single<ProductiveInfoModel> getPhasesInfo(int cultureId) {
+//        return productiveInfoDao.getPhasesInfo(cultureId);
+//    }
 
     @Override
     public Single<TestCultureModel> getTestCultureModel(int cultureId) {
         return testCultureDao.getById(cultureId);
+    }
+
+    @Override
+    public Single<SoilFactorsModel> getSoilFactorsModel() {
+        return soilFactorsDao.getSoilFactorsModel();
     }
 }

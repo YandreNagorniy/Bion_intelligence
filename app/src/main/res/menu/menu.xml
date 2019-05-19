@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_calculator"
-        android:icon="@mipmap/ic_menu_calculator_white"
+        android:icon="@drawable/ic_menu_calculator_white"
         android:title="" />
     <item
         android:id="@+id/action_settings"
-        android:icon="@mipmap/ic_menu_settings_white"
+        android:icon="@drawable/ic_menu_settings_white"
         android:title="" />
     <item
         android:id="@+id/action_product"
-        android:icon="@mipmap/ic_menu_info_white"
+        android:icon="@drawable/ic_menu_info_white"
         android:title="" />
     <item
         android:id="@+id/action_contacts"
-        android:icon="@mipmap/ic_menu_about_us_white"
+        android:icon="@drawable/ic_menu_about_us_white"
         android:title="" />
 </menu>

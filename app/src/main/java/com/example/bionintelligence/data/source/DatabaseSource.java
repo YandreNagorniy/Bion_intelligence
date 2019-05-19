@@ -4,6 +4,7 @@ import com.example.bionintelligence.data.model.CultureModel;
 import com.example.bionintelligence.data.model.PhasesImgModel;
 import com.example.bionintelligence.data.model.ProductiveInfoModel;
 import com.example.bionintelligence.data.model.PhasesModel;
+import com.example.bionintelligence.data.model.SoilFactorsModel;
 import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
@@ -47,13 +48,17 @@ public interface DatabaseSource {
 
     Single<CalculateH2OEntity> getDataH2O(int id);
 
+    Single<Double> getTyrinIndex(double valueN);
+
     Flowable<List<CultureModel>> getCultureList();
-
-    Single<PhasesImgModel> getPhaseImg(int cultureId);
-
-    Single<PhasesModel> getPhases(int cultureId, int productive);
-
-    Single<ProductiveInfoModel> getPhasesInfo(int cultureId);
+//
+//    Single<PhasesImgModel> getPhaseImg(int cultureId);
+//
+//    Single<PhasesModel> getPhases(int cultureId, int productive);
+//
+//    Single<ProductiveInfoModel> getPhasesInfo(int cultureId);
 
     Single<TestCultureModel> getTestCultureModel(int cultureId);
+
+    Single<SoilFactorsModel> getSoilFactorsModel();
 }

@@ -2,17 +2,30 @@ package com.example.bionintelligence.presentation.adapters;
 
 import android.databinding.BindingAdapter;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.bionintelligence.presentation.custom.ChemistryView;
 import com.example.bionintelligence.presentation.custom.PhaseView;
+import com.example.bionintelligence.presentation.custom.SoilFactorView;
 
 public class BindingAdapters {
+
     //заполнение chemistryView значениями с помощью атрибута "item_value"
     @BindingAdapter({"item_value"})
     public static void setItemValue(ChemistryView chemistryView, int value) {
         chemistryView.setItemValue(String.valueOf(value));
+    }
+
+    @BindingAdapter({"sf_value"})
+    public static void setItemValue(SoilFactorView soilFactorView, double value) {
+        soilFactorView.setItemValue(String.valueOf(value));
+    }
+
+    @BindingAdapter({"sf_value"})
+    public static void setItemValue(EditText editText, double value) {
+        editText.setText(String.valueOf(value));
     }
 
     @BindingAdapter({"new_src"})

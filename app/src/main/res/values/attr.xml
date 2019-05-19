@@ -13,7 +13,7 @@
     <declare-styleable name="SoilFactorView">
         <attr name="item_name" />
         <attr name="item_text" />
-        <attr name="item_value" />
+        <attr name="sf_value" format="float" />
     </declare-styleable>
 
     <declare-styleable name="PhaseView">

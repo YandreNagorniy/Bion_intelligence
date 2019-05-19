@@ -30,4 +30,10 @@
         \n«Бион-Интеллект», количественно \nрассчитанных для конкретной вегетаци-\nонной фазы, в которой он окажет
         \nмаксимальную эффективность на \nметаболизм растений. Мобильное \nприложение, позволяет рассчитать норму
         \nпрепаратов «Бион-Интеллект» по \nзаданным почвенно-климатическим \nусловиям и условиям минерального питания.</string>
+    <string name="text_settings2_mineral">Минеральный \n (NO3+NH4)</string>
+    <string name="text_settings2_shelochnoy">Щелочногидролизуемый \n (Корнфилд)</string>
+    <string name="text_settings2_lite">Легкодиролизованый \n (Тюрин-Кононова)</string>
+    <string name="text_machigin">Мачигин</string>
+    <string name="text_chirikov">Чириков</string>
+    <string name="text_kirsanov">Кирсанов</string>
 </resources>

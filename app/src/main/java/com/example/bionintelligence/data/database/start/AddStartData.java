@@ -111,7 +111,7 @@ public class AddStartData {
                 App.getInstance().getDatabase().methodsK2ODao();
 
         List<MethodsK2OModel> methodsK2OList = new ArrayList<>();
-        methodsK2OList.add(new MethodsK2OModel("Очень низкое", 40, -1, 20, -1, 100, -1, 2.295, 4.985));
+        methodsK2OList.add(new MethodsK2OModel("Очень низкое", 1, 40, 1, 20, 1, 100, 2.295, 4.985));
         methodsK2OList.add(new MethodsK2OModel("Низкое", 41, 80, 21, 40, 101, 200, 2.474, 4.812));
         methodsK2OList.add(new MethodsK2OModel("Среднее", 81, 120, 41, 80, 201, 300, 2.468, 4.702));
         methodsK2OList.add(new MethodsK2OModel("Повышенное", 121, 170, 81, 120, 301, 400, 2.577, 4.404));
@@ -128,7 +128,7 @@ public class AddStartData {
                 App.getInstance().getDatabase().methodsP2O5Dao();
 
         List<MethodsP2O5Model> methodsP2O5List = new ArrayList<>();
-        methodsP2O5List.add(new MethodsP2O5Model("Очень низкое", 25, -1, 20, -1, 10, -1, 0.400, 0.526));
+        methodsP2O5List.add(new MethodsP2O5Model("Очень низкое", 1, 25, 1, 20, 1, 10, 0.4, 0.526));
         methodsP2O5List.add(new MethodsP2O5Model("Низкое", 26, 50, 21, 50, 11, 15, 0.353, 0.372));
         methodsP2O5List.add(new MethodsP2O5Model("Среднее", 51, 100, 51, 100, 16, 30, 0.305, 0.341));
         methodsP2O5List.add(new MethodsP2O5Model("Повышенное", 101, 150, 101, 150, 31, 45, 0.303, 0.315));
@@ -145,12 +145,12 @@ public class AddStartData {
                 App.getInstance().getDatabase().methodsNDao();
 
         List<MethodsNModel> methodsNList = new ArrayList<>();
-        methodsNList.add(new MethodsNModel("Очень низкое", 30, -1, 100, -1, 5, -1, 0.265, 0.081));
+        methodsNList.add(new MethodsNModel("Очень низкое", 1, 30, 1, 100, 1, 5, 0.265, 0.081));
         methodsNList.add(new MethodsNModel("Низкое", 31, 40, 101, 150, 6, 8, 0.313, 0.095));
         methodsNList.add(new MethodsNModel("Среднее", 41, 50, 151, 200, 9, 15, 0.429, 0.116));
         methodsNList.add(new MethodsNModel("Повышенное", 51, 70, 201, 300, 16, 30, 0.598, 0.156));
         methodsNList.add(new MethodsNModel("Высокое", 71, 100, 301, 500, 31, 60, 0.852, 0.193));
-        methodsNList.add(new MethodsNModel("Очень высокое", 101, -1, 501, -1, 61, -1, 1.046, 0.207));
+        methodsNList.add(new MethodsNModel("Очень высокое", 101, 999, 501, 999, 61, 999, 1.046, 0.207));
 
         Completable.fromAction(() -> methodsNDao.insertList(methodsNList))
                 .subscribeOn(Schedulers.io())
@@ -309,7 +309,7 @@ public class AddStartData {
         PhasesImgDao phasesImageDao = App.getInstance().getDatabase().phasesImgDao();
 
         List<PhasesImgModel> list = new ArrayList<>();
-        list.add(new PhasesImgModel(1, R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, 0, 0));
+        list.add(new PhasesImgModel(1, R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, R.drawable.phase_winter_wheat5, 0));
         list.add(new PhasesImgModel(2, R.drawable.phase_corn1, R.drawable.phase_corn2, R.drawable.phase_corn3, 0, 0, 0));
         list.add(new PhasesImgModel(3, R.drawable.phase_sugar_beet1, R.drawable.phase_sugar_beet2, R.drawable.phase_sugar_beet3, R.drawable.phase_sugar_beet4, R.drawable.phase_sugar_beet5, 0));
         list.add(new PhasesImgModel(4, R.drawable.phase_soy1, R.drawable.phase_soy2, R.drawable.phase_soy3, 0, 0, 0));

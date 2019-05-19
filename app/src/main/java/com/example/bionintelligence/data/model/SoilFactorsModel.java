@@ -196,5 +196,4 @@ public class SoilFactorsModel {
     public void setZpv(double zpv) {
         this.zpv = zpv;
     }
-
 }

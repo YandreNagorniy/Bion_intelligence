@@ -78,6 +78,7 @@
                     app:layout_constraintGuide_percent="0.3" />
 
                 <RadioGroup
+                    android:id="@+id/rg_N"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -91,19 +92,19 @@
                         android:id="@+id/rb_mineralN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Минеральный (NO3+NH4)" />
+                        android:text="@string/text_settings2_mineral" />
 
                     <RadioButton
                         android:id="@+id/rb_shelochN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Щелочногидролизуемый (Корнфилд)" />
+                        android:text="@string/text_settings2_shelochnoy" />
 
                     <RadioButton
                         android:id="@+id/rb_liteN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Легкодиролизованый (Тюрин-Кононова)" />
+                        android:text="@string/text_settings2_lite" />
                 </RadioGroup>
             </android.support.constraint.ConstraintLayout>
         </FrameLayout>
@@ -170,6 +171,7 @@
                     app:layout_constraintGuide_percent="0.3" />
 
                 <RadioGroup
+                    android:id="@+id/rg_P2O5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -183,19 +185,19 @@
                         android:id="@+id/rb_machiginP2O5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Мачигин" />
+                        android:text="@string/text_machigin" />
 
                     <RadioButton
                         android:id="@+id/rb_chirikovP2O5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Чириков" />
+                        android:text="@string/text_chirikov" />
 
                     <RadioButton
                         android:id="@+id/rb_kirsanovP2O5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Кирсанов" />
+                        android:text="@string/text_kirsanov" />
                 </RadioGroup>
             </android.support.constraint.ConstraintLayout>
         </FrameLayout>
@@ -262,6 +264,7 @@
                     app:layout_constraintGuide_percent="0.3" />
 
                 <RadioGroup
+                    android:id="@+id/rg_K2O"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -275,19 +278,19 @@
                         android:id="@+id/rb_machiginK2O"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Мачигин" />
+                        android:text="@string/text_machigin" />
 
                     <RadioButton
                         android:id="@+id/rb_chirikovK2O"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Чириков" />
+                        android:text="@string/text_chirikov" />
 
                     <RadioButton
                         android:id="@+id/rb_kirsanovK2O"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Кирсанов" />
+                        android:text="@string/text_kirsanov" />
                 </RadioGroup>
             </android.support.constraint.ConstraintLayout>
         </FrameLayout>

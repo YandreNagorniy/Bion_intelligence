@@ -27,6 +27,12 @@ public interface MethodsNDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertList(List<MethodsNModel> methodsNList);
 
+    @Query("Select indexTyrin From MethodsNModel where :valueN Between tyrinMin and tyrinMax")
+    Single<Double> getTyrinIndex(double valueN);
+
+    @Query("Select indexKornfild From MethodsNModel where :valueN Between kornfildMin and kornfildMax")
+    Single<Double> getKornfildIndex(double valueN);
+
     @Query("DELETE FROM MethodsNModel WHERE id IS :id")
     void deleteById(int id);
 }
