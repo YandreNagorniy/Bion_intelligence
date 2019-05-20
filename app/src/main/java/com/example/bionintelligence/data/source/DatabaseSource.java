@@ -48,17 +48,23 @@ public interface DatabaseSource {
 
     Single<CalculateH2OEntity> getDataH2O(int id);
 
-    Single<Double> getTyrinIndex(double valueN);
+    Single<Double> getTyrinIndexN(double valueN);
 
-    Single<Double> getKornfildIndex(double valueN);
+    Single<Double> getKornfildIndexN(double valueN);
+
+    Single<Double> getChirikovIndexP2O5(double valueP2O5);
+
+    Single<Double> getKirsanovIndexP2O5(double valueP2O5);
+
+    Single<Double> getChirikovIndexK2O(double valueP2O5);
+
+    Single<Double> getKirsanovIndexK2O(double valueP2O5);
 
     Flowable<List<CultureModel>> getCultureList();
 //
 //    Single<PhasesImgModel> getPhaseImg(int cultureId);
 //
 //    Single<PhasesModel> getPhases(int cultureId, int productive);
-//
-//    Single<ProductiveInfoModel> getPhasesInfo(int cultureId);
 
     Single<TestCultureModel> getTestCultureModel(int cultureId);
 

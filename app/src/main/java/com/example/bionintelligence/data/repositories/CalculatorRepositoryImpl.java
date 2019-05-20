@@ -123,15 +123,34 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
 
 
     @Override
-    public Single<Double> getTyrinIndex(double valueN) {
-        return databaseSource.getTyrinIndex(valueN);
+    public Single<Double> getTyrinIndexN(double valueN) {
+        return databaseSource.getTyrinIndexN(valueN);
     }
 
     @Override
-    public Single<Double> getKornfildIndex(double valueN) {
-        return databaseSource.getKornfildIndex(valueN);
+    public Single<Double> getKornfildIndexN(double valueN) {
+        return databaseSource.getKornfildIndexN(valueN);
     }
 
+    @Override
+    public Single<Double> getChirikovIndexP2O5(double valueP2O5) {
+        return databaseSource.getChirikovIndexP2O5(valueP2O5);
+    }
+
+    @Override
+    public Single<Double> getKirsanovIndexP2O5(double valueP2O5) {
+        return databaseSource.getKirsanovIndexP2O5(valueP2O5);
+    }
+
+    @Override
+    public Single<Double> getChirikovIndexK2O(double valueK2O) {
+        return databaseSource.getChirikovIndexK2O(valueK2O);
+    }
+
+    @Override
+    public Single<Double> getKirsanovIndexK2O(double valueK2O) {
+        return databaseSource.getKirsanovIndexK2O(valueK2O);
+    }
 
     @Override
     public Single<TestCultureModel> getTestCultureModel(int cultureId) {

@@ -47,12 +47,12 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .cache();
     }
 
+
     private Single<ElementModelEntity> getDataN(int cultureId) {
         return calculatorRepository.getDataN(cultureId)
                 .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
-                .flatMap(n -> getMethod()
-                        .flatMap(method -> getIndex(n, method))
+                .flatMap(n -> getMethodN().flatMap(method -> getIndexN(n, method))
                         .map(new Function<Double, Integer>() {
                             @Override
                             public Integer apply(Double index) throws Exception {
@@ -62,20 +62,20 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
     }
 
-    private Single<Integer> getMethod() {
+    private Single<Integer> getMethodN() {
         return calculatorRepository.getAnalyticalFactors()
                 .subscribeOn(Schedulers.io())
                 .map(AnalyticalFactors::getAfN);
     }
 
-    private Single<Double> getIndex(double n, int method) {
+    private Single<Double> getIndexN(double n, int method) {
         if (n > 0) {
             switch (method) {
                 case 2: {
-                    return calculatorRepository.getKornfildIndex(n);
+                    return calculatorRepository.getKornfildIndexN(n);
                 }
                 case 3:
-                    return calculatorRepository.getTyrinIndex(n);
+                    return calculatorRepository.getTyrinIndexN(n);
                 default:
                     return Single.just(1.0);
             }
@@ -88,14 +88,60 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
         return calculatorRepository.getDataP2O5(cultureId)
                 .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateP2O5Pair -> calculateP2O5(doubleCalculateP2O5Pair.first, doubleCalculateP2O5Pair.second))
+                .flatMap(p2O5 -> getMethodP2O5().flatMap(method -> getIndexP2O5(p2O5, method)).map(index -> (int) Math.round(p2O5 * index)))
                 .map(p2O5 -> new ElementModelEntity(TypeElementEntity.P2O5, p2O5));
+    }
+
+    private Single<Integer> getMethodP2O5() {
+        return calculatorRepository.getAnalyticalFactors()
+                .subscribeOn(Schedulers.io())
+                .map(AnalyticalFactors::getAfP2O5);
+    }
+
+    private Single<Double> getIndexP2O5(double p2O5, int method) {
+        if (p2O5 > 0) {
+            switch (method) {
+                case 2: {
+                    return calculatorRepository.getChirikovIndexK2O(p2O5);
+                }
+                case 3:
+                    return calculatorRepository.getKirsanovIndexK2O(p2O5);
+                default:
+                    return Single.just(1.0);
+            }
+        } else {
+            return Single.just(1.0);
+        }
     }
 
     private Single<ElementModelEntity> getDataK2O(int cultureId) {
         return calculatorRepository.getDataK2O(cultureId)
                 .subscribeOn(Schedulers.computation())
                 .map(doubleCalculateK2OPair -> calculateK2O(doubleCalculateK2OPair.first, doubleCalculateK2OPair.second))
+                .flatMap(k2O -> getMethodK2O().flatMap(method -> getIndexK2O(k2O, method)).map(index -> (int) Math.round(k2O * index)))
                 .map(k2O -> new ElementModelEntity(TypeElementEntity.K2O, k2O));
+    }
+
+    private Single<Integer> getMethodK2O() {
+        return calculatorRepository.getAnalyticalFactors()
+                .subscribeOn(Schedulers.io())
+                .map(AnalyticalFactors::getAfK2O);
+    }
+
+    private Single<Double> getIndexK2O(double k2O, int method) {
+        if (k2O > 0) {
+            switch (method) {
+                case 2: {
+                    return calculatorRepository.getChirikovIndexK2O(k2O);
+                }
+                case 3:
+                    return calculatorRepository.getKirsanovIndexK2O(k2O);
+                default:
+                    return Single.just(1.0);
+            }
+        } else {
+            return Single.just(1.0);
+        }
     }
 
     private Single<ElementModelEntity> getDataCaO(int cultureId) {
@@ -147,22 +193,24 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 //        return n < 0 ? 0 : (int) Math.round(n);
     }
 
-    private int calculateP2O5(Double phP2O5, CalculateP2O5Entity calculateP2O5Entity) {
+    private double calculateP2O5(Double phP2O5, CalculateP2O5Entity calculateP2O5Entity) {
         double vinos_P2O5 = calculateP2O5Entity.vinos_P2O5;
         double sf_P2O5 = calculateP2O5Entity.sf_P2O5;
         double kusv_P2O5 = calculateP2O5Entity.kusv_P2O5;
         double p2O5 = vinos_P2O5 * params.getProductive() - sf_P2O5 * kusv_P2O5 * 3.96 * phP2O5;
 
-        return p2O5 < 0 ? 0 : (int) Math.round(p2O5);
+//        return p2O5 < 0 ? 0 : (int) Math.round(p2O5);
+        return p2O5 < 0 ? 0 : p2O5;
     }
 
-    private int calculateK2O(Double phK2O, CalculateK2OEntity calculateK2OEntity) {
+    private double calculateK2O(Double phK2O, CalculateK2OEntity calculateK2OEntity) {
         double vinos_K2O = calculateK2OEntity.vinos_K2O;
         double sf_K2O = calculateK2OEntity.sf_K2O;
         double kusv_K2O = calculateK2OEntity.kusv_K2O;
         double k2O = vinos_K2O * params.getProductive() - sf_K2O * kusv_K2O * 3.96 * phK2O;
 
-        return k2O < 0 ? 0 : (int) Math.round(k2O);
+//        return k2O < 0 ? 0 : (int) Math.round(k2O);
+        return k2O < 0 ? 0 : k2O;
     }
 
     private int calculateCaO(Double phCaO, CalculateCaOEntity calculateCaOEntity) {

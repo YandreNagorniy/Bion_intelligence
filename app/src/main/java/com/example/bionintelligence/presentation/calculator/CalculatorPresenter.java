@@ -10,21 +10,16 @@ public interface CalculatorPresenter {
 
     void setParamsData(CalculatorParams params);
 
-//    void getParamsData();
-
     void getCalculatorData(int productive, int cultureId);
 
     void getStartData();
 
     void getCultureModel(int cultureId);
 
-//    void getPhasesData(int value, int parseInt);
-//
-//    void getProductiveInfo(int cultureId);
+    void calculateProductive(int cultureId, String tvItemName, int parseInt, int productive);
 
     void getPhasesData(List<TestPhasesModel> phasesModelList, int productive);
 
     void detachView();
-
 
 }

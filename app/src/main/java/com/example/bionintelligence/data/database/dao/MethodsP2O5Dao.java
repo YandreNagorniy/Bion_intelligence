@@ -21,6 +21,12 @@ public interface MethodsP2O5Dao {
     @Query("SELECT * FROM MethodsP2O5Model WHERE id IS :id")
     Single<MethodsP2O5Model> getById(int id);
 
+    @Query("Select indexKirsanov From MethodsP2O5Model where :valueP2O5 Between kirsanovMin and kirsanovMax")
+    Single<Double> getKirsanovIndex(double valueP2O5);
+
+    @Query("Select indexChirikov From MethodsP2O5Model where :valueP2O5 Between chirikovMin and chirikovMax")
+    Single<Double> getChirikovIndex(double valueP2O5);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(MethodsP2O5Model methodsP2O5);
 

@@ -5,8 +5,10 @@ import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.data.model.TestPhasesModel;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.entities.ElementModelEntity;
+import com.example.bionintelligence.domain.entities.ProductiveParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 import com.example.bionintelligence.domain.usecase.FlowableUseCase;
+import com.example.bionintelligence.domain.usecase.ProductiveUseCase;
 import com.example.bionintelligence.presentation.map.PhasesValueMapper;
 
 import java.util.List;
@@ -21,13 +23,15 @@ import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorPresenterImpl implements CalculatorPresenter {
     private FlowableUseCase<CalculatorParams, List<ElementModelEntity>> getCalculatorUseCase;
+    private ProductiveUseCase<ProductiveParams, Integer> getProductiveUseCase;
     private CompositeDisposable compositeDisposable;
     private CalculatorRepository calculatorRepository;
     private CalculatorView calculatorView;
 
     CalculatorPresenterImpl(FlowableUseCase<CalculatorParams, List<ElementModelEntity>> getCalculatorUseCase,
-                            CalculatorRepository calculatorRepository) {
+                            CalculatorRepository calculatorRepository, ProductiveUseCase<ProductiveParams, Integer> getProductiveUseCase) {
         this.getCalculatorUseCase = getCalculatorUseCase;
+        this.getProductiveUseCase = getProductiveUseCase;
         this.calculatorRepository = calculatorRepository;
         this.compositeDisposable = new CompositeDisposable();
     }
@@ -66,6 +70,19 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(testCultureModel -> calculatorView.displayCultureData(testCultureModel)));
+    }
+
+    @Override
+    public void calculateProductive(int cultureId, String itemName, int newValue, int productive) {
+        compositeDisposable.add(getProductiveUseCase.execute(new ProductiveParams(cultureId, itemName, newValue, productive))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        int a=0;
+                    }
+                }));
     }
 
     @Override

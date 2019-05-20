@@ -16,7 +16,7 @@ import com.example.bionintelligence.databinding.ActivityCultureBinding;
 import java.util.List;
 import java.util.Objects;
 
-public class CultureActivity extends AppCompatActivity implements CultureView {
+public class CultureActivity extends AppCompatActivity implements CultureView  {
     private CulturePresenter culturePresenter;
     private ActivityCultureBinding binding;
 

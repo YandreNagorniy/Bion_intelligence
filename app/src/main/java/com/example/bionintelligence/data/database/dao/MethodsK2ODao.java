@@ -21,6 +21,12 @@ public interface MethodsK2ODao {
     @Query("SELECT * FROM MethodsK2OModel WHERE id IS :id")
     Single<MethodsK2OModel> getById(int id);
 
+    @Query("Select indexKirsanov From MethodsK2OModel where :valueK2O Between kirsanovMin and kirsanovMax")
+    Single<Double> getKirsanovIndex(double valueK2O);
+
+    @Query("Select indexChirikov From MethodsK2OModel where :valueK2O Between chirikovMin and chirikovMax")
+    Single<Double> getChirikovIndex(double valueK2O);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(MethodsK2OModel methodsK2O);
 

@@ -36,16 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!--<TextView-->
-                <!--android:id="@+id/cultureId"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@{String.valueOf(cultureModel.cultureId)}"-->
-                <!--android:textColor="@android:color/white"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
-
             <TextView
                 android:id="@+id/calculator_cultureName"
                 android:layout_width="wrap_content"
@@ -205,6 +195,7 @@
         </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
+            android:id="@+id/phasesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -273,5 +264,6 @@
                 app:phase_value="@{phaseValue.phaseSix}" />
 
         </LinearLayout>
+
     </android.support.constraint.ConstraintLayout>
 </layout>

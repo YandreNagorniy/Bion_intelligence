@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
 import android.widget.EditText;
@@ -76,4 +77,15 @@ public class ChemistryView extends FrameLayout {
         tvItemName.setText(text, TextView.BufferType.SPANNABLE);
     }
 
+    public void setTextChangedListener(TextWatcher textWatcher) {
+        etItemValue.addTextChangedListener(textWatcher);
+    }
+
+    public String getTvItemName() {
+        return (String) tvItemName.getText().toString();
+    }
+
+    public void setTvItemName(TextView tvItemName) {
+        this.tvItemName = tvItemName;
+    }
 }

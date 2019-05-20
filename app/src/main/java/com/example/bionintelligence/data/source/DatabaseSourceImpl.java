@@ -3,7 +3,9 @@ package com.example.bionintelligence.data.source;
 import com.example.bionintelligence.App;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
 import com.example.bionintelligence.data.database.dao.CultureDao;
+import com.example.bionintelligence.data.database.dao.MethodsK2ODao;
 import com.example.bionintelligence.data.database.dao.MethodsNDao;
+import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
 import com.example.bionintelligence.data.database.dao.ProductiveInfoDao;
 import com.example.bionintelligence.data.database.dao.PhasesDao;
 import com.example.bionintelligence.data.database.dao.PhasesImgDao;
@@ -35,13 +37,17 @@ public class DatabaseSourceImpl implements DatabaseSource {
     private TestCultureDao testCultureDao;
     private SoilFactorsDao soilFactorsDao;
     private MethodsNDao methodsNDao;
+    private MethodsP2O5Dao methodsP2O5Dao;
+    private MethodsK2ODao methodsK2ODao;
 
     public DatabaseSourceImpl() {
         calculatorDao = App.getInstance().getDatabase().calculatorDao();
         cultureDao = App.getInstance().getDatabase().cultureDao();
         testCultureDao = App.getInstance().getDatabase().testCultureDao();
         soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
-        methodsNDao  = App.getInstance().getDatabase().methodsNDao();
+        methodsNDao = App.getInstance().getDatabase().methodsNDao();
+        methodsP2O5Dao = App.getInstance().getDatabase().methodsP2O5Dao();
+        methodsK2ODao = App.getInstance().getDatabase().methodsK2ODao();
     }
 
     @Override
@@ -115,18 +121,34 @@ public class DatabaseSourceImpl implements DatabaseSource {
     }
 
     @Override
-    public Single<Double> getTyrinIndex(double valueN) {
+    public Single<Double> getTyrinIndexN(double valueN) {
         return methodsNDao.getTyrinIndex(valueN);
     }
 
     @Override
-    public Single<Double> getKornfildIndex(double valueN) {
+    public Single<Double> getKornfildIndexN(double valueN) {
         return methodsNDao.getKornfildIndex(valueN);
     }
 
+    @Override
+    public Single<Double> getChirikovIndexP2O5(double valueP2O5) {
+        return methodsP2O5Dao.getChirikovIndex(valueP2O5);
+    }
 
+    @Override
+    public Single<Double> getKirsanovIndexP2O5(double valueP2O5) {
+        return methodsP2O5Dao.getKirsanovIndex(valueP2O5);
+    }
 
+    @Override
+    public Single<Double> getChirikovIndexK2O(double valueP2O5) {
+        return methodsK2ODao.getChirikovIndex(valueP2O5);
+    }
 
+    @Override
+    public Single<Double> getKirsanovIndexK2O(double valueP2O5) {
+        return methodsK2ODao.getKirsanovIndex(valueP2O5);
+    }
 
     @Override
     public Flowable<List<CultureModel>> getCultureList() {

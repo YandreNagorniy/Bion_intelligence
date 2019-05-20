@@ -46,9 +46,17 @@ public interface CalculatorRepository {
 
     Single<CalculateH2OEntity> getDataH2O(int id);
 
-    Single<Double> getTyrinIndex(double valueN);
+    Single<Double> getTyrinIndexN(double valueN);
 
-    Single<Double> getKornfildIndex(double valueN);
+    Single<Double> getKornfildIndexN(double valueN);
+
+    Single<Double> getChirikovIndexP2O5(double valueP2O5);
+
+    Single<Double> getKirsanovIndexP2O5(double valueP2O5);
+
+    Single<Double> getChirikovIndexK2O(double valueK2O);
+
+    Single<Double> getKirsanovIndexK2O(double valueK2O);
 
     Single<TestCultureModel> getTestCultureModel(int cultureId);
 

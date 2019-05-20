@@ -9,12 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.model.CalculatorModel;
-import com.example.bionintelligence.data.model.PhasesImgModel;
-import com.example.bionintelligence.data.model.ProductiveInfoModel;
-import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.data.model.TestPhasesModel;
 import com.example.bionintelligence.data.repositories.CalculatorRepositoryImpl;
@@ -23,10 +21,11 @@ import com.example.bionintelligence.data.source.LocalSourceImpl;
 import com.example.bionintelligence.databinding.FragmentCalculatorBinding;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
+import com.example.bionintelligence.domain.usecase.GetProductiveUseCase;
 import com.example.bionintelligence.presentation.culture.CultureActivity;
+import com.example.bionintelligence.presentation.custom.ChemistryView;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -41,9 +40,11 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_calculator, container, false);
         calculatorPresenter = new CalculatorPresenterImpl(new GetCalculatorUseCase(
                 new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl())),
-                new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl()));
+                new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl()),
+                new GetProductiveUseCase(new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl())));
         calculatorPresenter.attachView(this);
         calculatorPresenter.getStartData();
+
 
         return binding.getRoot();
     }
@@ -62,8 +63,52 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
             startActivityForResult(intent, 1);
             v.setEnabled(true);
         });
+
+        keyboardActionDone(binding.chvN);
+        keyboardActionDone(binding.chvP2O5);
+        keyboardActionDone(binding.chvK2O);
+        keyboardActionDone(binding.chvS);
+        keyboardActionDone(binding.chvCaO);
+        keyboardActionDone(binding.chvMgO);
+        keyboardActionDone(binding.chvH2O);
     }
-//todo delete id in .xml
+
+    @Override //data about select culture from CultureActivity
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            calculatorPresenter.getCultureModel(data.getIntExtra("cultureId", 1));
+            //todo CultureActivity.CULTURE_ID
+        }
+    }
+
+    private void keyboardActionDone(ChemistryView view) {
+        view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                int newValue = Integer.parseInt(v.getText().toString());
+                calculatorPresenter.calculateProductive(cultureModel.getCultureId(), view.getTvItemName(), newValue,
+                        binding.numberPicker.getValue());
+                return true;
+            }
+            return false;
+        });
+
+//        view.setTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//                Log.d("TextChange before", s.toString());
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                Log.d("TextChange", s.toString());
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                Log.d("TextChange after", s.toString());
+//            }
+//        });
+    }
 
     @Override
     public void displayCalculatorData(CalculatorModel calculatorModel) {
@@ -85,14 +130,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void displayPhasesData(TestPhasesModel phasesModel) {
         binding.setPhaseValue(phasesModel);
-    }
-
-    @Override //data about select culture from CultureActivity
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            calculatorPresenter.getCultureModel(data.getIntExtra("cultureId", 1));
-            //todo CultureActivity.CULTURE_ID
-        }
     }
 
     @Override
