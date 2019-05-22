@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.method.KeyListener;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +53,14 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         return binding.getRoot();
     }
 
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.numberPicker.setValueChangedListener((value, action) -> {
+
+            binding.etNewPrdouctive.setVisibility(View.GONE);
             calculatorPresenter.getCalculatorData(value, cultureModel.getCultureId());
             calculatorPresenter.getPhasesData(cultureModel.getPhasesModelList(), value);
         });
@@ -81,7 +89,14 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         }
     }
 
+
     private void keyboardActionDone(ChemistryView view) {
+        view.etItemValue.setOnKeyListener((v, keyCode, event) -> {
+//            Log.d("Action", event.toString());
+
+            return false;
+        });
+
         view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 int newValue = Integer.parseInt(v.getText().toString());
@@ -91,23 +106,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
             }
             return false;
         });
-
-//        view.setTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//                Log.d("TextChange before", s.toString());
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                Log.d("TextChange", s.toString());
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                Log.d("TextChange after", s.toString());
-//            }
-//        });
     }
 
     @Override
@@ -130,6 +128,20 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void displayPhasesData(TestPhasesModel phasesModel) {
         binding.setPhaseValue(phasesModel);
+    }
+
+    @Override
+    public void displayNewPhasesData(TestPhasesModel phasesModel) {
+        binding.setPhaseValue(phasesModel);
+        binding.numberPicker.setValue(phasesModel.getProductive());
+     }
+
+    @Override
+    public void displayNewProductive(Integer newProductive) {
+        binding.etNewPrdouctive.setVisibility(View.VISIBLE);
+        binding.etNewPrdouctive.setText(String.valueOf(newProductive));
+        calculatorPresenter.getCalculatorData(newProductive, cultureModel.getCultureId());
+        calculatorPresenter.getNewPhasesData(cultureModel.getPhasesModelList(), newProductive);
     }
 
     @Override

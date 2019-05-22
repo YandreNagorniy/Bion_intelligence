@@ -95,6 +95,7 @@ public class GetProductiveUseCase extends ProductiveUseCase<ProductiveParams, In
         double sf_N = calculateNEntity.sf_N;
         double sf_G = calculateNEntity.sf_G;
         double kusv_N = calculateNEntity.kusv_N;
+        double vinos_n = calculateNEntity.vinos_N;
         double x;
         double n;
 
@@ -103,7 +104,7 @@ public class GetProductiveUseCase extends ProductiveUseCase<ProductiveParams, In
         } else {
             x = sf_G * 16;
         }
-        n = (newValue + (sf_N * 3.96 * kusv_N * pHN)) / x;
+        n = (newValue + sf_N * 3.96 * kusv_N * pHN + x)/vinos_n;
 
         return (int) Math.round(n);
     }
@@ -169,11 +170,11 @@ public class GetProductiveUseCase extends ProductiveUseCase<ProductiveParams, In
                 newProductive = (precipitation + sf_zpv) / waterConsumption_value * 0.0034;
 
             } else {
-                precipitation = productive * waterConsumption_value * 0.25 - 0.5 * sf_zpv;
+                precipitation = (productive * waterConsumption_value * 0.0215 - 0.5 * sf_zpv)/0.5;
                 if (precipitation < 0) {
                     precipitation = 0;
                 }
-                newProductive = (precipitation * 0.5 + 0.5 * sf_zpv) / waterConsumption_value * 0.0215;
+                newProductive = (precipitation * 0.5 + 0.5 * sf_zpv) /( waterConsumption_value * 0.0215);
             }
         }
         return (int) Math.round(newProductive);

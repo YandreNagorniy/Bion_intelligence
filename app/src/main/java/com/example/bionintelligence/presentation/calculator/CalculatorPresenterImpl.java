@@ -9,6 +9,7 @@ import com.example.bionintelligence.domain.entities.ProductiveParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 import com.example.bionintelligence.domain.usecase.FlowableUseCase;
 import com.example.bionintelligence.domain.usecase.ProductiveUseCase;
+import com.example.bionintelligence.presentation.map.PhasesNewValueMapper;
 import com.example.bionintelligence.presentation.map.PhasesValueMapper;
 
 import java.util.List;
@@ -77,12 +78,8 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         compositeDisposable.add(getProductiveUseCase.execute(new ProductiveParams(cultureId, itemName, newValue, productive))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        int a=0;
-                    }
-                }));
+                .subscribe(newProductive ->
+                        calculatorView.displayNewProductive(newProductive)));
     }
 
     @Override
@@ -92,6 +89,16 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
                 .subscribeOn(Schedulers.io())
                 .map(testPhasesModels -> PhasesValueMapper.mapPhasesByProductive(testPhasesModels, productive))
                 .subscribe(phasesModel -> calculatorView.displayPhasesData(phasesModel))
+        );
+    }
+
+    @Override
+    public void getNewPhasesData(List<TestPhasesModel> phasesModelList, int newProductive) {
+        compositeDisposable.add(Single.just(phasesModelList)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(testPhasesModels -> PhasesNewValueMapper.mapPhasesByProductive(testPhasesModels, newProductive))
+                .subscribe(phasesModel -> calculatorView.displayNewPhasesData(phasesModel))
         );
     }
 

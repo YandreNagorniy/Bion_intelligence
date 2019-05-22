@@ -17,4 +17,8 @@ public interface CalculatorView {
     void displayCultureData(TestCultureModel cultureModel);
 
     void displayPhasesData(TestPhasesModel phasesModel);
+
+    void displayNewPhasesData(TestPhasesModel phasesModel);
+
+    void displayNewProductive(Integer newProductive);
 }

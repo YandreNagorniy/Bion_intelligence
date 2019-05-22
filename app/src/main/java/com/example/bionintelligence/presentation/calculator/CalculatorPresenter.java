@@ -20,6 +20,8 @@ public interface CalculatorPresenter {
 
     void getPhasesData(List<TestPhasesModel> phasesModelList, int productive);
 
+    void getNewPhasesData(List<TestPhasesModel> phasesModelList, int productive);
+
     void detachView();
 
 }
