@@ -49,11 +49,8 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         calculatorPresenter.attachView(this);
         calculatorPresenter.getStartData();
 
-
         return binding.getRoot();
     }
-
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -142,6 +139,11 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         binding.etNewPrdouctive.setText(String.valueOf(newProductive));
         calculatorPresenter.getCalculatorData(newProductive, cultureModel.getCultureId());
         calculatorPresenter.getNewPhasesData(cultureModel.getPhasesModelList(), newProductive);
+    }
+
+    public void refresh(){
+        calculatorPresenter.setParamsData(new CalculatorParams(binding.numberPicker.getValue(), cultureModel.getCultureId()));
+        calculatorPresenter.getStartData();
     }
 
     @Override

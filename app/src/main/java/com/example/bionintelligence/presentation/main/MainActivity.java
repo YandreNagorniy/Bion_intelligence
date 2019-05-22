@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private ContactsFragment contactsFragment;
     private InfoFragment infoFragment;
     private SettingsFragmentMain settingsFragmentMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +34,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         binding.bottomNavigationView
                 .setOnNavigationItemSelectedListener(menuItem -> {
                     switch (menuItem.getItemId()) {
-                        case R.id.action_calculator:
+                        case R.id.action_calculator: {
                             showFragment(calculatorFragment);
+                            if (calculatorFragment.isAdded())
+                                calculatorFragment.refresh();
                             break;
+                        }
                         case R.id.action_settings:
                             showFragment(settingsFragmentMain);
                             break;
