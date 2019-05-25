@@ -28,8 +28,10 @@ import com.example.bionintelligence.domain.entities.CalculateSEntity;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
+import io.reactivex.schedulers.Schedulers;
 
 public class DatabaseSourceImpl implements DatabaseSource {
     private CalculatorDao calculatorDao;
@@ -178,5 +180,12 @@ public class DatabaseSourceImpl implements DatabaseSource {
     @Override
     public Single<SoilFactorsModel> getSoilFactorsModel() {
         return soilFactorsDao.getSoilFactorsModel();
+    }
+
+    @Override
+    public void setSoilFactorsModel(SoilFactorsModel soilFactorsModel) {
+        Completable.fromAction(() -> soilFactorsDao.insert(soilFactorsModel))
+                .subscribeOn(Schedulers.io())
+                .subscribe();
     }
 }

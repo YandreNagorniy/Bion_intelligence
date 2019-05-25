@@ -2,6 +2,7 @@ package com.example.bionintelligence.presentation.settings.one;
 
 import android.util.Log;
 
+import com.example.bionintelligence.data.model.SoilFactorsModel;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -31,6 +32,13 @@ public class SettingsOnePresenterImpl implements SettingsOnePresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(soilFactorsModel -> settingsOneView.displaySoilFactors(soilFactorsModel),
                         throwable -> Log.d("throwable", String.valueOf(throwable))));
+    }
+
+    @Override
+    public void setSoilFactorsData(SoilFactorsModel soilFactorsModel) {
+
+        calculatorRepository.setSoilFactorsModel(soilFactorsModel);
+
     }
 
     @Override

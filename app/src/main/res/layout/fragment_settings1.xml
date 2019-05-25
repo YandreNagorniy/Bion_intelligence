@@ -43,7 +43,7 @@
                     android:layout_weight="1"
                     app:item_name="N"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.n}" />
+                    app:sf_value="@={soilFactor.n}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_P2O5"
@@ -54,7 +54,7 @@
                     android:layout_weight="1"
                     app:item_name="P2O5"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.p2O5}" />
+                    app:sf_value="@={soilFactor.p2O5}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_K2O"
@@ -63,7 +63,7 @@
                     android:layout_weight="1"
                     app:item_name="K2O"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.k2O}" />
+                    app:sf_value="@={soilFactor.k2O}" />
             </TableRow>
 
             <TableRow>
@@ -76,7 +76,7 @@
                     android:layout_weight="1"
                     app:item_name="CaO"
                     app:item_text="мг-экв 100г."
-                    app:sf_value="@{soilFactor.caO}" />
+                    app:sf_value="@={soilFactor.caO}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_MgO"
@@ -87,7 +87,7 @@
                     android:layout_weight="1"
                     app:item_name="MgO"
                     app:item_text="мг-экв 100г."
-                    app:sf_value="@{soilFactor.mgO}" />
+                    app:sf_value="@={soilFactor.mgO}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_S"
@@ -96,7 +96,7 @@
                     android:layout_weight="1"
                     app:item_name="S"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.s}" />
+                    app:sf_value="@={soilFactor.s}" />
             </TableRow>
 
             <TableRow>
@@ -109,7 +109,7 @@
                     android:layout_weight="1"
                     app:item_name="Zn"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.zn}" />
+                    app:sf_value="@={soilFactor.zn}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_Cu"
@@ -120,7 +120,7 @@
                     android:layout_weight="1"
                     app:item_name="Cu"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.cu}" />
+                    app:sf_value="@={soilFactor.cu}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_Mn"
@@ -129,7 +129,7 @@
                     android:layout_weight="1"
                     app:item_name="Mn"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.mn}" />
+                    app:sf_value="@={soilFactor.mn}" />
             </TableRow>
 
             <TableRow>
@@ -142,7 +142,7 @@
                     android:layout_weight="1"
                     app:item_name="Co"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.co}" />
+                    app:sf_value="@={soilFactor.co}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_Mo"
@@ -153,7 +153,7 @@
                     android:layout_weight="1"
                     app:item_name="Mo"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.mo}" />
+                    app:sf_value="@={soilFactor.mo}" />
 
                 <com.example.bionintelligence.presentation.custom.SoilFactorView
                     android:id="@+id/sfv_B"
@@ -162,7 +162,7 @@
                     android:layout_weight="1"
                     app:item_name="B"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.b}" />
+                    app:sf_value="@={soilFactor.b}" />
             </TableRow>
 
             <TableRow>
@@ -181,7 +181,7 @@
                     android:layout_weight="1"
                     app:item_name="Fe"
                     app:item_text="мг/кг"
-                    app:sf_value="@{soilFactor.fe}" />
+                    app:sf_value="@={soilFactor.fe}" />
 
                 <View
                     android:layout_width="0dp"
@@ -244,7 +244,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="339dp"
-                    app:sf_value="@{soilFactor.g}" />
+                    app:sf_value="@={soilFactor.g}" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/gl1_s1"
@@ -310,7 +310,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:sf_value="@{soilFactor.PH}" />
+                    app:sf_value="@={soilFactor.PH}" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/gl2_s1"
@@ -365,7 +365,6 @@
                     app:layout_constraintStart_toStartOf="@id/gl3_s1"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
                 <EditText
                     android:id="@+id/sf_ZPV"
                     android:layout_width="wrap_content"
@@ -375,7 +374,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/gl3_s1"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:sf_value="@{soilFactor.zpv}" />
+                    app:sf_value="@={soilFactor.zpv}" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/gl3_s1"

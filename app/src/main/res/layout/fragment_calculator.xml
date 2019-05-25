@@ -211,16 +211,33 @@
                 app:layout_constraintTop_toBottomOf="@id/chv_CaO" />
         </android.support.constraint.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/tv_necessaryBion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/text_calculator_necessary_bion"
+            android:textColor="@color/colorText"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_Chemistry" />
+
         <LinearLayout
             android:id="@+id/phasesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal|bottom"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_Chemistry">
+            app:layout_constraintTop_toBottomOf="@id/cv_Chemistry"
+            app:layout_constraintVertical_bias="1.0">
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_one"

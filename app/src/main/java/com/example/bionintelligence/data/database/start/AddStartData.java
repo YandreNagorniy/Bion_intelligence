@@ -65,12 +65,11 @@ public class AddStartData {
         setVinosData();
         setWaterConsumptionData();
         setKUsvData();
-        setPhasesImageData();
-//        setPhasesInfo();
         setTestCultureModel();
     }
 
     private static void setSoilFactorsData() {
+
         SoilFactorsDao soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
 
         List<SoilFactorsModel> soilFactorsList = new ArrayList<>();
@@ -113,9 +112,9 @@ public class AddStartData {
         methodsK2OList.add(new MethodsK2OModel("Очень низкое", 1, 40, 1, 20, 1, 100, 2.295, 4.985));
         methodsK2OList.add(new MethodsK2OModel("Низкое", 41, 80, 21, 40, 101, 200, 2.474, 4.812));
         methodsK2OList.add(new MethodsK2OModel("Среднее", 81, 120, 41, 80, 201, 300, 2.468, 4.702));
-        methodsK2OList.add(new MethodsK2OModel("Повышенное", 121, 170, 81, 120, 301, 400, 2.577, 4.404));
-        methodsK2OList.add(new MethodsK2OModel("Высокое", 171, 250, 121, 180, 401, 600, 2.338, 3.310));
-        methodsK2OList.add(new MethodsK2OModel("Очень высокое", 251, -1, 181, -1, 601, -1, 2.400, 3.333));
+        methodsK2OList.add(new MethodsK2OModel("Повышенное", 121, 170, 81, 120, 301, 400, 2.577, 3.404));
+        methodsK2OList.add(new MethodsK2OModel("Высокое", 171, 250, 121, 180, 401, 600, 2.338, 3.31));
+        methodsK2OList.add(new MethodsK2OModel("Очень высокое", 251, -1, 181, -1, 601, -1, 2.4, 3.333));
 
         Completable.fromAction(() -> methodsK2ODao.insertList(methodsK2OList))
                 .subscribeOn(Schedulers.io())
@@ -132,7 +131,7 @@ public class AddStartData {
         methodsP2O5List.add(new MethodsP2O5Model("Среднее", 51, 100, 51, 100, 16, 30, 0.305, 0.341));
         methodsP2O5List.add(new MethodsP2O5Model("Повышенное", 101, 150, 101, 150, 31, 45, 0.303, 0.315));
         methodsP2O5List.add(new MethodsP2O5Model("Высокое", 151, 250, 151, 200, 46, 60, 0.265, 0.305));
-        methodsP2O5List.add(new MethodsP2O5Model("Очень высокое", 251, -1, 201, -1, 61, -1, 0.243, 0.300));
+        methodsP2O5List.add(new MethodsP2O5Model("Очень высокое", 251, 999, 201, 999, 61, 999, 0.243, 0.3));
 
         Completable.fromAction(() -> methodsP2O5Dao.insertList(methodsP2O5List))
                 .subscribeOn(Schedulers.io())
@@ -162,13 +161,13 @@ public class AddStartData {
                 App.getInstance().getDatabase().phDao();
 
         List<PHModel> phList = new ArrayList<>();
-        phList.add(new PHModel(4.0, 0.37, 0.3, 0.3, 0.2, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2, 0.2, 0.8, 1));
+        phList.add(new PHModel(4.0, 0.37, 0.3, 0.3, 0.2, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2, 0.2, 0.18, 1));
         phList.add(new PHModel(4.1, 0.45, 0.31, 0.4, 0.22, 0.45, 0.4, 0.25, 0.23, 0.25, 0.22, 0.25, 0.19, 1));
         phList.add(new PHModel(4.2, 0.48, 0.32, 0.5, 0.25, 0.48, 0.5, 0.3, 0.25, 0.3, 0.25, 0.3, 0.2, 1));
         phList.add(new PHModel(4.3, 0.52, 0.33, 0.6, 0.27, 0.51, 0.6, 0.35, 0.27, 0.35, 0.3, 0.35, 0.25, 1));
         phList.add(new PHModel(4.4, 0.54, 0.34, 0.65, 0.33, 0.54, 0.65, 0.4, 0.3, 0.4, 0.35, 0.4, 0.3, 1));
         phList.add(new PHModel(4.5, 0.6, 0.35, 0.68, 0.35, 0.57, 0.68, 0.5, 0.32, 0.5, 0.4, 0.5, 0.35, 1));
-        phList.add(new PHModel(4.6, 0.6, 0.36, 0.7, 0.39, 0.6, 0.70, 0.6, 0.35, 0.6, 0.45, 0.6, 0.4, 1));
+        phList.add(new PHModel(4.6, 0.6, 0.36, 0.7, 0.39, 0.6, 0.7, 0.6, 0.35, 0.6, 0.45, 0.6, 0.4, 1));
         phList.add(new PHModel(4.7, 0.63, 0.37, 0.72, 0.40, 0.62, 0.72, 0.7, 0.37, 0.7, 0.5, 0.7, 0.41, 1));
         phList.add(new PHModel(4.8, 0.65, 0.38, 0.74, 0.42, 0.64, 0.74, 0.8, 0.39, 0.8, 0.55, 0.8, 0.42, 1));
         phList.add(new PHModel(4.9, 0.75, 0.39, 0.75, 0.44, 0.66, 0.75, 0.9, 0.41, 0.9, 0.6, 0.9, 0.43, 1));
@@ -187,7 +186,7 @@ public class AddStartData {
         phList.add(new PHModel(6.2, 1, 0.72, 1, 0.85, 0.95, 0.95, 1, 0.77, 1, 0.97, 1, 0.55, 0.76));
         phList.add(new PHModel(6.3, 1, 0.78, 1, 0.89, 0.96, 1, 1, 0.82, 1, 0.95, 1, 0.65, 0.74));
         phList.add(new PHModel(6.4, 1, 0.88, 1, 0.92, 0.97, 1, 1, 0.86, 1, 0.93, 1, 0.7, 0.72));
-        phList.add(new PHModel(6.5, 1, 0.98, 1, 0.94, 0.98, 1, 1, 0.9, 1, 0.86, 1, 0.75, 0.70));
+        phList.add(new PHModel(6.5, 1, 0.95, 1, 0.94, 0.98, 1, 1, 0.9, 1, 0.86, 1, 0.75, 0.70));
         phList.add(new PHModel(6.6, 1, 1, 1, 0.95, 0.99, 1, 1, 0.94, 1, 0.83, 1, 0.8, 0.68));
         phList.add(new PHModel(6.7, 1, 1, 1, 0.97, 1, 1, 1, 0.98, 1, 0.78, 1, 0.85, 0.66));
         phList.add(new PHModel(6.8, 1, 1, 1, 0.99, 1, 1, 1, 1, 1, 0.74, 1, 0.9, 0.64));
@@ -229,6 +228,7 @@ public class AddStartData {
                 .subscribe();
     }
 
+    //нужно?
     private static void setPrecipitationRequirementsData() {
         PrecipitationRequirementsDao precipitationRequirementsDao =
                 App.getInstance().getDatabase().precipitationRequirementsDao();
@@ -257,7 +257,7 @@ public class AddStartData {
         List<VinosModel> vinosList = new ArrayList<>();
         vinosList.add(new VinosModel(1, 3.13, 0.9, 2.15, 0.67, 0.35, 0.55));
         vinosList.add(new VinosModel(2, 2.21, 0.81, 2.2, 0.6, 0.21, 0.35));
-        vinosList.add(new VinosModel(3, 3.37, 0.25, 0.68, 0.35, 0.1, 0.14));
+        vinosList.add(new VinosModel(3, 0.37, 0.25, 0.68, 0.35, 0.1, 0.14));
         vinosList.add(new VinosModel(4, 3.85, 1.82, 3.9, 0.62, 0.36, 0.71));
         vinosList.add(new VinosModel(5, 0.5, 0.39, 1.1, 0.3, 0.05, 0.09));
         vinosList.add(new VinosModel(6, 5.1, 2.1, 7, 0.5, 0.1, 0.6));
@@ -304,47 +304,6 @@ public class AddStartData {
     }
 
 
-    private static void setPhasesImageData() {
-        PhasesImgDao phasesImageDao = App.getInstance().getDatabase().phasesImgDao();
-
-        List<PhasesImgModel> list = new ArrayList<>();
-        list.add(new PhasesImgModel(1, R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, R.drawable.phase_winter_wheat5, 0));
-        list.add(new PhasesImgModel(2, R.drawable.phase_corn1, R.drawable.phase_corn2, R.drawable.phase_corn3, 0, 0, 0));
-        list.add(new PhasesImgModel(3, R.drawable.phase_sugar_beet1, R.drawable.phase_sugar_beet2, R.drawable.phase_sugar_beet3, R.drawable.phase_sugar_beet4, R.drawable.phase_sugar_beet5, 0));
-        list.add(new PhasesImgModel(4, R.drawable.phase_soy1, R.drawable.phase_soy2, R.drawable.phase_soy3, 0, 0, 0));
-        list.add(new PhasesImgModel(5, R.drawable.phase_potatoes1, R.drawable.phase_potatoes2, R.drawable.phase_potatoes3, R.drawable.phase_potatoes4, R.drawable.phase_potatoes5, R.drawable.phase_potatoes6));
-        list.add(new PhasesImgModel(6, R.drawable.phase_sun_flower1, R.drawable.phase_sun_flower2, R.drawable.phase_sun_flower3, 0, 0, 0));
-        list.add(new PhasesImgModel(7, R.drawable.phase_winter_rape1, R.drawable.phase_winter_rape2, R.drawable.phase_winter_rape3, R.drawable.phase_winter_rape4, 0, 0));
-        list.add(new PhasesImgModel(8, R.drawable.phase_spring_rape1, R.drawable.phase_spring_rape2, R.drawable.phase_spring_rape3, 0, 0, 0));
-        list.add(new PhasesImgModel(9, R.drawable.phase_spring_wheat1, R.drawable.phase_spring_wheat2, R.drawable.phase_spring_wheat3, R.drawable.phase_spring_wheat4, 0, 0));
-        list.add(new PhasesImgModel(10, R.drawable.phase_chickpea1, R.drawable.phase_chickpea2, R.drawable.phase_chickpea3, 0, 0, 0));
-
-        Completable.fromAction(() -> phasesImageDao.insertList(list))
-                .subscribeOn(Schedulers.io())
-                .subscribe();
-    }
-
-
-//    private static void setPhasesInfo() {
-//        ProductiveInfoDao productiveInfoDao = App.getInstance().getDatabase().phaseInfoDao();
-//
-//        List<ProductiveInfoModel> listInfo = new ArrayList<>();
-//        listInfo.add(new ProductiveInfoModel(1, 10, 30, 120));
-//        listInfo.add(new ProductiveInfoModel(2, 10, 40, 150));
-//        listInfo.add(new ProductiveInfoModel(3, 50, 250, 800));
-//        listInfo.add(new ProductiveInfoModel(4, 5, 10, 50));
-//        listInfo.add(new ProductiveInfoModel(5, 50, 250, 800));
-//        listInfo.add(new ProductiveInfoModel(6, 5, 15, 50));
-//        listInfo.add(new ProductiveInfoModel(7, 10, 20, 70));
-//        listInfo.add(new ProductiveInfoModel(8, 5, 15, 50));
-//        listInfo.add(new ProductiveInfoModel(9, 10, 20, 100));
-//        listInfo.add(new ProductiveInfoModel(10, 5, 5, 45));
-//
-//        Completable.fromAction(() -> productiveInfoDao.insertList(listInfo))
-//                .subscribeOn(Schedulers.io())
-//                .subscribe();
-//    }
-
     private static void setCultureData() {
         CultureDao cultureDao = App.getInstance().getDatabase().cultureDao();
 
@@ -368,7 +327,7 @@ public class AddStartData {
     private static void setTestCultureModel() {
 
         List<TestPhasesModel> winterWheatPhasesList = new ArrayList<>();
-        winterWheatPhasesList.add(new TestPhasesModel(30, 1, 0, 0, 0, 0, -1));
+        winterWheatPhasesList.add(new TestPhasesModel(30, 0, 0, 0, 0, 0, -1));
         winterWheatPhasesList.add(new TestPhasesModel(40, 1, 0.2, 0.2, 0.3, 0.2, -1));
         winterWheatPhasesList.add(new TestPhasesModel(50, 1, 0.4, 0.4, 0.6, 0.4, -1));
         winterWheatPhasesList.add(new TestPhasesModel(60, 1, 0.8, 0.8, 1.2, 0.8, -1));
@@ -395,21 +354,21 @@ public class AddStartData {
 
         List<TestPhasesModel> sugarBeetPhasesList = new ArrayList<>();
         sugarBeetPhasesList.add(new TestPhasesModel(250, 0, 0, 0, 0, 0, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(300, 0.2, 0.3, 0.5, 0.5, 0.3, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(350, 0.3, 0.5, 0.7, 0.7, 0.5, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(400, 0.7, 1, 1.4, 1.4, 1, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(450, 1, 1.5, 2, 2, 1.5, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(500, 1.3, 2, 2.6, 2.6, 2, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(550, 1.7, 2.5, 3.4, 3.4, 2.5, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(600, 2, 3, 4, 4, 3, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(650, 2.3, 3.7, 4.5, 4.5, 3.7, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(700, 2.7, 4.2, 5, 5, 4.2, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(750, 3, 4.8, 5.5, 5.5, 4.8, -1));
-        sugarBeetPhasesList.add(new TestPhasesModel(800, 3.3, 5.5, 6, 6, 5.5, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(300, 0.2, 0.4, 0.6, 0.6, 0.3, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(350, 0.3, 0.7, 1, 1, 0.5, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(400, 0.7, 1.3, 1.8, 1.8, 1, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(450, 1, 2, 2.5, 2.5, 1.5, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(500, 1.3, 2.7, 3.3, 3.3, 2, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(550, 1.7, 3.3, 4.3, 4.3, 2.5, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(600, 2, 4, 5, 5, 3, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(650, 2.3, 4.9, 5.6, 5.6, 3.7, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(700, 2.7, 5.6, 6.3, 6.3, 4.2, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(750, 3, 6.4, 6.9, 6.9, 4.8, -1));
+        sugarBeetPhasesList.add(new TestPhasesModel(800, 3.3, 7.3, 7.5, 7.5, 5.5, -1));
 
         List<TestPhasesModel> soyPhasesList = new ArrayList<>();
         soyPhasesList.add(new TestPhasesModel(10, 0, 0, 0, -1, -1, -1));
-        soyPhasesList.add(new TestPhasesModel(15, 0.4, 0.8, 0.4, -1, -1, -1));
+        soyPhasesList.add(new TestPhasesModel(15, 0.4, 0.6, 0.4, -1, -1, -1));
         soyPhasesList.add(new TestPhasesModel(20, 0.8, 1.3, 0.8, -1, -1, -1));
         soyPhasesList.add(new TestPhasesModel(25, 1.5, 2, 1.5, -1, -1, -1));
         soyPhasesList.add(new TestPhasesModel(30, 2, 3, 2, -1, -1, -1));
@@ -421,27 +380,27 @@ public class AddStartData {
 
         List<TestPhasesModel> potatoesPhasesList = new ArrayList<>();
         potatoesPhasesList.add(new TestPhasesModel(250, 0, 0, 0, 0, 0, 0));
-        potatoesPhasesList.add(new TestPhasesModel(300, 0.6, 0.8, 1.1, 1.1, 1.1, 0.6));
-        potatoesPhasesList.add(new TestPhasesModel(350, 1.2, 1.6, 2.2, 2.2, 2.2, 1.2));
-        potatoesPhasesList.add(new TestPhasesModel(400, 1.8, 2.4, 3.2, 3.2, 3.2, 1.8));
-        potatoesPhasesList.add(new TestPhasesModel(450, 2.4, 3.2, 4.1, 4.1, 4.1, 2.4));
-        potatoesPhasesList.add(new TestPhasesModel(500, 3, 4, 5, 5, 5, 3));
-        potatoesPhasesList.add(new TestPhasesModel(550, 3.7, 4.7, 5.7, 5.7, 5.7, 3.7));
-        potatoesPhasesList.add(new TestPhasesModel(600, 4.3, 5.4, 6.4, 6.4, 6.4, 4.3));
-        potatoesPhasesList.add(new TestPhasesModel(650, 5, 6, 7, 7, 7, 5));
-        potatoesPhasesList.add(new TestPhasesModel(700, 5.6, 6.4, 7.6, 7.6, 7.6, 5.6));
-        potatoesPhasesList.add(new TestPhasesModel(750, 6.3, 7.3, 8.1, 8.1, 8.1, 6.3));
-        potatoesPhasesList.add(new TestPhasesModel(800, 7, 8, 8.5, 8.5, 8.5, 7));
+        potatoesPhasesList.add(new TestPhasesModel(300, 0.6, 0.8, 0.8, 1.1, 0.8, 0.6));
+        potatoesPhasesList.add(new TestPhasesModel(350, 1.2, 1.6, 1.6, 2.2, 1.6, 1.2));
+        potatoesPhasesList.add(new TestPhasesModel(400, 1.8, 2.4, 2.4, 3.2, 2.4, 1.8));
+        potatoesPhasesList.add(new TestPhasesModel(450, 2.4, 3.2, 3.1, 4.1, 3.2, 2.4));
+        potatoesPhasesList.add(new TestPhasesModel(500, 3, 4, 4, 5, 4, 3));
+        potatoesPhasesList.add(new TestPhasesModel(550, 3.7, 4.7, 4.7, 5.7, 4.7, 3.7));
+        potatoesPhasesList.add(new TestPhasesModel(600, 4.3, 5.4, 5.4, 6.4, 5.4, 4.3));
+        potatoesPhasesList.add(new TestPhasesModel(650, 5, 6, 6, 7, 6, 5));
+        potatoesPhasesList.add(new TestPhasesModel(700, 5.6, 6.4, 6.4, 7.6, 6.4, 5.6));
+        potatoesPhasesList.add(new TestPhasesModel(750, 6.3, 7.3, 7.3, 8.1, 7.3, 6.3));
+        potatoesPhasesList.add(new TestPhasesModel(800, 7, 8, 8, 8.5, 8, 7));
 
         List<TestPhasesModel> sunFlowerPhasesList = new ArrayList<>();
         sunFlowerPhasesList.add(new TestPhasesModel(15, 0, 0, 0, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(20, 0, 0.3, 0.5, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(25, 1, 1, 1.4, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(30, 1.5, 1.5, 2, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(35, 2, 2, 3, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(40, 3.1, 3.1, 4.5, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(45, 4.2, 4.2, 6.5, -1, -1, -1));
-        sunFlowerPhasesList.add(new TestPhasesModel(50, 5.5, 5.5, 8.3, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(20, 0.3, 0.5, 0.3, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(25, 1, 1.4, 1, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(30, 1.5, 2, 1.5, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(35, 2, 3, 2, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(40, 3.1, 4.5, 3.1, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(45, 4.2, 6.5, 4.2, -1, -1, -1));
+        sunFlowerPhasesList.add(new TestPhasesModel(50, 5.5, 8.3, 5.5, -1, -1, -1));
 
         List<TestPhasesModel> winterRapePhasesList = new ArrayList<>();
         winterRapePhasesList.add(new TestPhasesModel(20, 0, 0, 0, 0, -1, -1));
@@ -463,14 +422,14 @@ public class AddStartData {
 
         List<TestPhasesModel> springWheatPhasesList = new ArrayList<>();
         springWheatPhasesList.add(new TestPhasesModel(20, 0, 0, 0, 0, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(30, 0.2, 0.2, 0.3, 0.2, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(40, 0.4, 0.4, 0.6, 0.4, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(50, 0.8, 0.8, 1.2, 0.8, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(60, 1, 1, 1.5, 1, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(70, 1.3, 1.3, 2, 1.3, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(80, 1.8, 1.8, 2.7, 1.8, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(90, 2.4, 2.4, 3.6, 2.4, -1, -1));
-        springWheatPhasesList.add(new TestPhasesModel(100, 3.1, 3.1, 4.6, 3.1, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(30, 0.2, 0.2, 0.2, 0.2, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(40, 0.4, 0.4, 0.4, 0.4, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(50, 0.8, 0.8, 0.8, 0.8, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(60, 1, 1, 1, 1, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(70, 1.3, 1.3, 1.3, 1.3, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(80, 1.8, 1.8, 1.8, 1.8, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(90, 2.4, 2.4, 2.4, 2.4, -1, -1));
+        springWheatPhasesList.add(new TestPhasesModel(100, 3.1, 3.1, 3.1, 3.1, -1, -1));
 
         List<TestPhasesModel> chickpeaPhasesList = new ArrayList<>();
         chickpeaPhasesList.add(new TestPhasesModel(5, 0, 0, 0, -1, -1, -1));
@@ -485,7 +444,7 @@ public class AddStartData {
 
 
         List<TestPhasesImgModel> phasesImgList = new ArrayList<>();
-        phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, 0, 0));
+        phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, R.drawable.phase_winter_wheat5, 0));
         phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_corn1, R.drawable.phase_corn2, R.drawable.phase_corn3, 0, 0, 0));
         phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_sugar_beet1, R.drawable.phase_sugar_beet2, R.drawable.phase_sugar_beet3, R.drawable.phase_sugar_beet4, R.drawable.phase_sugar_beet5, 0));
         phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_soy1, R.drawable.phase_soy2, R.drawable.phase_soy3, 0, 0, 0));

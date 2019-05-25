@@ -86,11 +86,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         }
     }
 
-
     private void keyboardActionDone(ChemistryView view) {
         view.etItemValue.setOnKeyListener((v, keyCode, event) -> {
 //            Log.d("Action", event.toString());
-
             return false;
         });
 
@@ -99,7 +97,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
                 int newValue = Integer.parseInt(v.getText().toString());
                 calculatorPresenter.calculateProductive(cultureModel.getCultureId(), view.getTvItemName(), newValue,
                         binding.numberPicker.getValue());
-                return true;
+                return false;
             }
             return false;
         });

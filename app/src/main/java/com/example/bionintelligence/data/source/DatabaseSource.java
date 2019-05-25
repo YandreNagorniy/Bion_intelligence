@@ -69,4 +69,6 @@ public interface DatabaseSource {
     Single<TestCultureModel> getTestCultureModel(int cultureId);
 
     Single<SoilFactorsModel> getSoilFactorsModel();
+
+    void setSoilFactorsModel(SoilFactorsModel soilFactorsModel);
 }

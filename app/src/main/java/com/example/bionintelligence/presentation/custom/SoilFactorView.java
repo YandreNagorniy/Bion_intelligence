@@ -58,9 +58,21 @@ public class SoilFactorView extends FrameLayout {
         array.recycle();
     }
 
+    public void setOnEditorActionListener(TextView.OnEditorActionListener listener) {
+        etItemValue.setOnEditorActionListener(listener);
+    }
+
 
     public void setItemValue(String element) {
         etItemValue.setText(element);
+    }
+
+    public double getItemValue() {
+        try {
+            return Double.valueOf(etItemValue.getText().toString());
+        } catch (NumberFormatException n) {
+            return 0.0;
+        }
     }
 
     // изменение размера текста для H2O и K2O
@@ -74,5 +86,13 @@ public class SoilFactorView extends FrameLayout {
         text.setSpan(new RelativeSizeSpan(0.6f), 1, 2, 0);
         text.setSpan(new RelativeSizeSpan(0.6f), 3, 4, 0);
         tvItemName.setText(text, TextView.BufferType.SPANNABLE);
+    }
+
+    public EditText getEtItemValue() {
+        return etItemValue;
+    }
+
+    public void setEtItemValue(EditText etItemValue) {
+        this.etItemValue = etItemValue;
     }
 }

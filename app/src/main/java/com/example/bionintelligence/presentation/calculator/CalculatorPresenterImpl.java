@@ -78,8 +78,7 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
         compositeDisposable.add(getProductiveUseCase.execute(new ProductiveParams(cultureId, itemName, newValue, productive))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(newProductive ->
-                        calculatorView.displayNewProductive(newProductive)));
+                .subscribe(newProductive -> calculatorView.displayNewProductive(newProductive)));
     }
 
     @Override

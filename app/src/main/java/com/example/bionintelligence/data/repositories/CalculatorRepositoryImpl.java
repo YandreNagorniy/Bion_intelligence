@@ -161,4 +161,10 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
     public Single<SoilFactorsModel> getSoilFactorsModel() {
         return databaseSource.getSoilFactorsModel();
     }
+
+    @Override
+    public void setSoilFactorsModel(SoilFactorsModel soilFactorsModel) {
+        int a=0;
+        databaseSource.setSoilFactorsModel(soilFactorsModel);
+    }
 }
