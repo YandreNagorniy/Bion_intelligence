@@ -88,7 +88,7 @@ public class GetProductiveUseCase extends ProductiveUseCase<ProductiveParams, In
     private Single<Integer> getProductiveH2O(int cultureId, int newValue, int productive) {
         return calculatorRepository.getDataH2O(cultureId)
                 .subscribeOn(Schedulers.computation())
-                .map(calculateH2OEntity -> calculateProductiveH2O(cultureId, productive, calculateH2OEntity));
+                .map(calculateH2OEntity -> calculateProductiveH2O(cultureId, calculateH2OEntity, newValue));
     }
 
     private int calculateProductiveN(Double pHN, CalculateNEntity calculateNEntity, int newValue) {
@@ -104,7 +104,7 @@ public class GetProductiveUseCase extends ProductiveUseCase<ProductiveParams, In
         } else {
             x = sf_G * 16;
         }
-        n = (newValue + sf_N * 3.96 * kusv_N * pHN + x)/vinos_n;
+        n = (newValue + sf_N * 3.96 * kusv_N * pHN + x) / vinos_n;
 
         return (int) Math.round(n);
     }
@@ -154,27 +154,21 @@ public class GetProductiveUseCase extends ProductiveUseCase<ProductiveParams, In
         return (int) Math.round(mgO);
     }
 
-    private Integer calculateProductiveH2O(int cultureId, int productive, CalculateH2OEntity calculateH2OEntity) {
+    private Integer calculateProductiveH2O(int cultureId, CalculateH2OEntity calculateH2OEntity, int newValue) {
         double waterConsumption_value = calculateH2OEntity.waterConsumption_value;
         double sf_zpv = calculateH2OEntity.sf_zpv;
-        double precipitation;
         double newProductive;
 
         if (cultureId == 2 || cultureId == 3) {
-            precipitation = (productive * waterConsumption_value) / 100 - sf_zpv;
-            newProductive = (precipitation + sf_zpv) / (waterConsumption_value / 100);
+            newProductive = (newValue + sf_zpv) / (waterConsumption_value / 100);
 
         } else {
             if (cultureId == 5) {
-                precipitation = productive * waterConsumption_value * 0.34 - sf_zpv;
-                newProductive = (precipitation + sf_zpv) / waterConsumption_value * 0.0034;
+                newProductive = (newValue + sf_zpv) / (waterConsumption_value * 0.34 / 100);
 
             } else {
-                precipitation = (productive * waterConsumption_value * 0.0215 - 0.5 * sf_zpv)/0.5;
-                if (precipitation < 0) {
-                    precipitation = 0;
-                }
-                newProductive = (precipitation * 0.5 + 0.5 * sf_zpv) /( waterConsumption_value * 0.0215);
+                newProductive = (newValue * 0.5 + 0.5 * sf_zpv) / (waterConsumption_value * 2.15 / 100);
+
             }
         }
         return (int) Math.round(newProductive);

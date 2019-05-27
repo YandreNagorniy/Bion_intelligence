@@ -168,7 +168,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     private Single<ElementModelEntity> getDataH20(int cultureId) {
         return calculatorRepository.getDataH2O(cultureId)
                 .subscribeOn(Schedulers.computation())
-                .map(this::calculateH2O)
+                .map(calculateH2OEntity -> calculateH2O(calculateH2OEntity, cultureId))
                 .map(h2O -> new ElementModelEntity(TypeElementEntity.H2O, h2O));
     }
 
@@ -189,7 +189,6 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
         n = vinos_N * params.getProductive() - (sf_N * 3.96 * kusv_N * phN + x);
 
         return n < 0 ? 0 : n;
-
 //        return n < 0 ? 0 : (int) Math.round(n);
     }
 
@@ -240,11 +239,25 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
         return s < 0 ? 0 : (int) Math.round(s);
     }
 
-    private int calculateH2O(CalculateH2OEntity calculateH2OEntity) {
+    private int calculateH2O(CalculateH2OEntity calculateH2OEntity, int cultureId) {
         double waterConsumption_value = calculateH2OEntity.waterConsumption_value;
         double sf_zpv = calculateH2OEntity.sf_zpv;
-        double h2O = (params.getProductive() * waterConsumption_value * 0.043) - sf_zpv;
+        double h2O;
 
-        return h2O < 0 ? 0 : (int) Math.round(h2O);
+        if (cultureId == 2 || cultureId == 3) {
+            h2O = (params.getProductive() * waterConsumption_value) / 100 - sf_zpv;
+
+        } else {
+            if (cultureId == 5) {
+                h2O = (params.getProductive() * waterConsumption_value * 0.34)/100 - sf_zpv;
+
+            } else {
+                h2O = (params.getProductive() * waterConsumption_value * 2.15/100 - 0.5 * sf_zpv) / 0.5;
+                if (h2O < 0) {
+                    h2O = 0;
+                }
+            }
+        }
+        return (int) Math.round(h2O);
     }
 }

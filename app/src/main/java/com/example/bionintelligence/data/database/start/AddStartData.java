@@ -9,9 +9,6 @@ import com.example.bionintelligence.data.database.dao.MethodsK2ODao;
 import com.example.bionintelligence.data.database.dao.MethodsNDao;
 import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
 import com.example.bionintelligence.data.database.dao.PHDao;
-import com.example.bionintelligence.data.database.dao.ProductiveInfoDao;
-import com.example.bionintelligence.data.database.dao.PhasesDao;
-import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.PrecipitationRequirementsDao;
 import com.example.bionintelligence.data.database.dao.SoilFactorsDao;
 import com.example.bionintelligence.data.database.dao.TestCultureDao;
@@ -24,16 +21,6 @@ import com.example.bionintelligence.data.model.MethodsK2OModel;
 import com.example.bionintelligence.data.model.MethodsNModel;
 import com.example.bionintelligence.data.model.MethodsP2O5Model;
 import com.example.bionintelligence.data.model.PHModel;
-import com.example.bionintelligence.data.model.PhasesImgModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
-import com.example.bionintelligence.data.model.ProductiveInfoModel;
-import com.example.bionintelligence.data.model.TestPhasesModel;
 import com.example.bionintelligence.data.model.PrecipitationRequirementsModel;
 import com.example.bionintelligence.data.model.SoilFactorsModel;
 import com.example.bionintelligence.data.model.TestCultureModel;
@@ -43,7 +30,6 @@ import com.example.bionintelligence.data.model.VinosModel;
 import com.example.bionintelligence.data.model.WaterConsumptionModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import io.reactivex.Completable;
@@ -73,8 +59,8 @@ public class AddStartData {
         SoilFactorsDao soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
 
         List<SoilFactorsModel> soilFactorsList = new ArrayList<>();
-        soilFactorsList.add(new SoilFactorsModel(15, 30, 350, 20, 4, 3,
-                0.25, 0.17, 6.05, 0.02, 0.1, 0.43, 2.15, 3.5, 7, 145));
+        soilFactorsList.add(new SoilFactorsModel(15, 30, 350, 25, 3, 3,
+                0.25, 0.17, 6.05, 0.02, 0.1, 0.43, 7.18, 3.5, 7, 145));
 
 
         Completable.fromAction(() -> soilFactorsDao.insertList(soilFactorsList))
@@ -264,7 +250,7 @@ public class AddStartData {
         vinosList.add(new VinosModel(7, 5.85, 2.71, 4.9, 1.24, 0.68, 1.08));
         vinosList.add(new VinosModel(8, 5.7, 2.75, 5, 1.24, 0.68, 0.82));
         vinosList.add(new VinosModel(9, 3.44, 1.08, 2.38, 0.57, 0.26, 0.44));
-        vinosList.add(new VinosModel(10, 4.33, 3.5, 5.8, 2, 0.7, 1.15));
+        vinosList.add(new VinosModel(10, 4.23, 1.58, 1.3, 0.1, 0.05, 0.7));
 
         Completable.fromAction(() -> vinosDao.insertList(vinosList))
                 .subscribeOn(Schedulers.io())

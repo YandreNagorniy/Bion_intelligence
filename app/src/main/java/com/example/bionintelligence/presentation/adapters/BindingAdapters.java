@@ -12,43 +12,6 @@ import com.example.bionintelligence.presentation.custom.SoilFactorView;
 
 public class BindingAdapters {
 
-//    @InverseBindingAdapter(attribute = "sf_value")
-//    public static double getItemValue(SoilFactorView view) {
-//        return view.getItemValue();
-//    }
-//
-//    @BindingAdapter(value = {
-//            "android:onTextChanged",
-//            "android:textAttrChanged"},
-//            requireAll = false)
-//    public static void setTextWatcher(SoilFactorView view,
-//                                      final TextViewBindingAdapter.OnTextChanged on,
-//                                      final InverseBindingListener textAttrChanged) {
-//        TextWatcher newValue = new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                if (on != null) {
-//                    on.onTextChanged(s, start, before, count);
-//                }
-//                if (textAttrChanged != null) {
-//                    textAttrChanged.onChange();
-//                }
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {}
-//        };
-//
-//        TextWatcher oldValue = ListenerUtil.trackListener(view, newValue, R.id.textWatcher);
-//        if (oldValue != null) {
-//            view.getEtItemValue().removeTextChangedListener(oldValue);
-//        }
-//        view.getEtItemValue().addTextChangedListener(newValue);
-//    }
-
     //заполнение chemistryView значениями с помощью атрибута "item_value"
     @BindingAdapter({"item_value"})
     public static void setItemValue(ChemistryView chemistryView, int value) {

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.method.KeyListener;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -30,6 +31,7 @@ import com.example.bionintelligence.presentation.culture.CultureActivity;
 import com.example.bionintelligence.presentation.custom.ChemistryView;
 
 import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -94,9 +96,14 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
         view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                int newValue = Integer.parseInt(v.getText().toString());
-                calculatorPresenter.calculateProductive(cultureModel.getCultureId(), view.getTvItemName(), newValue,
-                        binding.numberPicker.getValue());
+                int newValue;
+                if (TextUtils.isEmpty(v.getText().toString())) {
+                    newValue = 0;
+                    view.etItemValue.setText("0");
+                } else {
+                    newValue = Integer.parseInt(v.getText().toString());
+                }
+                calculatorPresenter.calculateProductive(cultureModel.getCultureId(), view.getTvItemName(), newValue, binding.numberPicker.getValue());
                 return false;
             }
             return false;
@@ -129,7 +136,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     public void displayNewPhasesData(TestPhasesModel phasesModel) {
         binding.setPhaseValue(phasesModel);
         binding.numberPicker.setValue(phasesModel.getProductive());
-     }
+    }
 
     @Override
     public void displayNewProductive(Integer newProductive) {
@@ -139,7 +146,7 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         calculatorPresenter.getNewPhasesData(cultureModel.getPhasesModelList(), newProductive);
     }
 
-    public void refresh(){
+    public void refresh() {
         calculatorPresenter.setParamsData(new CalculatorParams(binding.numberPicker.getValue(), cultureModel.getCultureId()));
         calculatorPresenter.getStartData();
     }

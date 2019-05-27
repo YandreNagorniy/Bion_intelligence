@@ -36,9 +36,7 @@ public class SettingsOnePresenterImpl implements SettingsOnePresenter {
 
     @Override
     public void setSoilFactorsData(SoilFactorsModel soilFactorsModel) {
-
         calculatorRepository.setSoilFactorsModel(soilFactorsModel);
-
     }
 
     @Override

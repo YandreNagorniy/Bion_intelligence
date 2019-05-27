@@ -6,6 +6,9 @@
     <data>
 
         <variable
+            name="handler"
+            type="com.example.bionintelligence.presentation.adapters.CustomViewClickHandler"/>
+        <variable
             name="element"
             type="com.example.bionintelligence.data.model.CalculatorModel" />
 
@@ -132,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:item_name="N"
+                android:onClick="@{(view) -> handler.onClick(view)}"
                 app:item_text="Азот"
                 app:item_value="@{element.n}"
                 app:layout_constraintEnd_toStartOf="@+id/chv_P2O5"
@@ -258,8 +262,7 @@
                 android:layout_marginEnd="4dp"
                 app:phase_img="@{cultureModel.phasesImgModel.phaseImgTwo}"
                 app:phase_value="@{phaseValue.phaseTwo}" />
-            <!--app:phase_img="@{phasesImg.phaseImgTwo}"-->
-            <!--app:phase_value="@{phases.phaseTwo}" />-->
+
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_three"

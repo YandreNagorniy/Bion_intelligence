@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bionintelligence.R;
@@ -42,13 +44,39 @@ public class SettingsFragmentOne extends Fragment implements SettingsOneView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        keyboardActionDone(binding.sfvN);
+        keyboardActionDone(binding.sfvN.getEtItemValue());
+        keyboardActionDone(binding.sfvP2O5.getEtItemValue());
+        keyboardActionDone(binding.sfvK2O.getEtItemValue());
+        keyboardActionDone(binding.sfvCaO.getEtItemValue());
+        keyboardActionDone(binding.sfvMgO.getEtItemValue());
+        keyboardActionDone(binding.sfvS.getEtItemValue());
+        keyboardActionDone(binding.sfvZn.getEtItemValue());
+        keyboardActionDone(binding.sfvCu.getEtItemValue());
+        keyboardActionDone(binding.sfvMn.getEtItemValue());
+        keyboardActionDone(binding.sfvCo.getEtItemValue());
+        keyboardActionDone(binding.sfvMo.getEtItemValue());
+        keyboardActionDone(binding.sfvB.getEtItemValue());
+        keyboardActionDone(binding.sfvFe.getEtItemValue());
+        keyboardActionDone(binding.sfG);
+        keyboardActionDone(binding.sfPH);
+        keyboardActionDone(binding.sfZPV);
     }
 
-    private void keyboardActionDone(SoilFactorView view) {
-        view.getEtItemValue().setOnEditorActionListener((v, actionId, event) -> {
+    private void keyboardActionDone(EditText view) {
+        view.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                binding.getSoilFactor();
+                String text =view.getText().toString();
+                if(TextUtils.isEmpty(text)|| text.equals(".")) {
+                    view.setText("0");
+                }
+                int value =Integer.valueOf(view.getText().toString());
+                if (value<4) {
+                    view.setText("4");
+                }
+                if (value>10){
+                    view.setText("10");
+                }
+                settingsOnePresenter.setSoilFactorsData(binding.getSoilFactor());
             }
             return false;
         });

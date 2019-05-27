@@ -38,7 +38,6 @@ public class InverseBindingAdapters {
         return view.getItemValue();
     }
 
-
     @BindingAdapter({"sf_value"})
     public static void setItemValue(SoilFactorView view, double value) {
         view.setItemValue(String.valueOf(value));
@@ -68,9 +67,12 @@ public class InverseBindingAdapters {
 
     @InverseBindingAdapter(attribute = "sf_value")
     public static double getItemValue(EditText view) {
-        return Double.valueOf(view.getText().toString());
+        try {
+            return Double.valueOf(view.getText().toString());
+        } catch (NumberFormatException n) {
+            return 0.0;
+        }
     }
-
 
     @BindingAdapter({"sf_value"})
     public static void setItemValue(EditText view, double value) {

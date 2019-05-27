@@ -164,7 +164,6 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
 
     @Override
     public void setSoilFactorsModel(SoilFactorsModel soilFactorsModel) {
-        int a=0;
         databaseSource.setSoilFactorsModel(soilFactorsModel);
     }
 }
