@@ -65,16 +65,18 @@ public class SettingsFragmentOne extends Fragment implements SettingsOneView {
     private void keyboardActionDone(EditText view) {
         view.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                String text =view.getText().toString();
-                if(TextUtils.isEmpty(text)|| text.equals(".")) {
+                String text = view.getText().toString();
+                if (TextUtils.isEmpty(text) || text.equals(".")) {
                     view.setText("0");
                 }
-                int value =Integer.valueOf(view.getText().toString());
-                if (value<4) {
-                    view.setText("4");
-                }
-                if (value>10){
-                    view.setText("10");
+                if (view.getId() == R.id.sf_pH) {
+                    double value = Double.valueOf(view.getText().toString());
+                    if (value < 4) {
+                        view.setText("4");
+                    }
+                    if (value > 10) {
+                        view.setText("10");
+                    }
                 }
                 settingsOnePresenter.setSoilFactorsData(binding.getSoilFactor());
             }

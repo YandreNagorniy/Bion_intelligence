@@ -75,7 +75,7 @@ public class AddStartData {
         List<KUsvModel> kUsvList = new ArrayList<>();
         kUsvList.add(new KUsvModel(1, 0.6, 0.25, 0.13, 0.06, 0.125, 0.6));
         kUsvList.add(new KUsvModel(2, 0.6, 0.27, 0.2, 0.06, 0.13, 0.6));
-        kUsvList.add(new KUsvModel(3, 0.5, 0.2, 0.14, 0.12, 0.25, 0.35));
+        kUsvList.add(new KUsvModel(3, 0.5, 0.2, 0.14, 0.17, 0.3, 0.35));
         kUsvList.add(new KUsvModel(4, 0.65, 0.25, 0.13, 0.06, 0.1, 0.35));
         kUsvList.add(new KUsvModel(5, 0.5, 0.2, 0.13, 0.12, 0.23, 0.5));
         kUsvList.add(new KUsvModel(6, 0.6, 0.25, 0.13, 0.07, 0.01, 0.5));
@@ -242,15 +242,15 @@ public class AddStartData {
 
         List<VinosModel> vinosList = new ArrayList<>();
         vinosList.add(new VinosModel(1, 3.13, 0.9, 2.15, 0.67, 0.35, 0.55));
-        vinosList.add(new VinosModel(2, 2.21, 0.81, 2.2, 0.6, 0.21, 0.35));
+        vinosList.add(new VinosModel(2, 2.21, 0.81, 2.2, 0.6, 0.3, 0.35));
         vinosList.add(new VinosModel(3, 0.37, 0.25, 0.68, 0.35, 0.1, 0.14));
-        vinosList.add(new VinosModel(4, 3.85, 1.82, 3.9, 0.62, 0.36, 0.71));
+        vinosList.add(new VinosModel(4, 3.85, 1.82, 3.9, 1, 0.5, 0.71));
         vinosList.add(new VinosModel(5, 0.5, 0.39, 1.1, 0.3, 0.05, 0.09));
         vinosList.add(new VinosModel(6, 5.1, 2.1, 7, 0.5, 0.1, 0.6));
         vinosList.add(new VinosModel(7, 5.85, 2.71, 4.9, 1.24, 0.68, 1.08));
         vinosList.add(new VinosModel(8, 5.7, 2.75, 5, 1.24, 0.68, 0.82));
         vinosList.add(new VinosModel(9, 3.44, 1.08, 2.38, 0.57, 0.26, 0.44));
-        vinosList.add(new VinosModel(10, 4.23, 1.58, 1.3, 0.1, 0.05, 0.7));
+        vinosList.add(new VinosModel(10, 4.33, 3.5, 5.8, 2, 0.7, 1.15));
 
         Completable.fromAction(() -> vinosDao.insertList(vinosList))
                 .subscribeOn(Schedulers.io())
