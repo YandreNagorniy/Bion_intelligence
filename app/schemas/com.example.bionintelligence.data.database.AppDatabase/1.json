@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b191a9fca9449797de845022e7d457c6",
+    "identityHash": "1c794d34f7d4f203f61d6618e62766df",
     "entities": [
       {
         "tableName": "CalculatorModel",
@@ -1051,7 +1051,7 @@
       },
       {
         "tableName": "TestCultureModel",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cultureId` INTEGER NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `productiveMax` INTEGER NOT NULL, `productiveMin` INTEGER NOT NULL, `productiveStep` INTEGER NOT NULL, `phasesModelList` TEXT, `phaseImgOne` INTEGER, `phaseImgTwo` INTEGER, `phaseImgThree` INTEGER, `phaseImgFour` INTEGER, `phaseImgFive` INTEGER, `phaseImgSix` INTEGER, PRIMARY KEY(`cultureId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cultureId` INTEGER NOT NULL, `cultureName` TEXT, `imgLink` INTEGER NOT NULL, `productiveMax` INTEGER NOT NULL, `productive` INTEGER NOT NULL, `productiveMin` INTEGER NOT NULL, `productiveStep` INTEGER NOT NULL, `phasesModelList` TEXT, `phaseImgOne` INTEGER, `phaseImgTwo` INTEGER, `phaseImgThree` INTEGER, `phaseImgFour` INTEGER, `phaseImgFive` INTEGER, `phaseImgSix` INTEGER, PRIMARY KEY(`cultureId`))",
         "fields": [
           {
             "fieldPath": "cultureId",
@@ -1074,6 +1074,12 @@
           {
             "fieldPath": "productiveMax",
             "columnName": "productiveMax",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productive",
+            "columnName": "productive",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -1144,7 +1150,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b191a9fca9449797de845022e7d457c6\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1c794d34f7d4f203f61d6618e62766df\")"
     ]
   }
 }

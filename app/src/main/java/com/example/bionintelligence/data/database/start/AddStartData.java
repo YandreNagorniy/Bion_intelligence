@@ -73,7 +73,7 @@ public class AddStartData {
                 App.getInstance().getDatabase().kUsvDao();
 
         List<KUsvModel> kUsvList = new ArrayList<>();
-        kUsvList.add(new KUsvModel(1, 0.6, 0.25, 0.13, 0.06, 0.125, 0.6));
+        kUsvList.add(new KUsvModel(1, 0.6, 0.25, 0.13, 0.06, 0.125, 0.5));
         kUsvList.add(new KUsvModel(2, 0.6, 0.27, 0.2, 0.06, 0.13, 0.6));
         kUsvList.add(new KUsvModel(3, 0.5, 0.2, 0.14, 0.17, 0.3, 0.35));
         kUsvList.add(new KUsvModel(4, 0.65, 0.25, 0.13, 0.06, 0.1, 0.35));
@@ -100,7 +100,7 @@ public class AddStartData {
         methodsK2OList.add(new MethodsK2OModel("Среднее", 81, 120, 41, 80, 201, 300, 2.468, 4.702));
         methodsK2OList.add(new MethodsK2OModel("Повышенное", 121, 170, 81, 120, 301, 400, 2.577, 3.404));
         methodsK2OList.add(new MethodsK2OModel("Высокое", 171, 250, 121, 180, 401, 600, 2.338, 3.31));
-        methodsK2OList.add(new MethodsK2OModel("Очень высокое", 251, -1, 181, -1, 601, -1, 2.4, 3.333));
+        methodsK2OList.add(new MethodsK2OModel("Очень высокое", 251, 999, 181, 999, 601, 999, 2.4, 3.333));
 
         Completable.fromAction(() -> methodsK2ODao.insertList(methodsK2OList))
                 .subscribeOn(Schedulers.io())
@@ -129,12 +129,12 @@ public class AddStartData {
                 App.getInstance().getDatabase().methodsNDao();
 
         List<MethodsNModel> methodsNList = new ArrayList<>();
-        methodsNList.add(new MethodsNModel("Очень низкое", 1, 30, 1, 100, 1, 5, 0.265, 0.081));
-        methodsNList.add(new MethodsNModel("Низкое", 31, 40, 101, 150, 6, 8, 0.313, 0.095));
-        methodsNList.add(new MethodsNModel("Среднее", 41, 50, 151, 200, 9, 15, 0.429, 0.116));
-        methodsNList.add(new MethodsNModel("Повышенное", 51, 70, 201, 300, 16, 30, 0.598, 0.156));
-        methodsNList.add(new MethodsNModel("Высокое", 71, 100, 301, 500, 31, 60, 0.852, 0.193));
-        methodsNList.add(new MethodsNModel("Очень высокое", 101, 999, 501, 999, 61, 999, 1.046, 0.207));
+        methodsNList.add(new MethodsNModel("Очень низкое", 1, 30, 1, 100, 1, 5, 0.167, 0.05));
+        methodsNList.add(new MethodsNModel("Низкое", 31, 40, 101, 150, 6, 8, 0.197, 0.056));
+        methodsNList.add(new MethodsNModel("Среднее", 41, 50, 151, 200, 9, 15, 0.26, 0.067));
+        methodsNList.add(new MethodsNModel("Повышенное", 51, 70, 201, 300, 16, 30, 0.371, 0.09));
+        methodsNList.add(new MethodsNModel("Высокое", 71, 100, 301, 500, 31, 60, 0.518, 0.111));
+        methodsNList.add(new MethodsNModel("Очень высокое", 101, 999, 501, 999, 61, 999, 0.604, 0.122));
 
         Completable.fromAction(() -> methodsNDao.insertList(methodsNList))
                 .subscribeOn(Schedulers.io())
@@ -363,7 +363,6 @@ public class AddStartData {
         soyPhasesList.add(new TestPhasesModel(45, 4.4, 6, 4.4, -1, -1, -1));
         soyPhasesList.add(new TestPhasesModel(50, 5.3, 7, 5.3, -1, -1, -1));
 
-
         List<TestPhasesModel> potatoesPhasesList = new ArrayList<>();
         potatoesPhasesList.add(new TestPhasesModel(250, 0, 0, 0, 0, 0, 0));
         potatoesPhasesList.add(new TestPhasesModel(300, 0.6, 0.8, 0.8, 1.1, 0.8, 0.6));
@@ -442,16 +441,16 @@ public class AddStartData {
         phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_chickpea1, R.drawable.phase_chickpea2, R.drawable.phase_chickpea3, 0, 0, 0));
 
         List<TestCultureModel> cultureList = new ArrayList<>();
-        cultureList.add(new TestCultureModel(1, "Озимая пшеница", 30, 120, 10, R.drawable.img_winter_wheat, winterWheatPhasesList, phasesImgList.get(0)));
-        cultureList.add(new TestCultureModel(2, "Кукуруза", 40, 150, 10, R.drawable.img_corn, cornPhasesList, phasesImgList.get(1)));
-        cultureList.add(new TestCultureModel(3, "Сахарная свекла", 250, 800, 50, R.drawable.img_sugar_beet, sugarBeetPhasesList, phasesImgList.get(2)));
-        cultureList.add(new TestCultureModel(4, "Соя", 10, 50, 5, R.drawable.img_soy, soyPhasesList, phasesImgList.get(3)));
-        cultureList.add(new TestCultureModel(5, "Картофель", 250, 800, 50, R.drawable.img_potatoes, potatoesPhasesList, phasesImgList.get(4)));
-        cultureList.add(new TestCultureModel(6, "Подсолнечник", 15, 50, 5, R.drawable.img_sun_flower, sunFlowerPhasesList, phasesImgList.get(5)));
-        cultureList.add(new TestCultureModel(7, "Озимый рапс", 20, 70, 10, R.drawable.img_rape, winterRapePhasesList, phasesImgList.get(6)));
-        cultureList.add(new TestCultureModel(8, "Яровой рапс", 15, 50, 5, R.drawable.img_rape, springRapePhasesList, phasesImgList.get(7)));
-        cultureList.add(new TestCultureModel(9, "Яровой пшеница", 20, 100, 10, R.drawable.img_winter_wheat, springWheatPhasesList, phasesImgList.get(8)));
-        cultureList.add(new TestCultureModel(10, "Нут", 10, 45, 5, R.drawable.img_chickpea, chickpeaPhasesList, phasesImgList.get(9)));
+        cultureList.add(new TestCultureModel(1, "Озимая пшеница", 30, 70,120, 10, R.drawable.img_winter_wheat, winterWheatPhasesList, phasesImgList.get(0)));
+        cultureList.add(new TestCultureModel(2, "Кукуруза", 40, 90,150, 10, R.drawable.img_corn, cornPhasesList, phasesImgList.get(1)));
+        cultureList.add(new TestCultureModel(3, "Сахарная свекла", 250, 600,800, 50, R.drawable.img_sugar_beet, sugarBeetPhasesList, phasesImgList.get(2)));
+        cultureList.add(new TestCultureModel(4, "Соя", 10, 30,50, 5, R.drawable.img_soy, soyPhasesList, phasesImgList.get(3)));
+        cultureList.add(new TestCultureModel(5, "Картофель", 250, 500,800, 50, R.drawable.img_potatoes, potatoesPhasesList, phasesImgList.get(4)));
+        cultureList.add(new TestCultureModel(6, "Подсолнечник", 15, 35,50, 5, R.drawable.img_sun_flower, sunFlowerPhasesList, phasesImgList.get(5)));
+        cultureList.add(new TestCultureModel(7, "Озимый рапс", 20, 40,70, 10, R.drawable.img_rape, winterRapePhasesList, phasesImgList.get(6)));
+        cultureList.add(new TestCultureModel(8, "Яровой рапс", 15, 25,50, 5, R.drawable.img_rape, springRapePhasesList, phasesImgList.get(7)));
+        cultureList.add(new TestCultureModel(9, "Яровой пшеница", 20, 60,100, 10, R.drawable.img_winter_wheat, springWheatPhasesList, phasesImgList.get(8)));
+        cultureList.add(new TestCultureModel(10, "Нут", 10, 25,45, 5, R.drawable.img_chickpea, chickpeaPhasesList, phasesImgList.get(9)));
 
         TestCultureDao testCultureDao = App.getInstance().getDatabase().testCultureDao();
 

@@ -1,5 +1,6 @@
 package com.example.bionintelligence.presentation.calculator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -14,7 +15,9 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.data.model.CalculatorModel;
@@ -32,13 +35,16 @@ import com.example.bionintelligence.presentation.custom.ChemistryView;
 
 import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
+
 
 public class CalculatorFragment extends Fragment implements CalculatorView {
     private FragmentCalculatorBinding binding;
     private CalculatorPresenter calculatorPresenter;
     private TestCultureModel cultureModel;
+    private InputMethodManager inputMethodManager;
 
     @Nullable
     @Override
@@ -48,6 +54,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
                 new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl())),
                 new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl()),
                 new GetProductiveUseCase(new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl())));
+        inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+
+
         calculatorPresenter.attachView(this);
         calculatorPresenter.getStartData();
 
@@ -58,7 +67,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.numberPicker.setValueChangedListener((value, action) -> {
-
             binding.etNewPrdouctive.setVisibility(View.GONE);
             calculatorPresenter.getCalculatorData(value, cultureModel.getCultureId());
             calculatorPresenter.getPhasesData(cultureModel.getPhasesModelList(), value);
@@ -71,13 +79,14 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
             v.setEnabled(true);
         });
 
-        keyboardActionDone(binding.chvN);
-        keyboardActionDone(binding.chvP2O5);
-        keyboardActionDone(binding.chvK2O);
-        keyboardActionDone(binding.chvS);
-        keyboardActionDone(binding.chvCaO);
-        keyboardActionDone(binding.chvMgO);
-        keyboardActionDone(binding.chvH2O);
+        keyboardCustomListener(binding.chvN);
+        keyboardCustomListener(binding.chvP2O5);
+        keyboardCustomListener(binding.chvK2O);
+        keyboardCustomListener(binding.chvS);
+        keyboardCustomListener(binding.chvCaO);
+        keyboardCustomListener(binding.chvMgO);
+        keyboardCustomListener(binding.chvH2O);
+
     }
 
     @Override //data about select culture from CultureActivity
@@ -88,10 +97,12 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         }
     }
 
-    private void keyboardActionDone(ChemistryView view) {
-        view.etItemValue.setOnKeyListener((v, keyCode, event) -> {
-//            Log.d("Action", event.toString());
-            return false;
+    private void keyboardCustomListener(ChemistryView view) {
+
+        view.setOnClickListener(v -> {
+            view.getEtItemValue().requestFocus();
+            view.getEtItemValue().setSelection(view.getEtItemValue().getText().length());
+            inputMethodManager.showSoftInput(view.getEtItemValue(), InputMethodManager.SHOW_IMPLICIT);
         });
 
         view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {
@@ -122,9 +133,9 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         binding.numberPicker.setMax(cultureModel.getProductiveMax());
         binding.numberPicker.setMin(cultureModel.getProductiveMin());
         binding.numberPicker.setUnit(cultureModel.getProductiveStep());
-        binding.numberPicker.setValue(cultureModel.getProductiveMin());
-        calculatorPresenter.getCalculatorData(cultureModel.getProductiveMin(), cultureModel.getCultureId());
-        calculatorPresenter.getPhasesData(cultureModel.getPhasesModelList(), cultureModel.getProductiveMin());
+        binding.numberPicker.setValue(cultureModel.getProductive());
+        calculatorPresenter.getCalculatorData(cultureModel.getProductive(), cultureModel.getCultureId());
+        calculatorPresenter.getPhasesData(cultureModel.getPhasesModelList(), cultureModel.getProductive());
     }
 
     @Override
@@ -141,6 +152,12 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
     @Override
     public void displayNewProductive(Integer newProductive) {
         binding.etNewPrdouctive.setVisibility(View.VISIBLE);
+        if (newProductive > cultureModel.getProductiveMax()) {
+            newProductive = cultureModel.getProductiveMax();
+        }
+        if (newProductive < cultureModel.getProductiveMin()) {
+            newProductive = cultureModel.getProductiveMin();
+        }
         binding.etNewPrdouctive.setText(String.valueOf(newProductive));
         calculatorPresenter.getCalculatorData(newProductive, cultureModel.getCultureId());
         calculatorPresenter.getNewPhasesData(cultureModel.getPhasesModelList(), newProductive);
@@ -148,7 +165,13 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
 
     public void refresh() {
         calculatorPresenter.setParamsData(new CalculatorParams(binding.numberPicker.getValue(), cultureModel.getCultureId()));
-        calculatorPresenter.getStartData();
+        calculatorPresenter.getRestartData();
+    }
+
+    @Override
+    public void displayRefreshData(int productive) {
+        binding.numberPicker.setValue(productive);
+        calculatorPresenter.getCalculatorData(productive, cultureModel.getCultureId());
     }
 
     @Override

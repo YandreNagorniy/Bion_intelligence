@@ -23,13 +23,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         //todo для создания фрагмента принято деать отдельный статический метод типа getInstance()
-        //todo почитай https://stackoverflow.com/questions/9245408/best-practice-for-instantiating-a-new-android-fragment
+        //todo чекни https://stackoverflow.com/questions/9245408/best-practice-for-instantiating-a-new-android-fragment
         calculatorFragment = new CalculatorFragment();
         settingsFragmentMain = new SettingsFragmentMain();
         contactsFragment = new ContactsFragment();
         infoFragment = new InfoFragment();
         addFragment();
-
 
         binding.bottomNavigationView
                 .setOnNavigationItemSelectedListener(menuItem -> {
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                             showFragment(contactsFragment);
                             break;
                     }
-                    return false;
+                    return true;
                 });
     }
 

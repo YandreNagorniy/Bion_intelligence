@@ -6,9 +6,6 @@
     <data>
 
         <variable
-            name="handler"
-            type="com.example.bionintelligence.presentation.adapters.CustomViewClickHandler"/>
-        <variable
             name="element"
             type="com.example.bionintelligence.data.model.CalculatorModel" />
 
@@ -94,16 +91,17 @@
             android:layout_height="40dp"
             android:layout_margin="8dp"
             android:background="@drawable/bg_values_light_green"
+            android:focusable="false"
             android:gravity="center"
-            android:visibility="gone"
             android:inputType="number"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/numberPicker"
             android:text="@string/number_piker_text"
             android:textColor="@android:color/black"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/numberPicker" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cv_Chemistry"
@@ -135,7 +133,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:item_name="N"
-                android:onClick="@{(view) -> handler.onClick(view)}"
                 app:item_text="Азот"
                 app:item_value="@{element.n}"
                 app:layout_constraintEnd_toStartOf="@+id/chv_P2O5"
@@ -219,8 +216,8 @@
             android:id="@+id/tv_necessaryBion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="@string/text_calculator_necessary_bion"
             android:textColor="@color/colorText"
             android:textSize="16sp"
@@ -251,8 +248,6 @@
                 android:layout_marginRight="4dp"
                 app:phase_img="@{cultureModel.phasesImgModel.phaseImgOne}"
                 app:phase_value="@{phaseValue.phaseOne}" />
-            <!--app:phase_img="@{phasesImg.phaseImgOne}"-->
-            <!--app:phase_value="@{phases.phaseOne}" />-->
 
             <com.example.bionintelligence.presentation.custom.PhaseView
                 android:id="@+id/phaseView_two"

@@ -22,6 +22,8 @@ public interface CalculatorPresenter {
 
     void getNewPhasesData(List<TestPhasesModel> phasesModelList, int productive);
 
+    void getRestartData();
+
     void detachView();
 
 }

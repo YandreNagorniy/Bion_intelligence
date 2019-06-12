@@ -17,6 +17,7 @@ public class TestCultureModel {
     private String cultureName;
     private int imgLink;
     private int productiveMax;
+    private int productive;
     private int productiveMin;
     private int productiveStep;
     @Embedded
@@ -24,11 +25,12 @@ public class TestCultureModel {
     @TypeConverters(TestCultureConverters.class)
     private List<TestPhasesModel> phasesModelList;
 
-    public TestCultureModel(int cultureId, String cultureName, int productiveMin, int productiveMax, int productiveStep, int imgLink,
+    public TestCultureModel(int cultureId, String cultureName, int productiveMin, int productive, int productiveMax, int productiveStep, int imgLink,
                             List<TestPhasesModel> phasesModelList, TestPhasesImgModel phasesImgModel) {
         this.cultureId = cultureId;
         this.cultureName = cultureName;
         this.productiveMin = productiveMin;
+        this.productive= productive;
         this.productiveMax = productiveMax;
         this.productiveStep = productiveStep;
         this.imgLink = imgLink;
@@ -82,6 +84,14 @@ public class TestCultureModel {
 
     public void setPhasesImgModel(TestPhasesImgModel phasesImgModel) {
         this.phasesImgModel = phasesImgModel;
+    }
+
+    public int getProductive() {
+        return productive;
+    }
+
+    public void setProductive(int productive) {
+        this.productive = productive;
     }
 
     public int getProductiveMax() {

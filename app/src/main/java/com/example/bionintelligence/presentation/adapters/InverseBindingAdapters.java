@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.example.bionintelligence.presentation.custom.SoilFactorView;
 
+//two way binding from soilFactorsValue
 public class InverseBindingAdapters {
 
     @BindingAdapter(value = "sf_valueAttrChanged")

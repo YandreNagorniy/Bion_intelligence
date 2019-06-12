@@ -102,6 +102,14 @@ public class CalculatorPresenterImpl implements CalculatorPresenter {
     }
 
     @Override
+    public void getRestartData() {
+        compositeDisposable.add(calculatorRepository.getCalculatorParams()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(params -> calculatorView.displayRefreshData(params.getProductive())));
+    }
+
+    @Override
     public void detachView() {
         compositeDisposable.dispose();
         calculatorView = null;

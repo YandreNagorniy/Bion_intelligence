@@ -47,18 +47,14 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .cache();
     }
 
-
     private Single<ElementModelEntity> getDataN(int cultureId) {
         return calculatorRepository.getDataN(cultureId)
                 .subscribeOn(Schedulers.computation())
-                .map(doubleCalculateNPair -> calculateN(doubleCalculateNPair.first, doubleCalculateNPair.second))
-                .flatMap(n -> getMethodN().flatMap(method -> getIndexN(n, method))
-                        .map(new Function<Double, Integer>() {
-                            @Override
-                            public Integer apply(Double index) throws Exception {
-                                return (int) Math.round(n * index);
-                            }
-                        }))
+                .flatMap(pairN -> getMethodN().flatMap(method -> getIndexN(pairN.second.sf_N, method)).map(index -> {
+                            pairN.second.sf_N *= index;
+                            return pairN;
+                        })
+                ).map(pairN -> calculateN(pairN.first, pairN.second))
                 .map(n -> new ElementModelEntity(TypeElementEntity.N, n));
     }
 
@@ -87,8 +83,11 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     private Single<ElementModelEntity> getDataP2O5(int cultureId) {
         return calculatorRepository.getDataP2O5(cultureId)
                 .subscribeOn(Schedulers.computation())
-                .map(doubleCalculateP2O5Pair -> calculateP2O5(doubleCalculateP2O5Pair.first, doubleCalculateP2O5Pair.second))
-                .flatMap(p2O5 -> getMethodP2O5().flatMap(method -> getIndexP2O5(p2O5, method)).map(index -> (int) Math.round(p2O5 * index)))
+                .flatMap(pairP2O5 -> getMethodP2O5().flatMap(method -> getIndexP2O5(pairP2O5.second.sf_P2O5, method)).map(index -> {
+                            pairP2O5.second.sf_P2O5 *= index;
+                            return pairP2O5;
+                        })
+                ).map(pairP2O5 -> calculateP2O5(pairP2O5.first, pairP2O5.second))
                 .map(p2O5 -> new ElementModelEntity(TypeElementEntity.P2O5, p2O5));
     }
 
@@ -98,14 +97,14 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .map(AnalyticalFactors::getAfP2O5);
     }
 
-    private Single<Double> getIndexP2O5(double p2O5, int method) {
-        if (p2O5 > 0) {
+    private Single<Double> getIndexP2O5(double sfP2O5, int method) {
+        if (sfP2O5 > 0) {
             switch (method) {
                 case 2: {
-                    return calculatorRepository.getChirikovIndexK2O(p2O5);
+                    return calculatorRepository.getChirikovIndexP2O5(sfP2O5);
                 }
                 case 3:
-                    return calculatorRepository.getKirsanovIndexK2O(p2O5);
+                    return calculatorRepository.getKirsanovIndexP2O5(sfP2O5);
                 default:
                     return Single.just(1.0);
             }
@@ -117,8 +116,11 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
     private Single<ElementModelEntity> getDataK2O(int cultureId) {
         return calculatorRepository.getDataK2O(cultureId)
                 .subscribeOn(Schedulers.computation())
-                .map(doubleCalculateK2OPair -> calculateK2O(doubleCalculateK2OPair.first, doubleCalculateK2OPair.second))
-                .flatMap(k2O -> getMethodK2O().flatMap(method -> getIndexK2O(k2O, method)).map(index -> (int) Math.round(k2O * index)))
+                .flatMap(pairK2O -> getMethodK2O().flatMap(method -> getIndexK2O(pairK2O.second.sf_K2O, method)).map(index -> {
+                            pairK2O.second.sf_K2O *= index;
+                            return pairK2O;
+                        })
+                ).map(pairK2O -> calculateK2O(pairK2O.first, pairK2O.second))
                 .map(k2O -> new ElementModelEntity(TypeElementEntity.K2O, k2O));
     }
 
@@ -172,7 +174,7 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
                 .map(h2O -> new ElementModelEntity(TypeElementEntity.H2O, h2O));
     }
 
-    private double calculateN(Double phN, CalculateNEntity calculateNEntity) {
+    private int calculateN(Double phN, CalculateNEntity calculateNEntity) {
         double sf_N = calculateNEntity.sf_N;
         double sf_G = calculateNEntity.sf_G;
         double kusv_N = calculateNEntity.kusv_N;
@@ -188,28 +190,25 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
         n = vinos_N * params.getProductive() - (sf_N * 3.96 * kusv_N * phN + x);
 
-        return n < 0 ? 0 : n;
-//        return n < 0 ? 0 : (int) Math.round(n);
+        return n < 0 ? 0 : (int) Math.round(n);
     }
 
-    private double calculateP2O5(Double phP2O5, CalculateP2O5Entity calculateP2O5Entity) {
+    private int calculateP2O5(Double phP2O5, CalculateP2O5Entity calculateP2O5Entity) {
         double vinos_P2O5 = calculateP2O5Entity.vinos_P2O5;
         double sf_P2O5 = calculateP2O5Entity.sf_P2O5;
         double kusv_P2O5 = calculateP2O5Entity.kusv_P2O5;
         double p2O5 = vinos_P2O5 * params.getProductive() - sf_P2O5 * kusv_P2O5 * 3.96 * phP2O5;
 
-//        return p2O5 < 0 ? 0 : (int) Math.round(p2O5);
-        return p2O5 < 0 ? 0 : p2O5;
+        return p2O5 < 0 ? 0 : (int) Math.round(p2O5);
     }
 
-    private double calculateK2O(Double phK2O, CalculateK2OEntity calculateK2OEntity) {
+    private int calculateK2O(Double phK2O, CalculateK2OEntity calculateK2OEntity) {
         double vinos_K2O = calculateK2OEntity.vinos_K2O;
         double sf_K2O = calculateK2OEntity.sf_K2O;
         double kusv_K2O = calculateK2OEntity.kusv_K2O;
         double k2O = vinos_K2O * params.getProductive() - sf_K2O * kusv_K2O * 3.96 * phK2O;
 
-//        return k2O < 0 ? 0 : (int) Math.round(k2O);
-        return k2O < 0 ? 0 : k2O;
+        return k2O < 0 ? 0 : (int) Math.round(k2O);
     }
 
     private int calculateCaO(Double phCaO, CalculateCaOEntity calculateCaOEntity) {
@@ -249,10 +248,10 @@ public class GetCalculatorUseCase extends FlowableUseCase<CalculatorParams, List
 
         } else {
             if (cultureId == 5) {
-                h2O = (params.getProductive() * waterConsumption_value * 0.34)/100 - sf_zpv;
+                h2O = (params.getProductive() * waterConsumption_value * 0.34) / 100 - sf_zpv;
 
             } else {
-                h2O = (params.getProductive() * waterConsumption_value * 2.15/100 - 0.5 * sf_zpv) / 0.5;
+                h2O = (params.getProductive() * waterConsumption_value * 2.15 / 100 - 0.5 * sf_zpv) / 0.5;
                 if (h2O < 0) {
                     h2O = 0;
                 }

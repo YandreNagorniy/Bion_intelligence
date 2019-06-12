@@ -91,4 +91,8 @@ public class ChemistryView extends FrameLayout {
     public void setTvItemName(TextView tvItemName) {
         this.tvItemName = tvItemName;
     }
+
+    public EditText getEtItemValue() {
+        return etItemValue;
+    }
 }

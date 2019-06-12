@@ -8,4 +8,5 @@
     <color name="colorLightGray">#EAEAEA</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorDarkGray">#808080</color>
+    <color name="colorTest">#00808080</color>
 </resources>

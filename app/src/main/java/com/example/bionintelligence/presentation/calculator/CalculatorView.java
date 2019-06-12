@@ -21,4 +21,6 @@ public interface CalculatorView {
     void displayNewPhasesData(TestPhasesModel phasesModel);
 
     void displayNewProductive(Integer newProductive);
+
+    void displayRefreshData(int productive);
 }

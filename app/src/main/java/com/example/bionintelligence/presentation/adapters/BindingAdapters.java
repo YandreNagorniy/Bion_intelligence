@@ -10,6 +10,7 @@ import com.example.bionintelligence.presentation.custom.ChemistryView;
 import com.example.bionintelligence.presentation.custom.PhaseView;
 import com.example.bionintelligence.presentation.custom.SoilFactorView;
 
+// handler custom attributes with Databinding
 public class BindingAdapters {
 
     //заполнение chemistryView значениями с помощью атрибута "item_value"
@@ -17,16 +18,6 @@ public class BindingAdapters {
     public static void setItemValue(ChemistryView chemistryView, int value) {
         chemistryView.setItemValue(String.valueOf(value));
     }
-
-//    @BindingAdapter({"sf_value"})
-//    public static void setItemValue(SoilFactorView soilFactorView, double value) {
-//        soilFactorView.setItemValue(String.valueOf(value));
-//    }
-
-//    @BindingAdapter({"sf_value"})
-//    public static void setItemValue(EditText editText, double value) {
-//        editText.setText(String.valueOf(value));
-//    }
 
     @BindingAdapter({"new_src"})
     public static void setImage(ImageView imageView, int link) {
