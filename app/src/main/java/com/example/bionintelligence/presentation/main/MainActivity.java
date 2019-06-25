@@ -1,9 +1,9 @@
 package com.example.bionintelligence.presentation.main;
 
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.example.bionintelligence.R;
 import com.example.bionintelligence.databinding.ActivityMainBinding;
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         contactsFragment = new ContactsFragment();
         infoFragment = new InfoFragment();
         addFragment();
+
 
         binding.bottomNavigationView
                 .setOnNavigationItemSelectedListener(menuItem -> {

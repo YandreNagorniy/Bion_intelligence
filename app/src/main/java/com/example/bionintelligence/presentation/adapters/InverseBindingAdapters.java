@@ -76,7 +76,6 @@ public class InverseBindingAdapters {
         }
     }
 
-
     @BindingAdapter({"sf_value"})
     public static void setItemValue(EditText view, double value) {
         view.setText(String.valueOf(value));

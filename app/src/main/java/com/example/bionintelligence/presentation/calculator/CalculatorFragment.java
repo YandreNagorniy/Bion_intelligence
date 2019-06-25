@@ -32,6 +32,7 @@ import com.example.bionintelligence.domain.usecase.GetCalculatorUseCase;
 import com.example.bionintelligence.domain.usecase.GetProductiveUseCase;
 import com.example.bionintelligence.presentation.culture.CultureActivity;
 import com.example.bionintelligence.presentation.custom.ChemistryView;
+import com.jakewharton.rxbinding2.view.RxView;
 
 import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
@@ -55,7 +56,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
                 new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl()),
                 new GetProductiveUseCase(new CalculatorRepositoryImpl(new LocalSourceImpl(new WeakReference<>(getActivity())), new DatabaseSourceImpl())));
         inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
-
 
         calculatorPresenter.attachView(this);
         calculatorPresenter.getStartData();
@@ -97,15 +97,15 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         }
     }
 
-    private void keyboardCustomListener(ChemistryView view) {
 
-        view.setOnClickListener(v -> {
+    private void keyboardCustomListener(ChemistryView view) {
+        view.setOnClickListener(v -> {                                                          //слушатель нажатия на плитку (хим.элемент)
             view.getEtItemValue().requestFocus();
-            view.getEtItemValue().setSelection(view.getEtItemValue().getText().length());
+            view.getEtItemValue().setSelection(view.getEtItemValue().getText().length());       //курсор справа
             inputMethodManager.showSoftInput(view.getEtItemValue(), InputMethodManager.SHOW_IMPLICIT);
         });
 
-        view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {
+        view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {                    //слушатель нажатия keyboard "done"
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 int newValue;
                 if (TextUtils.isEmpty(v.getText().toString())) {
