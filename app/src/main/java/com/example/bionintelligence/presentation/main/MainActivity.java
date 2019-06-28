@@ -31,27 +31,47 @@ public class MainActivity extends AppCompatActivity implements MainView {
         addFragment();
 
 
-        binding.bottomNavigationView
-                .setOnNavigationItemSelectedListener(menuItem -> {
-                    switch (menuItem.getItemId()) {
-                        case R.id.action_calculator: {
-                            showFragment(calculatorFragment);
-                            if (calculatorFragment.isAdded())
-                                calculatorFragment.refresh();
-                            break;
-                        }
-                        case R.id.action_settings:
-                            showFragment(settingsFragmentMain);
-                            break;
-                        case R.id.action_product:
-                            showFragment(infoFragment);
-                            break;
-                        case R.id.action_contacts:
-                            showFragment(contactsFragment);
-                            break;
-                    }
-                    return true;
-                });
+        binding.bottomMenu.setOnBottomMenuClickListener(position -> {
+            switch (position) {
+                case 0: {
+                    showFragment(calculatorFragment);
+                    if (calculatorFragment.isAdded())
+                        calculatorFragment.refresh();
+                    break;
+                }
+                case 1:
+                    showFragment(settingsFragmentMain);
+                    break;
+                case 2:
+                    showFragment(infoFragment);
+                    break;
+                case 3:
+                    showFragment(contactsFragment);
+                    break;
+            }
+        });
+
+//        binding.bottomNavigationView
+//                .setOnNavigationItemSelectedListener(menuItem -> {
+//                    switch (menuItem.getItemId()) {
+//                        case R.id.action_calculator: {
+//                            showFragment(calculatorFragment);
+//                            if (calculatorFragment.isAdded())
+//                                calculatorFragment.refresh();
+//                            break;
+//                        }
+//                        case R.id.action_settings:
+//                            showFragment(settingsFragmentMain);
+//                            break;
+//                        case R.id.action_product:
+//                            showFragment(infoFragment);
+//                            break;
+//                        case R.id.action_contacts:
+//                            showFragment(contactsFragment);
+//                            break;
+//                    }
+//                    return true;
+//                });
     }
 
     private void addFragment() {

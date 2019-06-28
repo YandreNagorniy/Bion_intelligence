@@ -12,18 +12,18 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintBottom_toTopOf="@id/bottom_menu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+
+        <com.example.bionintelligence.presentation.custom.BottomMenu
+            android:id="@+id/bottom_menu"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/container"
-            app:menu="@menu/menu"/>
+            app:layout_constraintTop_toBottomOf="@id/container" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

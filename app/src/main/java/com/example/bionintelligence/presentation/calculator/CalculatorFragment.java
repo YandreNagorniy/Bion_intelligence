@@ -73,10 +73,8 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         });
 
         binding.clSelectCulture.setOnClickListener(v -> {
-            v.setEnabled(false);
             Intent intent = new Intent(getContext(), CultureActivity.class);
             startActivityForResult(intent, 1);
-            v.setEnabled(true);
         });
 
         keyboardCustomListener(binding.chvN);
@@ -86,7 +84,6 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         keyboardCustomListener(binding.chvCaO);
         keyboardCustomListener(binding.chvMgO);
         keyboardCustomListener(binding.chvH2O);
-
     }
 
     @Override //data about select culture from CultureActivity
@@ -97,15 +94,14 @@ public class CalculatorFragment extends Fragment implements CalculatorView {
         }
     }
 
-
     private void keyboardCustomListener(ChemistryView view) {
-        view.setOnClickListener(v -> {                                                          //слушатель нажатия на плитку (хим.элемент)
+        view.setOnClickListener(v -> {                                                              //слушатель нажатия на плитку (хим.элемент)
             view.getEtItemValue().requestFocus();
-            view.getEtItemValue().setSelection(view.getEtItemValue().getText().length());       //курсор справа
+            view.getEtItemValue().setSelection(view.getEtItemValue().getText().length());           //курсор справа
             inputMethodManager.showSoftInput(view.getEtItemValue(), InputMethodManager.SHOW_IMPLICIT);
         });
 
-        view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {                    //слушатель нажатия keyboard "done"
+        view.etItemValue.setOnEditorActionListener((v, actionId, event) -> {                        //слушатель нажатия keyboard "done"
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 int newValue;
                 if (TextUtils.isEmpty(v.getText().toString())) {

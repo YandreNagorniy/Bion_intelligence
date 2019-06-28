@@ -29,7 +29,7 @@
             android:layout_margin="8dp"
             android:layout_weight="4"
             android:text="@{cultureModel.cultureName}"
-            android:textSize="16sp"
+            android:textSize="18sp"
             tools:text="Озимая пшеница" />
 
         <ImageView
@@ -37,8 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
             app:new_src="@{cultureModel.imgLink}"
             tools:src="@drawable/img_winter_wheat" />
         <!--app:new_src="@{cultureModel.imgLink}"-->
