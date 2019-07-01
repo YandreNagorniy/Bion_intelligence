@@ -21,6 +21,8 @@ public class SettingsFragmentMain extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings_main, container, false);
 
         binding.settingsViewPager.setAdapter(new SettingsPageAdapter(getFragmentManager()));
+        binding.indicator.setViewPager(binding.settingsViewPager);
+
         return binding.getRoot();
     }
 }

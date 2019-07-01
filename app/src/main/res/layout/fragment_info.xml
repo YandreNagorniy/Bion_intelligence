@@ -23,26 +23,33 @@
             android:background="@color/colorPrimary"
             android:orientation="horizontal" />
 
-        <FrameLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/indicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <me.relex.circleindicator.CircleIndicator
                 android:id="@+id/indicator"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="48dp"
                 app:ci_animator="@animator/indicator_no_animator"
-                app:ci_drawable="@drawable/white_radius"
-                app:ci_drawable_unselected="@drawable/black_radius" />
-        </FrameLayout>
-
-
+                app:ci_drawable="@drawable/black_radius"
+                app:ci_drawable_unselected="@drawable/white_radius"
+                app:ci_height="8dp"
+                app:ci_width="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </layout>

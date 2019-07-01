@@ -427,7 +427,6 @@ public class AddStartData {
         chickpeaPhasesList.add(new TestPhasesModel(40, 4, 6, 4, -1, -1, -1));
         chickpeaPhasesList.add(new TestPhasesModel(45, 5, 7, 5, -1, -1, -1));
 
-
         List<TestPhasesImgModel> phasesImgList = new ArrayList<>();
         phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_winter_wheat1, R.drawable.phase_winter_wheat2, R.drawable.phase_winter_wheat3, R.drawable.phase_winter_wheat4, R.drawable.phase_winter_wheat5, 0));
         phasesImgList.add(new TestPhasesImgModel(R.drawable.phase_corn1, R.drawable.phase_corn2, R.drawable.phase_corn3, 0, 0, 0));
