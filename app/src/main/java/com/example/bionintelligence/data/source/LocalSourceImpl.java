@@ -7,7 +7,6 @@ import java.lang.ref.WeakReference;
 
 public class LocalSourceImpl implements LocalSource {
     private static final String APP_SETTINGS = "app_settings";
-    private static final String DATABASE_FULL = "database_full";
     private static final String CULTURE_ID = "culture_id";
     private static final String CULTURE_PRODUCTIVE = "culture_productive";
     private static final String ANALYTICAL_FACTORS_N = "analytical_factors_N";
@@ -23,15 +22,7 @@ public class LocalSourceImpl implements LocalSource {
         sharedPreferences = context.get().getApplicationContext().getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE);
     }
 
-    @Override
-    public boolean getLocalData() {
-        return sharedPreferences.getBoolean(DATABASE_FULL, false);
-    }
 
-    @Override
-    public void setLocalData(boolean isFull) {
-        sharedPreferences.edit().putBoolean(DATABASE_FULL, isFull).apply();
-    }
 
     @Override
     public int getSettingsCultureId() {

@@ -17,10 +17,10 @@ import com.example.bionintelligence.domain.entities.CalculateP2O5Entity;
 import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 
 public interface CalculatorRepository {
-    boolean getLocalData();
 
     Single<CalculatorParams> getCalculatorParams();
 
@@ -29,8 +29,6 @@ public interface CalculatorRepository {
     Single<AnalyticalFactors> getAnalyticalFactors();
 
     void setAnalyticalFactors(AnalyticalFactors analyticalFactors);
-
-    void addStartDataFromDb();
 
     Single<Pair<Double, CalculateNEntity>> getDataN(int id);
 

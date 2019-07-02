@@ -52,10 +52,6 @@ public class DatabaseSourceImpl implements DatabaseSource {
         methodsK2ODao = App.getInstance().getDatabase().methodsK2ODao();
     }
 
-    @Override
-    public void addStartData() {
-        AddStartData.addAllData();
-    }
 
     @Override
     public Single<CalculateNEntity> getDataN(int id) {

@@ -10,6 +10,7 @@ import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.data.pojo.AnalyticalFactors;
 import com.example.bionintelligence.data.source.DatabaseSource;
 import com.example.bionintelligence.data.source.LocalSource;
+import com.example.bionintelligence.data.source.PutDatabaseSource;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
 import com.example.bionintelligence.domain.entities.CalculateH2OEntity;
 import com.example.bionintelligence.domain.entities.CalculateK2OEntity;
@@ -20,21 +21,19 @@ import com.example.bionintelligence.domain.entities.CalculateSEntity;
 import com.example.bionintelligence.domain.entities.CalculatorParams;
 import com.example.bionintelligence.domain.repositories.CalculatorRepository;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
+import io.reactivex.functions.Action;
 import io.reactivex.schedulers.Schedulers;
 
 public class CalculatorRepositoryImpl implements CalculatorRepository {
     private LocalSource localSource;
     private DatabaseSource databaseSource;
+    private PutDatabaseSource putDatabaseSource;
 
     public CalculatorRepositoryImpl(LocalSource localSource, DatabaseSource databaseSource) {
         this.localSource = localSource;
         this.databaseSource = databaseSource;
-    }
-
-    @Override
-    public boolean getLocalData() {
-        return localSource.getLocalData();
     }
 
     @Override
@@ -61,11 +60,6 @@ public class CalculatorRepositoryImpl implements CalculatorRepository {
         localSource.setAnalyticalFactorsK2O(analyticalFactors.getAfK2O());
     }
 
-    @Override
-    public void addStartDataFromDb() {
-        databaseSource.addStartData();
-        localSource.setLocalData(true);
-    }
 
     //Данные калькулятора
     @Override

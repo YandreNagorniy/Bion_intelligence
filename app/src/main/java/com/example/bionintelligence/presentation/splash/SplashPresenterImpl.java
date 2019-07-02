@@ -1,13 +1,23 @@
 package com.example.bionintelligence.presentation.splash;
 
-import com.example.bionintelligence.domain.repositories.CalculatorRepository;
+import com.example.bionintelligence.data.repositories.PutDatabaseRepository;
+
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Completable;
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class SplashPresenterImpl implements SplashPresenter {
-    private CalculatorRepository calculatorRepository;
+    private PutDatabaseRepository putDatabaseRepository;
     private SplashView splashView;
+    private CompositeDisposable compositeDisposable;
 
-    SplashPresenterImpl(CalculatorRepository calculatorRepository) {
-        this.calculatorRepository = calculatorRepository;
+    SplashPresenterImpl(PutDatabaseRepository putDatabaseRepository) {
+        this.putDatabaseRepository = putDatabaseRepository;
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override
@@ -17,17 +27,20 @@ public class SplashPresenterImpl implements SplashPresenter {
 
     @Override
     public void checkLocalData() {
-        boolean isDatabaseFull = calculatorRepository.getLocalData();
-        if (isDatabaseFull) {
-            splashView.goToMainActivity();
-        } else {
-            calculatorRepository.addStartDataFromDb();
-            splashView.goToMainActivity();
-        }
+        boolean isDatabaseFull = putDatabaseRepository.getLocalData();
+        compositeDisposable.add(Single.just(isDatabaseFull)
+                .flatMapCompletable(isDBFull -> isDBFull ?
+                        Completable.complete() :
+                        putDatabaseRepository.addStartDataFromDb())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .delay(2000, TimeUnit.MILLISECONDS)
+                .subscribe(() -> splashView.goToMainActivity(), Throwable::printStackTrace));
     }
 
     @Override
     public void detachView() {
         splashView = null;
+        compositeDisposable.dispose();
     }
 }

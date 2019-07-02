@@ -1,7 +1,11 @@
-package com.example.bionintelligence.data.database.start;
+package com.example.bionintelligence.data.source;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.example.bionintelligence.App;
 import com.example.bionintelligence.R;
+import com.example.bionintelligence.data.database.AppDatabase;
 import com.example.bionintelligence.data.database.dao.CalculatorDao;
 import com.example.bionintelligence.data.database.dao.CultureDao;
 import com.example.bionintelligence.data.database.dao.KUsvDao;
@@ -29,37 +33,55 @@ import com.example.bionintelligence.data.model.TestPhasesModel;
 import com.example.bionintelligence.data.model.VinosModel;
 import com.example.bionintelligence.data.model.WaterConsumptionModel;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
 
-//Убрать это и сделать базу в assets/databases/
-public class AddStartData {
+public class PutDatabaseSourceImpl implements PutDatabaseSource {
+    private AppDatabase appDatabase;
 
-    public static void addAllData() {
+    private static final String DATABASE_FULL = "database_full";
+    private static final String APP_SETTINGS = "app_settings";
+    private SharedPreferences sharedPreferences;
 
+    public PutDatabaseSourceImpl(AppDatabase appDatabase, WeakReference<Context> context) {
+        this.appDatabase = appDatabase;
+        sharedPreferences = context.get().getApplicationContext().getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE);
+    }
 
-//        setCultureData();
-//        setCalculatorData();
-//        setPrecipitationRequirementsData();
-//        setMethodsK20();
-//        setMethodsP2O5();
-//        setMethodsN();
-//        setPHData();
-//        setPrecipitationRequirementsData();
-//        setSoilFactorsData();
-//        setVinosData();
-//        setWaterConsumptionData();
-//        setKUsvData();
-//        setTestCultureModel();
+    @Override
+    public boolean getLocalData() {
+        return sharedPreferences.getBoolean(DATABASE_FULL, false);
+    }
+
+    @Override
+    public void setLocalData(boolean isFull) {
+        sharedPreferences.edit().putBoolean(DATABASE_FULL, isFull).apply();
+    }
+
+    @Override
+    public Completable fillDataInDB() {
+        return Completable.concatArray(
+                setCultureData(),
+                setCalculatorData(),
+                setPrecipitationRequirementsData(),
+                setMethodsK20(),
+                setMethodsP2O5(),
+                setMethodsN(),
+                setPHData(),
+                setPrecipitationRequirementsData(),
+                setSoilFactorsData(),
+                setVinosData(),
+                setWaterConsumptionData(),
+                setKUsvData(),
+                setTestCultureModel());
 
 
     }
 
     private Completable setSoilFactorsData() {
-
         SoilFactorsDao soilFactorsDao = App.getInstance().getDatabase().soilFactorsDao();
 
         List<SoilFactorsModel> soilFactorsList = new ArrayList<>();

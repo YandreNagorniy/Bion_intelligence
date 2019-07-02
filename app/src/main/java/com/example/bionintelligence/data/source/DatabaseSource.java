@@ -16,11 +16,11 @@ import com.example.bionintelligence.domain.entities.CalculateSEntity;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 public interface DatabaseSource {
-    void addStartData();
 
     Single<CalculateNEntity> getDataN(int id);
 
