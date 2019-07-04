@@ -1,6 +1,6 @@
 package com.example.bionintelligence.presentation.splash;
 
-import com.example.bionintelligence.data.repositories.PutDatabaseRepository;
+import com.example.bionintelligence.domain.repositories.PutDatabaseRepository;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +34,7 @@ public class SplashPresenterImpl implements SplashPresenter {
                         putDatabaseRepository.addStartDataFromDb())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .delay(2000, TimeUnit.MILLISECONDS)
+                .delay(1500, TimeUnit.MILLISECONDS)
                 .subscribe(() -> splashView.goToMainActivity(), Throwable::printStackTrace));
     }
 

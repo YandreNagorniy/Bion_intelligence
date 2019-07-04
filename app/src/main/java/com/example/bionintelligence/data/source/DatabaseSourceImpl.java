@@ -6,16 +6,9 @@ import com.example.bionintelligence.data.database.dao.CultureDao;
 import com.example.bionintelligence.data.database.dao.MethodsK2ODao;
 import com.example.bionintelligence.data.database.dao.MethodsNDao;
 import com.example.bionintelligence.data.database.dao.MethodsP2O5Dao;
-import com.example.bionintelligence.data.database.dao.ProductiveInfoDao;
-import com.example.bionintelligence.data.database.dao.PhasesDao;
-import com.example.bionintelligence.data.database.dao.PhasesImgDao;
 import com.example.bionintelligence.data.database.dao.SoilFactorsDao;
 import com.example.bionintelligence.data.database.dao.TestCultureDao;
-import com.example.bionintelligence.data.database.start.AddStartData;
 import com.example.bionintelligence.data.model.CultureModel;
-import com.example.bionintelligence.data.model.PhasesImgModel;
-import com.example.bionintelligence.data.model.ProductiveInfoModel;
-import com.example.bionintelligence.data.model.PhasesModel;
 import com.example.bionintelligence.data.model.SoilFactorsModel;
 import com.example.bionintelligence.data.model.TestCultureModel;
 import com.example.bionintelligence.domain.entities.CalculateCaOEntity;
@@ -51,7 +44,6 @@ public class DatabaseSourceImpl implements DatabaseSource {
         methodsP2O5Dao = App.getInstance().getDatabase().methodsP2O5Dao();
         methodsK2ODao = App.getInstance().getDatabase().methodsK2ODao();
     }
-
 
     @Override
     public Single<CalculateNEntity> getDataN(int id) {

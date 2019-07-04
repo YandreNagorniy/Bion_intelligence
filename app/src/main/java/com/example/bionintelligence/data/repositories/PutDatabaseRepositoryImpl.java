@@ -1,6 +1,7 @@
 package com.example.bionintelligence.data.repositories;
 
 import com.example.bionintelligence.data.source.PutDatabaseSource;
+import com.example.bionintelligence.domain.repositories.PutDatabaseRepository;
 
 import io.reactivex.Completable;
 

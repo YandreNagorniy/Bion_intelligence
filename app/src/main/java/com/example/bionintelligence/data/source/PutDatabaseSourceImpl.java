@@ -77,8 +77,6 @@ public class PutDatabaseSourceImpl implements PutDatabaseSource {
                 setWaterConsumptionData(),
                 setKUsvData(),
                 setTestCultureModel());
-
-
     }
 
     private Completable setSoilFactorsData() {
@@ -110,7 +108,6 @@ public class PutDatabaseSourceImpl implements PutDatabaseSource {
 
         return Completable.fromAction(() -> kUsvDao.insertList(kUsvList));
     }
-
 
     private Completable setMethodsK20() {
         MethodsK2ODao methodsK2ODao =

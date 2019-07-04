@@ -1,4 +1,4 @@
-package com.example.bionintelligence.data.repositories;
+package com.example.bionintelligence.domain.repositories;
 
 import io.reactivex.Completable;
 
